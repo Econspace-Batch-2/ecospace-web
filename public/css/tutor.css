@@ -1,0 +1,236 @@
+/* ===== TUTOR PAGE ====== */
+:root {
+    --color-black: #16182b;
+    --color-blue: #84dfd8;
+    --color-orange: #FC8025;
+    --color-milk: #f2eee9;
+    --color-red: #FF4778;
+    --color-white: #ffffff;
+    --color-darkblue: #15172a;
+    --color-lightblue: #D2F9F7;
+    --color-yellow: #FFC61A;
+    --color-mediumblue: #0A4AAA;
+    --color-green: #AEF495;
+}
+
+/* VIEW TUTOR */
+
+/* tutor card */
+.block-relative {
+    display: block;
+    position: relative;
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.subject-title {
+    position: absolute;
+    display: inline;
+    z-index: 1;
+    top: 35%;
+    left: 35px;
+    max-width: 40%;
+    text-align: center;
+}
+
+.subject-image {
+    position: absolute;
+    right: 15px;
+    bottom: 11px;
+    height: 90%;
+    z-index: 1;
+}
+
+.img-tutor {
+    height: 250px;
+}
+
+.img-univ {
+    height: 60px;
+}
+
+/* .card-tutor:nth-child(odd) > a > div {
+    background-image: url("../assets/background/card-bg-blue.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    background-color: var(--color-blue);
+}
+
+.card-tutor:nth-child(even) > a > div{
+    background-image: url("../assets/background/card-bg-orange.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    background-color: var(--color-orange);
+} */
+
+#t-session img {
+    position: relative;
+    top: -40%;
+}
+
+#t-session .img-emoji {
+    position: relative;
+    width: 15%;
+}
+
+.emo2 {
+    position: relative;
+    top: 37%;
+    left: 23%;
+}
+
+.emo1 {
+    position: relative;
+    top: 78%;
+    right: 38%;
+}
+
+.emo1,
+.emo2 {
+    margin-top: -88px; /* Sesuaikan dengan nilai yang sesuai */
+}
+
+/* ==== DETAIL TUTOR ==== */
+
+.width-80 {
+    width: 80%;
+}
+
+/* text align */
+.text-justify {
+    text-align: justify;
+}
+
+/* comparison half up */
+.half-up-30 {
+    transform: translateY(-15%);
+}
+
+/* give check icon to li in course detail */
+.check {
+    --icon-size: .8em;
+    --gutter: .5em;
+    padding: 0 0 0 var(--icon-size);
+}
+
+.check li {
+    padding-left: var(--gutter);
+}
+
+
+.check li::marker {
+    content: "\f058"; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    font-size: var(--icon-size);
+    color: var(--color-red);
+}
+
+.check-center li::marker {
+    content: "\f058"; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    font-size: var(--icon-size);
+    color: var(--color-orange);
+}
+
+/* accordion */
+.accordion-item {
+    border: none;
+}
+
+.accordion-button {
+    border: 1px solid var(--text, rgba(0, 0, 0, 0.25));
+    color: var(--color-black);
+    border-radius: 10px;
+    transition: 0.4s;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--color-milk);
+}
+
+/* when the accordion opened */
+.accordion-button:not(.collapsed) {
+    background-color: var(--color-milk);
+    color: var(--color-black);
+    border-radius: 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+/* accordion content */
+.accordion-body {
+    border: 1px solid var(--text, rgba(0, 0, 0, 0.25));
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/* PROMOTION */
+#carouselPromotion .carousel-item {
+    display: flex;
+    justify-content: center;
+}
+
+#carouselPromotion .carousel-content {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* BENEFIT */
+.img-benefit {
+    max-width: 80px;
+}
+
+/* tablet */
+@media (max-width: 992px) {
+    .header-tutor.mobile {
+        display: block;
+    }
+
+    .header-tutor.desktop {
+        display: none;
+    }
+
+    .list-tutor-up {
+        transform: translateY(-30px);
+    }
+}
+
+
+/* MOBILE */
+@media (max-width: 767px) {
+
+    .half-up-30 {
+        transform:translateY(0%);
+    }
+
+    .img-tutor {
+        height: 150px;
+    }
+
+    .img-univ {
+        height: 50px;
+    }
+
+    .bg-milk-mobile {
+        background-color: var(--color-milk);
+    }
+
+    .img-benefit {
+        max-width: 70px;
+    }
+
+}
+
+@media(max-width: 992px) {
+    .w-mobile-80 {
+        width: 90%;
+    }
+}
+
+
