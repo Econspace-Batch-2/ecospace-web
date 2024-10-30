@@ -142,7 +142,7 @@
             <div class="container px-5 pb-3 pt-4 mt-5 align-items-center justify-content-center">
                 <div class="d-flex mt-2 mb-3">
                     <img loading="lazy"  src="{{asset('assets/socmed/logowhite.svg')}}" alt="economic space logo white" class="logo-img me-auto">
-                    <a target="_blank" href="https://bit.ly/OprecTutorECONSPACE" class="align-self-start py-2 button-glow text-white bg-orange px-3 rounded-5 font-22 font-400 me-3 hovered d-flex align-items-center justify-content-center">
+                    <a target="_blank" href="https://bit.ly/TutoringEconomicSpace2024" class="align-self-start py-2 button-glow text-white bg-orange px-3 rounded-5 font-22 font-400 me-3 hovered d-flex align-items-center justify-content-center">
                         Join as Tutor / Mentor <i class="fa fa-external-link text-white ms-2"></i>
                     </a>
                     <a target="_blank" href="https://wa.link/fbua0a" class=" align-self-start py-2 button-glow text-white bg-orange px-3 rounded-5 font-22 font-400 hovered d-flex align-items-center justify-content-center">
@@ -181,7 +181,7 @@
                     <img loading="lazy"  src="{{asset('assets/socmed/logowhite.svg')}}" alt="economic space logo" class="logo-img">
                     <div class="d-flex flex-column">
                         {{-- vertical --}}
-                        <a target="_blank" href="https://bit.ly/OprecTutorECONSPACE" class="button-glow text-white text-center bg-orange p-2 rounded-5 font-22 font-400 me-3 hovered mb-2" style="width: 100%">
+                        <a target="_blank" href="https://bit.ly/TutoringEconomicSpace2024" class="button-glow text-white text-center bg-orange p-2 rounded-5 font-22 font-400 me-3 hovered mb-2" style="width: 100%">
                             Join as Tutor / Mentor <i class="fa fa-external-link text-white ms-2"></i>
                         </a>
                         <a target="_blank" href="https://wa.link/fbua0a" class="button-glow text-white text-center bg-orange p-2 rounded-5 font-22 font-400 hovered" style="width: 100%">
