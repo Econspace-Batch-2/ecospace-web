@@ -8,6 +8,6 @@ class DetailMentorshipController extends Controller
 {
     public function index()
     {
-        return view('mentorship.detailMentorship');
+        return view('modules.mentorship.detailMentorship');
     }
 }

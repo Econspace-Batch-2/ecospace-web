@@ -19,13 +19,13 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('modules.home.home');
 });
 
 Route::get(
     '/soon',
     function () {
-        return view('home.soon');
+        return view('modules.home.soon');
     }
 )->name('soon');
 

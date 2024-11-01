@@ -19,7 +19,7 @@ class viewMentorshipController extends Controller
         // }
 
         // return view('mentorship.viewMentorship', compact('subjects', 'major', 'semester'));
-        return view('mentorship.viewMentorship');
+        return view('modules.mentorship.viewMentorship');
 
     }
 
@@ -41,7 +41,7 @@ class viewMentorshipController extends Controller
 
         $subjects = $query->paginate(6);
 
-        return view('mentorship.view', compact('subjects', 'semester', 'major'));
+        return view('modules.mentorship.view', compact('subjects', 'semester', 'major'));
     }
 
     // SEARCH BASED ON SUBJECT TITLE

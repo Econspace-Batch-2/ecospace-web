@@ -17,7 +17,7 @@ class ViewTutorsController extends Controller
             return view('layout.subjects', compact('subjects'))->render(); // return partial view
         }
 
-        return view('tutor.viewTutors', compact('subjects', 'major', 'semester'));
+        return view('modules.tutor.viewTutors', compact('subjects', 'major', 'semester'));
     }
 
     // FILTER SUBJECT BASED ON MAJOR AND SEMESTER
@@ -38,7 +38,7 @@ class ViewTutorsController extends Controller
 
         $subjects = $query->paginate(6);
 
-        return view('tutor.viewTutors', compact('subjects', 'semester', 'major'));
+        return view('modules.tutor.viewTutors', compact('subjects', 'semester', 'major'));
     }
 
     // SEARCH BASED ON SUBJECT TITLE
