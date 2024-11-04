@@ -1,4 +1,4 @@
-@extends('layout.navbar')
+@extends('layout.layout')
 
 @section('content')
 <div id="soon" style="background: url('{{ asset('assets/background/comingsoon-bg.svg') }}');background-repeat: no-repeat;width:100%;background-size: cover;z-index:20;">
