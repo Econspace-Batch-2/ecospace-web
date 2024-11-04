@@ -22,7 +22,7 @@
     {{-- typed animation --}}
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-
+    @vite('resources/css/app.css')
     {{-- meta description --}}
     <meta
   name="description"
@@ -32,7 +32,7 @@
 
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-md sticky-top bg-black px-md-5">
+    <nav class="flex">
         <div class="container">
         <a href="{{ url('/') }}" class="logo-link">
             <img loading="lazy"  src="{{ asset('assets/socmed/logo.svg') }}" class="logo-img" alt="Economic space">
@@ -41,7 +41,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="flex">
                 <li class="nav-item px-2">
                     <a class="nav-link font-24 {{ Route::is('viewTutors') ? 'active' : '' }}" aria-current="page" href="{{url('/tutors')}}">Tutor</a>
                 </li>
