@@ -35,9 +35,9 @@
 
 <div class="container-fluid px-5 py-5 mt-5">
     <div class="w-full">
-        <div class="text-center">
-            <h2 class="text-3xl md:text-5xl font-black"><b>Belajar - Eksplorasi<span class="text-orange-500"><br class="md:hidden">Raih Impianmu</span></b></h2>
-            <p class="text-xl md:text-2xl font-normal">Satu Platform untuk Semua <span class="md:hidden"><br></span>Kebutuhan Pengembangan Dirimu</p>
+        <div class="text-center flex flex-col gap-4">
+            <h2 class="text-3xl md:text-5xl font-black"><b>Belajar - Eksplorasi {{" "}}<span class="text-orange-500"><br class="md:hidden">Raih Impianmu</span></b></h2>
+            <p class="text-xl lg:text-2xl font-normal">Satu Platform untuk Semua <span class="md:hidden"><br></span>Kebutuhan Pengembangan Dirimu</p>
         </div>
 
         <!-- Desktop view without Swiper -->
