@@ -20,14 +20,17 @@
 
         <div class="row px-md-5 mt-4">
             <div class="col-12">
-            <a target="_blank" class="btn btn-dark font-32 font-700 p-2 px-4 rounded-4" href="https://bit.ly/RegistrationTutorService">Mulai Belajar</a>
+            <a target="_blank" href="https://bit.ly/RegistrationTutorService">            
+                <x-button 
+                    type="button"
+                    label="Mulai Belajar"
+                />
+            </a>
             </div>
         </div>
     </div>
 
 </header>
-
-
 
 
 <!-- SERVICE PART -->
