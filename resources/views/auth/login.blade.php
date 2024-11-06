@@ -1,23 +1,33 @@
 @extends('layout.layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-7 mt-5">
-            <img src="{{asset('assets/socmed/logo_orange.svg')}}" alt="" class="mx-auto d-block logo-auth">
-            <h1 class="text-center font-32 font-700 mt-3">Login</h1>
-            <p class="text-center font-24 font-400 mt-3">Yuk, lanjutkan perjalananmu belajar di Economic Space dan <br class="desktop">kembangkan skill ekonomimu!</p>
+<div class="container mx-auto px-4">
+    <div class="flex justify-center">
+        <div class="w-full md:w-7/12 mt-5">
+            <img src="{{asset('assets/socmed/logo_orange.svg')}}" alt="" class="mx-auto block logo-auth">
+            <p class="text-center text-lg mt-3">Yuk, lanjutkan perjalananmu belajar di Economic Space dan <br class="hidden md:block">kembangkan skill ekonomimu!</p>
         </div>
     </div>
-    <div class="row justify-content-center mt-4">
-        <div class="col-12 col-md-6">
-            <div class="p-3 p-md-5 auth-card mb-5">
+    <div class="flex justify-center mt-4">
+        <div class="w-full md:w-6/12">
+            <div class="border-2 rounded-3xl px-6 md:px-20 py-10">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
                     {{-- email --}}
-                    <label for="email" class="form-label font-21">{{ __('Email Address') }}</label>
-                    <input id="email" type="email" class="form-control font-21 p-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter your email address">
+                    <div class="flex flex-col">
+                        <label for="email" class="form-label text-base">{{ __('Email Address') }}</label>
+                        <x-input 
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Enter your email address"
+                            class="form-control @error('email') is-invalid @enderror"
+                            required="true"
+                            autocomplete="email"
+                            autofocus="true"
+                        />
+                    </div>
 
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -26,8 +36,18 @@
                     @enderror
 
                     {{-- password --}}
-                    <label for="password" class="form-label font-21 mt-4">{{ __('Password') }}</label>
-                    <input id="password" type="password" class="form-control font-21 p-3 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Enter your password">
+                    <div class="flex flex-col">
+                        <label for="password" class="form-label text-base mt-4">{{ __('Password') }}</label>
+                        <x-input 
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            class="form-control @error('password') is-invalid @enderror"
+                            required
+                            autocomplete="current-password"
+                        />
+                    </div>
 
                     @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -35,29 +55,23 @@
                         </span>
                     @enderror
 
-                    {{-- remember me --}}
-                    <div class="form-check mt-4">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                        <label class="form-check-label font-21" for="remember">
-                            {{ __('Remember Me') }}
-                        </label>
-                    </div>
-
                     {{-- submit --}}
-                    <button type="submit" class="btn bg-black text-white w-100 font-24 font-700 mt-4">
+                    <x-button
+                        class="w-full text-sm font-bold mt-4 bg-black text-white py-2 rounded-xl"
+                        type="submit"
+                    >
                         {{ __('Login') }}
-                    </button>
+                    </x-button>
 
                     {{-- forget password --}}
                     @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}" class="text-center d-block font-21 mt-4 text-orange">
+                        <a href="{{ route('password.request') }}" class="text-center block text-base mt-4">
                             {{ __('Lupa Password?') }}
                         </a>
                     @endif
 
                     {{-- sign in --}}
-                    <p class="text-center font-21 mt-3">Belum punya akun? <a href="{{ route('register') }}" class="text-orange">Sign in</a></p>
+                    <p class="text-center text-base mt-3">Belum punya akun? <a href="{{ route('register') }}" class="text-orange-500">Sign in</a></p>
 
                 </form>
             </div>
@@ -73,6 +87,5 @@
 @section('mobileTitle2') luar Akademik? @endsection
 @section('mobileContent') Yuk mulai mentoring dengan expert di bidang lomba, karir, dll @endsection
 @section('mobileBtn') Join Mentoring @endsection
-
 
 @endsection

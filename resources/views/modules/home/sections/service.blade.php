@@ -7,7 +7,7 @@
             'face' => 'face1.svg',
             'title' => 'TUTOR SERVICE',
             'desc' => 'Perkuliahan jadi mudah bersama Expert yang membantu pembelajaran akademik kalian',
-            'bg2' => 'orange-500',
+            'bg2' => 'orange',
             'label' => 'Minimal IPK 4 :) Ingin Belajar Lebih Dalam'
         ],
         [
