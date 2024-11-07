@@ -26,6 +26,7 @@ class ViewTutorsController extends Controller
     {
         $major = $request->input('major');
         $semester = $request->input('semester');
+        $univ = $request->input('univ');
 
         $query = Subject::where('status', 'active');
 
@@ -37,9 +38,13 @@ class ViewTutorsController extends Controller
             $query->where('subject_semester', $semester);
         }
 
+        if ($univ != 'all') {
+            $query->whereJsonContains('univ', $univ);
+        }
+
         $subjects = $query->paginate(6);
 
-        return view('modules.tutor.viewTutors', compact('subjects', 'semester', 'major'));
+        return view('modules.tutor.viewTutors', compact('subjects', 'semester', 'major', 'univ'));
     }
 
     // SEARCH BASED ON SUBJECT TITLE

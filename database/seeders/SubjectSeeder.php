@@ -27,6 +27,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UGM']),
             ],
             [
                 'subject_image' => 'IntermediateAccountingI.svg',
@@ -41,6 +42,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UGM', 'UNAIR']),
             ],
             [
                 'subject_image' => 'IntermediateAccountingIII.svg',
@@ -55,6 +57,8 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UGM', 'UNAIR']),
+                
             ],
             [
                 'subject_image' => 'TaxationII.svg',
@@ -69,6 +73,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UGM', 'UNAIR']),
             ],
             [
                 'subject_image' => 'FinancialManagement.svg',
@@ -83,6 +88,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UNAIR']),
             ],
             [
                 'subject_image' => 'StatisticsForAccounting.svg',
@@ -97,6 +103,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UNAIR']),
             ],
             [
                 'subject_image' => 'EconomicsII.svg',
@@ -111,6 +118,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UGM', 'UNAIR']),
             ],
             [
                 'subject_image' => 'AdvancedStatistics.svg',
@@ -125,6 +133,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UGM', 'UNAIR']),
             ],
             [
                 'subject_image' => 'AdvancedMathematics.svg',
@@ -139,6 +148,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UNAIR']),
             ],
 
             // old course
@@ -155,6 +165,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UGM', 'UNAIR']),
             ],
             [
                 'subject_image' => 'BasicEconomics.svg',
@@ -169,6 +180,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UNAIR']),
             ],
             [
                 'subject_image' => 'CostAccounting.svg',
@@ -183,6 +195,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UGM']),
             ],
             [
                 'subject_image' => 'IntermediateAccountingII.svg',
@@ -197,6 +210,7 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UGM', 'UNAIR']),
             ],
             [
                 'subject_image' => 'IntroductionToTaxation.svg',
@@ -211,8 +225,8 @@ class SubjectSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'univ' => json_encode(['UGM', 'UNAIR']),
             ]
-
         ];
 
         // Insert data into the subjects table
