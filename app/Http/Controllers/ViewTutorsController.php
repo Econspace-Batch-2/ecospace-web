@@ -11,13 +11,14 @@ class ViewTutorsController extends Controller
         // all by default -> dikasih gini agar filter ga error
         $major = 'all';
         $semester = 'all';
+        $univ = 'all';
         $subjects = Subject::where('status', 'active')->paginate(6);
 
         if ($request->ajax()) {
             return view('layout.subjects', compact('subjects'))->render(); // return partial view
         }
 
-        return view('modules.tutor.viewTutors', compact('subjects', 'major', 'semester'));
+        return view('modules.tutor.viewTutors', compact('subjects', 'major', 'semester', 'univ'));
     }
 
     // FILTER SUBJECT BASED ON MAJOR AND SEMESTER
