@@ -375,15 +375,58 @@
     </div>
 
     <!-- STEP BY STEP -->
-    <div class="desktop mt-5 half-up-px">
-        <div class="row">
+    <div class="mt-5">
+        <h2 class="text-center font-extrabold text-6xl mb-5">Gimana cara <span class="text-[#FC8025]">Daftarnya?</span></h2>
+        <p class="text-center text-3xl">Biar bisa jadi <span class="font-bold">#Talent-Favorit-Top Company HR!</span></p>
+        <div class="px-4 sm:px-6 lg:px-10 my-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="flex flex-row items-center">
+                <div class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
+                    1
+                </div>
+                <div class="flex flex-col pl-4">
+                    <p class="text-lg md:text-2xl font-bold">
+                        Sign Up / Sign In
+                    </p>
+                    <p class="text-base md:text-lg font-light">Isi Data Diri & Gabung dalam Komunitas</p>
+                </div>
+            </div>
+            <div class="flex flex-row items-center">
+                <div class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
+                    2
+                </div>
+                <div class="flex flex-col pl-4">
+                    <p class="text-lg md:text-2xl font-bold">
+                        Pick & Enroll
+                    </p>
+                    <p class="text-base md:text-lg font-light">Pilih Program sesuai Kebutuhan Belajarmu</p>
+                </div>
+            </div>
+            <div class="flex flex-row items-center">
+                <div class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
+                    3
+                </div>
+                <div class="flex flex-col pl-4">
+                    <p class="text-lg md:text-2xl font-bold">
+                        Make a Change
+                    </p>
+                    <p class="text-base md:text-lg font-light">Selesaikan Pembelajaran & Berkarya secara Nyata</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- STEP BY STEP -->
+    {{-- <div class="desktop mt-5 half-up-px">
+        
+        <div class="flex-row">
         <div class="col-4" >
             <div class="d-flex flex-row gap-3">
             <div class="bg-green circle ratio ratio-1x1 font-82 font-900">
                 1
             </div>
             <div>
-                <h4 class="font-36 font-700">Register / Sign In</h4>
+                <h4 class="text-3xl">Register / Sign In</h4>
                 <p class="font-26 font-400">Isi Data Diri & Gabung dalam Komunitas & Mulai Belajar</p>
             </div>
             </div>
@@ -410,12 +453,11 @@
             </div>
             </div>
         </div>
-
         </div>
-    </div>
+    </div> --}}
 
 
-    <div class="mobile swiper step-slider">
+    {{-- <div class="mobile swiper step-slider">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="col-12 mx-auto">
@@ -460,7 +502,7 @@
         </div>
     </div>
     </div>
-</div>
+</div> --}}
 
 <!-- CONTRIBUTION -->
 

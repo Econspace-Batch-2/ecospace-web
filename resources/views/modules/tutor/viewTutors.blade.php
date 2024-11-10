@@ -53,17 +53,27 @@
                 </form>
             </div>
         </div>
+    </div>
 
+    <!-- LIST REKOMENDASI -->
+    <div class="mt-5 px-9">
+        <p class="text-3xl font-bold">Rekomendasi Buat Kamu</p>
+        <p class="text-lg">Berbagai pilihan kelas untuk kebutuhan kamu</p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3">
+            @include('layout.subjects', ['subjects' => $reccomendedSubjects])
+        </div>
     </div>
 
 
     <!-- LIST TUTORS -->
     <div class="container list-tutor-up">
         <div class="row gx-5 gy-4" id="subject-container">
+            
             @include('layout.subjects', ['subjects' => $subjects])
         </div>
 
-        {{-- lazy loading --}}
+        <!-- lazy loading -->
         <div class="row mt-3 justify-content-center">
             <button class="btn btn-danger hovered rounded-4 lazy-loading" style="width: fit-content">Load more</button>
         </div>

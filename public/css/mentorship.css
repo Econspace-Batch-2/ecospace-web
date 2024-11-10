@@ -184,9 +184,6 @@
     background: var(--Neutral-White, #FFF);
 }
 
-
-
-
 @media (max-width: 767px) {
     ul.timeline:before {
         left: 40px;

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('mentor_experience_title', 255);
             $table->string('mentor_experience_company', 255);
             $table->string('mentor_experience_time', 255);
-
+            
             $table->unsignedBigInteger('mentor_id');
             $table->foreign('mentor_id')->references('id')->on('mentors');
 
