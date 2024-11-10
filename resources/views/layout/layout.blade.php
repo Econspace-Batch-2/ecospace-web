@@ -28,7 +28,7 @@
   name="description"
   content="Ultimate hub for university students to support them Academically with Expert Tutors, while providing with Insights for their Future Career Plan through Insights Exploration with Mentors">
 </head>
-<body>
+<body class="overflow-x-hidden">
 
     @include('layout.navbar')
 
