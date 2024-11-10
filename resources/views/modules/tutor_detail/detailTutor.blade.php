@@ -2,64 +2,65 @@
 
 @section('content')
 
-    {{-- banner --}}
-    <div class="desktop container-fluid mt-3">
-        <div class="container">
-            <img loading="lazy"  src="{{ asset('assets/tutorDetail/course_banner.svg') }}" alt="course banner" class="img-fluid w-100 rounded-4">
+    {{-- Banner --}}
+    <div class="desktop container-fluid">
+        <div class="container px-20">
+            <img loading="lazy"  src="{{ asset('assets/tutorDetail/course_banner.svg') }}" alt="course banner" class="w-full rounded-3xl">
         </div>
     </div>
 
-    {{-- intro tutor --}}
-    <div class="container-fluid mt-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6 align-self-center">
-                    <p class="font-21 font-400 mb-2"><a href="{{route('viewTutors')}}">Academy</a> > {{$subject->subject_title}}</p>
+    {{-- Intro Tutor --}}
+    <div class="container mt-4 md:px-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
 
-                    {{-- khusus mobile, peletakan gambarnya beda --}}
-                    <img loading="lazy"  src="{{asset('assets/courseInside/'.$subject->subject_image)}}" alt="{{$subject->subject_image}}" class="img-fluid w-100 rounded-4 mobile mb-2">
+            {{-- Left Column --}}
+            <div class="space-y-4">
+                {{-- Breadcrumb --}}
+                <p class="text-lg font-medium">
+                    <a href="{{ route('viewTutors') }}" class="text-gray-700 hover:underline">Academy</a> > {{$subject->subject_title}}
+                </p>
 
-                    {{-- info spt judul dll yg sebelah kiri --}}
-                    <h1 class="font-44 font-700">{{$subject->subject_title}}</h1>
+                {{-- Title --}}
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800">{{$subject->subject_title}}</h1>
 
-                    {{-- TAG --}}
-                    <div class="d-flex justify-content-left gap-3 mt-md-3">
-                        @foreach(json_decode($subject->subject_majors) as $major)
-                        <p class="bg-milk py-1 px-2 rounded-3 font-18 font-400 mb-2 mb-md-3">{{$major}}</p>
-                        @endforeach
-                    </div>
-
-                    {{-- CATEGORY AND SEMESTER --}}
-                    <div class="d-flex justify-content-left gap-3 mb-md-2" >
-                        <p class="font-18 font-400"><i class="fa-solid fa-folder me-2"></i> {{$subject->subject_category}}</p>
-                        <p class="font-18 font-400"><i class="fa-solid fa-gem me-2"></i> {{$subject->subject_semester}}</p>
-                    </div>
-                    <a target="_blank" class="bg-orange rounded-3 border-0 font-30 font-500 text-white px-5 py-2" href="https://bit.ly/RegistrationTutorService">
-                        Mulai Belajar
-                    </a>
-                </div>
-                {{-- gambar desktop yg sebelah kanan --}}
-                <div class="desktop col-md-6">
-                    <img loading="lazy"  src="{{asset('assets/courseInside/'.$subject->subject_image)}}" alt="{{$subject->subject_image}}" class="img-fluid h-100 rounded-4 w-100">
+                {{-- Tags --}}
+                <div class="flex flex-wrap gap-2">
+                    @foreach(json_decode($subject->subject_majors) as $major)
+                    <span class="bg-gray-100 text-gray-800 py-1 px-2 rounded-xl text-lg font-medium">{{$major}}</span>
+                    @endforeach
                 </div>
 
+                {{-- Category and Semester --}}
+                <div class="flex flex-wrap items-center gap-3 text-gray-700">
+                    <p class="flex items-center text-lg font-regular"><i class="fas fa-folder mr-2"></i> {{$subject->subject_category}}</p>
+                    <p class="flex items-center text-lg font-regular"><i class="fas fa-gem mr-2"></i> {{$subject->subject_semester}}</p>
+                </div>
 
+                <x-button
+                    type="button"
+                    class="bg-orange-500 text-white p-4 px-8 rounded-4 font-bold text-xl md:text-2xl lg:text-3xl rounded-xl hover:scale-105 duration-300"
+                    label="Mulai Belajar"></x-button>
+            </div>
+
+            {{-- Right Column --}}
+            <div class="w-full">
+                <img loading="lazy" src="{{ asset('assets/courseInside/'.$subject->subject_image) }}" alt="{{ $subject->subject_image }}" class="w-full h-full rounded-3xl object-cover">
             </div>
         </div>
     </div>
 
     {{-- tutor content --}}
-    <div class="container-fluid mt-4">
+    <div class="container mt-4 md:px-20">
         <div class="container">
             {{-- garis pembatas --}}
             <div class="row mb-md-3">
                 <hr style="border: none; border-bottom: 3px solid grey;">
             </div>
 
-            <div class="row gx-5">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 {{-- sebelah kiri --}}
-                <div class="col-12 col-md-8">
+                <div class="md:col-span-2 space-y-6">
                     <p class="font-21 font-400 text-justify">{{$subject->subject_description}}</p>
                     <h2 class="font-40 font-900 text-orange mt-md-4">Tutor Material Discussion</h2>
                     <p class="font-21 font-700 text-justify mb-0">Referensi Pembelajaran:</p>
@@ -71,7 +72,7 @@
 
 
                     {{-- accordion --}}
-                    <div class="accordion mt-4" id="accordionPanelsStayOpenExample">
+                    <div class="accordion space-y-4" id="accordionPanelsStayOpenExample">
                         @foreach($subject->topics as $index => $topic)
                             <div class="accordion-item mb-3">
                                 <h2 class="accordion-header" id="panelsStayOpen-heading{{$topic->topic_number}}">
@@ -94,27 +95,34 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4">
+                <div class="space-y-6">
                     <div>
-                        {{-- card pertama --}}
-                        <div class="border border-2 rounded-4 pt-3 px-4">
-                            <h3 class="font-36 font-900">Tutor Background</h3>
-                            <p class="font-26 font-400">Asal Universitas Tutor:</p>
+                        {{-- card pertama: Tutor Background --}}
+                        <div class="border-2 rounded-2xl mt-4 p-8 space-y-4">
+                            <h3 class="text-3xl font-extrabold">Tutor Background</h3>
+                            <p class="text-xl font-normal">Asal Universitas Tutor:</p>
 
-                            <div class="d-lg-flex justify-content-left gap-lg-3 flex-wrap">
+                            <div class="flex flex-wrap gap-4">
                                 @php $counter = 0 @endphp
                                 @foreach(json_decode($subject->subject_univ) as $univ)
                                     @if($counter < 4)
-                                        <img loading="lazy"  src="{{ asset('assets/univ/'.$univ) }}" class="img-fluid img-univ" alt="logo univ" >
+                                        <img loading="lazy" src="{{ asset('assets/univ/'.$univ) }}" class="img-univ object-cover" alt="logo univ" >
                                     @endif
                                     @php $counter++ @endphp
                                 @endforeach
                             </div>
-                            <button class="font-400 font-22 bg-lightblue border-0 rounded-3 px-3 py-2 mt-3" onclick="redirectTo('https://docs.google.com/spreadsheets/d/1rQ0ZhU6Ykdu4lrhhKMoHInTBQI2ywafQ0PnWIxZG-9w/edit?usp=sharing')">Click Here for Tutor Details</button>
-                            <h5 class="font-26 font-700 mt-4">Additional Information</h5>
-                            <ul style="padding-left: 0;" class="ms-3">
-                                <li class="font-20 font-400 text-justify">Bagi Mahasiswa dari Universitas selain dari List diatas tetap dapat <span class="font-20 font-700 text-red">"BELAJAR BERSAMA DISINI"</span></li>
-                                <li class="font-20 font-400 text-justify">Customer dapat memilih Tutor dari <span class="font-700">Asal Univ / Nama Tutor</span></li>
+
+                            <a href="https://docs.google.com/spreadsheets/d/1rQ0ZhU6Ykdu4lrhhKMoHInTBQI2ywafQ0PnWIxZG-9w/edit?usp=sharing">
+                                <x-button
+                                    type="button"
+                                    class="bg-lightblue text-black mt-4 p-4 px-4 rounded-4 font-regular text-xl md:text-xl rounded-xl hover:scale-105 duration-300"
+                                    label="Click Here for Tutor Details"></x-button>
+                            </a>
+
+                            <h5 class="text-2xl font-semibold mt-4">Additional Information</h5>
+                            <ul class="px-4 list-disc space-y-1 text-lg font-normal">
+                                <li class="text-justify">Bagi Mahasiswa dari Universitas selain dari List diatas tetap dapat <span class="font-20 font-700 text-red">"BELAJAR BERSAMA DISINI"</span></li>
+                                <li class="text-justify">Customer dapat memilih Tutor dari <span class="font-700">Asal Univ / Nama Tutor</span></li>
                             </ul>
                         </div>
 
