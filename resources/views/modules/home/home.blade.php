@@ -3,14 +3,14 @@
 @section('content')
 
 <!-- HEADER -->
-<header class="container-fluid bg-img-orange px-md-5 py-md-5 pb-5">
+<header class="container-fluid bg-img-orange px-md-10 py-md-10 pb-10">
     <div class="container align-items-center">
-        <div class="row px-md-5 pt-md-5">
+        <div class="row px-32 pt-20">
             <div>
-                <h1 class="font-400 text-white font-64 mt-5" style="display: inline-block">Persiapkan Dirimu<br>menjadi <br class="mobile"><span class="font-900 stroke-underline auto-type"></span></h1>
+                <h1 class="font-400 text-white font-64" style="display: inline-block">Persiapkan Dirimu<br>menjadi <br class="mobile"><span class="font-900 stroke-underline auto-type"></span></h1>
             </div>
         </div>
-        <div class="row px-md-5 mt-4">
+        <div class="row px-32 my-10">
             <div class="col-12">
             <p class="font-400 text-white font-30">Mendukung pengembangan kemampuan spesifik, dengan tetap<br class="desktop">
                 memperluas Wawasan & Kapabilitas dalam berbagai area lain
@@ -18,10 +18,10 @@
             </div>
         </div>
 
-        <div class="row px-md-5 mt-4">
+        <div class="row px-32 mt-4">
             <div class="col-12">
-            <a target="_blank" href="https://bit.ly/RegistrationTutorService">            
-                <x-button 
+            <a target="_blank" href="https://bit.ly/RegistrationTutorService">
+                <x-button
                     type="button"
                     label="Mulai Belajar"
                 />
