@@ -14,10 +14,10 @@ class ViewTutorsController extends Controller
         $univ = 'all';
         $subjects = Subject::where('status', 'active')->paginate(6);
         $reccomendedSubjects = Subject::where('status', 'active')
-        ->inRandomOrder()
-        ->take(3)
-        ->get();
-        if ($request->ajax()) {
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+            if ($request->ajax()) {
             return view('layout.subjects', compact('subjects'))->render(); // return partial view
         }
 

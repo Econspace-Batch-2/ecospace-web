@@ -1,84 +1,32 @@
 @extends('layout.layout')
 
 @section('content')
-    <!-- HEADER -->
-    <img   src="{{asset('assets/background/bgtutors.svg')}}" alt="Banner tutor" class="img-fluid w-100 header-tutor desktop">
-    <img   src="{{asset('assets/background/bgtutors_mobile.svg')}}" alt="Banner tutor" class="img-fluid w-100 header-tutor mobile">
 
-    <!-- FILTER-->
-
-    <div class="container bg-darkblue py-3 px-lg-3 half-up rounded-3 w-mobile-80">
-        <div class="row justify-content-center gy-2 gy-lg-0">
-            <div class="col-12 col-lg-5">
-                <form id="searchForm" action="{{route('searchTutor')}}" method="GET">
-                    <div class="row gx-2 gy-1 gy-lg-0">
-                        <div class="col-12">
-                            <input id="tutorSearchBar" class="w-100 rounded-3 border-0 py-2 px-2 font-18" type="text" name="tutorSearchBar" placeholder="Cari Nama Mata Kuliah" aria-label="Cari Nama Mata Kuliah">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-12 col-lg-7">
-                <form action="{{route('filterTutor')}}" method="GET">
-                    <div class="row gx-2 gy-1 gy-lg-0">
-                        <div class="col-6 col-lg-3">
-                            <select name="major" id="course" class="rounded-3 border-0 py-2 px-1 w-100 font-18">
-                                <option value="all" @if(old('major', $major) == 'all') selected @endif>Semua Jurusan</option>
-                                <option value="Accounting" @if(old('major', $major) == 'Accounting') selected @endif>Accounting</option>
-                                <option value="Management" @if(old('major', $major) == 'Management') selected @endif>Management</option>
-                                <option value="Economic" @if(old('major', $major) == 'Economic') selected @endif>Economic</option>
-                                <option value="Taxation" @if(old('major', $major) == 'Taxation') selected @endif>Taxation</option>
-                            </select>
-                        </div>
-                        <div class="col-6 col-lg-3">
-                            <select name="semester" id="course" class="rounded-3 border-0 py-2 px-1 w-100 font-18">
-                                <option value="all" @if(old('semester', $semester) == 'all') selected @endif>Semua Semester</option>
-                                <option value="Semester 1-2" @if(old('semester', $semester) == 'Semester 1-2') selected @endif>Semester 1-2</option>
-                                <option value="Semester 3-4" @if(old('semester', $semester) == 'Semester 3-4') selected @endif>Semester 3-4</option>
-                                <option value="Semester 5-6" @if(old('semester', $semester) == 'Semester 5-6') selected @endif>Semester 5-6</option>
-                            </select>
-                        </div>
-                        <div class="col-6 col-lg-3">
-                            <button id="pilih" class="bg-orange text-white border-0 rounded-3 py-2 px-xxl-3 w-100 font-20" type="submit" >
-                                Pilih
-                            </button>
-                        </div>
-                        <div class="col-6 col-lg-3">
-                            <button id="hapus" class="bg-white border-0  rounded-3 py-2 px-xxl-3 w-100 font-20" formaction="{{ route('clearFilters') }}">
-                                <i class="fa-solid fa-broom me-1"></i> Hapus Filter
-                            </button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- LIST REKOMENDASI -->
-    <div class="mt-5 px-9">
-        <p class="text-3xl font-bold">Rekomendasi Buat Kamu</p>
-        <p class="text-lg">Berbagai pilihan kelas untuk kebutuhan kamu</p>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3">
-            @include('layout.subjects', ['subjects' => $reccomendedSubjects])
-        </div>
-    </div>
 
     <img   src="{{asset('assets/background/bgtutors.svg')}}" alt="Banner tutor" class="h-full w-full hidden sm:block">
     <img   src="{{asset('assets/background/bgtutors_mobile.svg')}}" alt="Banner tutor" class="h-full w-full sm:hidden block">
     
     @include('modules.tutor.components.filterCourse')
 
+    <!-- LIST REKOMENDASI -->
+    <div class="mt-5 px-10">
+        <p class="text-3xl font-bold">Rekomendasi Buat Kamu</p>
+        <p class="text-lg">Berbagai pilihan kelas untuk kebutuhan kamu</p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            @include('layout.subjects', ['subjects' => $reccomendedSubjects])
+        </div>
+    </div>
+
     <!-- LIST TUTORS -->
-    <div class="container list-tutor-up">
-        <div class="row gx-5 gy-4" id="subject-container">
+    <div class="list-tutor-up w-full px-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="subject-container">
             
     <div class="flex flex-col w-full justify-center items-center mt-8">
-    <div class="w-3/4 my-4">
-        <h3 class="font-bold text-4xl text-left w-full hasil-pencarian">Hasil Pencarian</h3>
+    <div class="w-full my-4">
+        <h3 class="font-bold text-4xl text-left whasil-pencarian w-full">Hasil Pencarian</h3>
     </div>
-    <div class="grid place-items-center grid-cols-1 sm:grid-cols-2 w-11/12 lg:grid-cols-3 lg:w-5/6 2xl:w-3/4 gap-6" id="subject-container">
+    <div class="w-full grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="subject-container">
             @include('layout.subjects', ['subjects' => $subjects])
         </div>
 
