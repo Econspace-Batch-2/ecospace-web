@@ -2,15 +2,15 @@
 :root {
     --color-black: #16182b;
     --color-blue: #84dfd8;
-    --color-orange: #FC8025;
+    --color-orange: #fc8025;
     --color-milk: #f2eee9;
-    --color-red: #FF4778;
+    --color-red: #ff4778;
     --color-white: #ffffff;
     --color-darkblue: #15172a;
-    --color-lightblue: #D2F9F7;
-    --color-yellow: #FFC61A;
-    --color-mediumblue: #0A4AAA;
-    --color-green: #AEF495;
+    --color-lightblue: #d2f9f7;
+    --color-yellow: #ffc61a;
+    --color-mediumblue: #0a4aaa;
+    --color-green: #aef495;
 }
 
 /* VIEW TUTOR */
@@ -51,14 +51,14 @@
     height: 60px;
 }
 
-/* .card-tutor:nth-child(odd) > a > div {
+.card-tutor:nth-child(odd) > a > div {
     background-image: url("../assets/background/card-bg-blue.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: #ffffff;
     background-color: var(--color-blue);
-}
+} 
 
 .card-tutor:nth-child(even) > a > div{
     background-image: url("../assets/background/card-bg-orange.svg");
@@ -67,7 +67,29 @@
     background-repeat: no-repeat;
     color: #ffffff;
     background-color: var(--color-orange);
-} */
+}
+
+.mentor-card .mentor-header {
+    background-color: #0a4aaa;
+    background-size: cover;
+    background-position: center;
+}
+
+.mentor-card .profile-picture {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+}
+
+.mentor-card .achievements-list li::before {
+    content: "";
+    color: #f97316; /* Orange icon color */
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
 
 #t-session img {
     position: relative;
@@ -114,15 +136,14 @@
 
 /* give check icon to li in course detail */
 .check {
-    --icon-size: .8em;
-    --gutter: .5em;
+    --icon-size: 0.8em;
+    --gutter: 0.5em;
     padding: 0 0 0 var(--icon-size);
 }
 
 .check li {
     padding-left: var(--gutter);
 }
-
 
 .check li::marker {
     content: "\f058"; /* FontAwesome Unicode */
@@ -201,12 +222,10 @@
     }
 }
 
-
 /* MOBILE */
 @media (max-width: 767px) {
-
     .half-up-30 {
-        transform:translateY(0%);
+        transform: translateY(0%);
     }
 
     .img-tutor {
@@ -224,13 +243,10 @@
     .img-benefit {
         max-width: 70px;
     }
-
 }
 
-@media(max-width: 992px) {
+@media (max-width: 992px) {
     .w-mobile-80 {
         width: 90%;
     }
 }
-
-
