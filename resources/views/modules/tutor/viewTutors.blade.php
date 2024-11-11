@@ -12,7 +12,7 @@
     <div class="w-3/4 my-4">
         <h3 class="font-bold text-4xl text-left w-full hasil-pencarian">Hasil Pencarian</h3>
     </div>
-    <div class="grid place-items-center grid-cols-3 w-3/4 gap-6" id="subject-container">
+    <div class="grid place-items-center grid-cols-1 sm:grid-cols-2 w-11/12 lg:grid-cols-3 lg:w-5/6 2xl:w-3/4 gap-6" id="subject-container">
             @include('layout.subjects', ['subjects' => $subjects])
         </div>
 
