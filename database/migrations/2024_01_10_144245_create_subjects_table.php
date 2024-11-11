@@ -24,6 +24,7 @@ return new class extends Migration
             $table->text('subject_description');
             $table->json('subject_references');
             $table->json('subject_univ');
+            $table->json('univ');
 
             $table->string('status')->default('active');
 

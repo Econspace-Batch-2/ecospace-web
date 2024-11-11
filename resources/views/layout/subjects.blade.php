@@ -1,29 +1,35 @@
-@if(!is_null($subjects))
+@if($subjects && $subjects->isNotEmpty())
+    <!-- Iterate through each subject -->
     @foreach($subjects as $s)
+        @php
+            // Decode the JSON-encoded 'univ' field for each subject
+            $universities = json_decode($s->univ, true);
+        @endphp
 
-    <div class="col-12 col-md-4 card-tutor">
-        <a href="{{ URL::route('detailTutor', $s->id) }}">
-            <div class="block-relative">
-                {{-- <img  src="{{asset('assets/thumbnail/'.$s->subject_image)}}" alt="{{$s->subject_image}}" class="img-fluid w-100 desktop">
-                <img  src="{{asset('assets/thumbnailMobile/'.$s->subject_image)}}" alt="{{$s->subject_image}}" class="img-fluid w-100 mobile"> --}}
+        <div class="w-full h-96 relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out group">
+            <a href="{{ route('detailTutor', $s->id) }}">
+                <div class="relative w-full h-full overflow-hidden shadow-2xl rounded-xl">
+                    <!-- Desktop Image with conditional URLs based on whether 'UGM' is in the 'univ' array -->
+                    @if (is_array($universities) && in_array('UGM', $universities))
+                        <img src="{{ asset('assets/tutorImage/UGM_cardbg.png') }}" alt="UGM Image"
+                            class="object-cover w-full h-full">
+                    @else
+                        <img src="{{ asset('assets/tutorImage/UNAIR_cardbg.png') }}" alt="UNAIR Image"
+                            class="object-cover w-full h-full">
+                    @endif
 
-                <img src="{{asset('assets/tutorImage/tDesktop.svg')}}" alt="image course" class="w-100 img-fluid desktop pos-relative">
-                <img src="{{asset('assets/tutorImage/tMobile.svg')}}" alt="image course" class="w-100 img-fluid mobile pos-relative">
-
-                <h1 class="font-22 font-700 bg-white p-1 subject-title">
-                    {{$s->subject_title}}
-                </h1>
-
-
-                <img src="{{asset('assets/tutorImage/'.$s->subject_tutor)}}" alt="" class="subject-image">
-
-            </div>
-
-        </a>
-    </div>
+                    <!-- Subject Tutor Image -->
+                    <img src="{{ asset('assets/tutorImage/' . $s->subject_tutor) }}" alt="Subject Tutor Image"
+                        class="w-1/2 bottom-0 right-0 absolute">
+                </div>
+                <h5 class="text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">
+                    {{ $s->subject_title }}
+                </h5>
+            </a>
+        </div>
     @endforeach
 @else
-    <div class="col-12">
-        <p class="text-center">No data to display</p>
+    <div class="w-full col-span-full grid place-items-center">
+        <p class="text-center font-bold text-5xl w-full">No data to display</p>
     </div>
 @endif
