@@ -317,6 +317,9 @@
     </div>
 </div>
 
+<!-- Telah Hadir + Univ logos -->
+@include('modules.home.telahHadir')
+
 
 <!-- POTENTIAL  -->
 <div class="container-fluid px-md-5 pt-md-5 mt-5 mb-5">
