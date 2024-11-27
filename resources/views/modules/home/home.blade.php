@@ -11,121 +11,70 @@
     <!-- MENTOR PART -->
     @include('modules.home.temukanTutor')
 
-    <!-- POTENTIAL  -->
-    <div class="container-fluid px-md-5 pt-md-5 mt-5 mb-5">
-        <div class="container px-md-5">
-            <div class="row mb-3">
-                <div class="col-12">
-                    <h2 class="text-center font-60 font-400">Learn Now & Claim Your Title:</h2>
-                    <div class="bg-black mx-auto p-2 mb-3" style="width: fit-content">
-                        <h1 class="text-center font-64 font-900 text-white">#Talent-Favorit-Top Company HR</h1>
-                    </div>
-                    <p class="text-center font-32 font-400">Kembangkan Potensimu sejak dini bersama Economic Space</p>
-                </div>
+    <!-- Telah Hadir + Univ logos -->
+    @include('modules.home.telahHadir')
+    
+
+<!-- POTENTIAL  -->
+<div class="container-fluid px-md-5 pt-md-5 mt-5 mb-5">
+    <div class="container px-md-5">
+    <div class="row mb-3">
+        <div class="col-12">
+        <h2 class="text-center font-60 font-400">Learn Now & Claim Your Title:</h2>
+        <div class="bg-black mx-auto p-2 mb-3" style="width: fit-content">
+            <h1 class="text-center font-64 font-900 text-white">#Talent-Favorit-Top Company HR</h1>
+        </div>
+        <p class="text-center font-32 font-400">Kembangkan Potensimu sejak dini bersama Economic Space</p>
+        </div>
+    </div>
+
+    <div class="row half-up-px mt-3">
+        <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="750">
+            <div class="half-down">
+                <img loading="lazy"  src="{{asset('assets/home/emoji1.svg')}}" alt="emoji" class="mx-auto d-block img-fluid img-emoji">
+            </div>
+            <div class="bg-red border border-3 border-black rounded-5 box-potential">
+                <h4 class="text-center font-32 font-700 text-white">Easy Access & <br>Widely Available</h4>
+                <p class="text-center font-20 text-white font-400">Tidak ada lagi kata “Sulit” bagi Pelajar untuk mendapatkan akses belajar</p>
+            </div>
+        </div>
+
+        <div class=" col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="1500">
+            <div class="half-down">
+                <img loading="lazy"  src="{{asset('assets/home/emoji2.svg')}}" alt="emoji" class="mx-auto d-block img-fluid img-emoji">
+            </div>
+            <div class="bg-blue border border-3 border-black rounded-5 box-potential">
+                <h4 class="text-center font-32 font-700">One Stop Solution for Students</h4>
+                <p class="text-center font-20 font-400">Tersedia secara lengkap dari pembelajaran akademik, skill penting, lomba, hingga karir</p>
             </div>
 
-            <div class="row half-up-px mt-3">
-                <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="750">
-                    <div class="half-down">
-                        <img loading="lazy" src="{{ asset('assets/home/emoji1.svg') }}" alt="emoji"
-                            class="mx-auto d-block img-fluid img-emoji">
-                    </div>
-                    <div class="bg-red border border-3 border-black rounded-5 box-potential">
-                        <h4 class="text-center font-32 font-700 text-white">Easy Access & <br>Widely Available</h4>
-                        <p class="text-center font-20 text-white font-400">Tidak ada lagi kata “Sulit” bagi Pelajar untuk
-                            mendapatkan akses belajar</p>
-                    </div>
-                </div>
-
-                <div class=" col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="1500">
-                    <div class="half-down">
-                        <img loading="lazy" src="{{ asset('assets/home/emoji2.svg') }}" alt="emoji"
-                            class="mx-auto d-block img-fluid img-emoji">
-                    </div>
-                    <div class="bg-blue border border-3 border-black rounded-5 box-potential">
-                        <h4 class="text-center font-32 font-700">One Stop Solution for Students</h4>
-                        <p class="text-center font-20 font-400">Tersedia secara lengkap dari pembelajaran akademik, skill
-                            penting, lomba, hingga karir</p>
-                    </div>
-
-                </div>
-                <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="2250">
-                    <div class="half-down">
-                        <img loading="lazy" src="{{ asset('assets/home/emoji3.svg') }}" alt="emoji"
-                            class="mx-auto d-block img-fluid img-emoji">
-                    </div>
-                    <div class="bg-mediumblue border border-3 border-black rounded-5 box-potential">
-                        <h4 class="text-center font-32 font-700 text-white">Your High Quality <br>Learning Partner</h4>
-                        <p class="text-center font-20 text-white font-400">Mengundang & bekerja sama dengan Tutor, Mentor, &
-                            Pembicara terbaik </p>
-                    </div>
-
-                </div>
-                <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="3000">
-                    <div class="half-down">
-                        <img loading="lazy" src="{{ asset('assets/home/emoji4.svg') }}" alt="emoji"
-                            class="mx-auto d-block img-fluid img-emoji">
-                    </div>
-                    <div class="bg-orange border border-3 border-black rounded-5 box-potential">
-                        <h4 class="text-center font-32 font-700 ">Keep it Cheap <br>& Affordable</h4>
-                        <p class="text-center font-20 font-400">Menjaga harga tetap terjangkau & menyediakan layanan jalur
-                            bantuan</p>
-                    </div>
-
-                </div>
+        </div>
+        <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="2250">
+            <div class="half-down">
+                <img loading="lazy"  src="{{asset('assets/home/emoji3.svg')}}" alt="emoji" class="mx-auto d-block img-fluid img-emoji">
+            </div>
+            <div class="bg-mediumblue border border-3 border-black rounded-5 box-potential">
+                <h4 class="text-center font-32 font-700 text-white">Your High Quality <br>Learning Partner</h4>
+                <p class="text-center font-20 text-white font-400">Mengundang & bekerja sama dengan Tutor, Mentor, & Pembicara terbaik </p>
             </div>
 
-            <!-- STEP BY STEP -->
-            <div class="mt-5">
-                <h2 class="text-center font-extrabold text-6xl mb-5">Gimana cara <span
-                        class="text-[#FC8025]">Daftarnya?</span></h2>
-                <p class="text-center text-3xl">Biar bisa jadi <span class="font-bold">#Talent-Favorit-Top Company
-                        HR!</span></p>
-                <div class="px-4 sm:px-6 lg:px-10 my-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="flex flex-row items-center">
-                        <div
-                            class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
-                            1
-                        </div>
-                        <div class="flex flex-col pl-4">
-                            <p class="text-lg md:text-2xl font-bold">
-                                Sign Up / Sign In
-                            </p>
-                            <p class="text-base md:text-lg font-light">Isi Data Diri & Gabung dalam Komunitas</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-row items-center">
-                        <div
-                            class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
-                            2
-                        </div>
-                        <div class="flex flex-col pl-4">
-                            <p class="text-lg md:text-2xl font-bold">
-                                Pick & Enroll
-                            </p>
-                            <p class="text-base md:text-lg font-light">Pilih Program sesuai Kebutuhan Belajarmu</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-row items-center">
-                        <div
-                            class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
-                            3
-                        </div>
-                        <div class="flex flex-col pl-4">
-                            <p class="text-lg md:text-2xl font-bold">
-                                Make a Change
-                            </p>
-                            <p class="text-base md:text-lg font-light">Selesaikan Pembelajaran & Berkarya secara Nyata</p>
-                        </div>
-                    </div>
-                </div>
-
+        </div>
+        <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="3000">
+            <div class="half-down">
+                <img loading="lazy"  src="{{asset('assets/home/emoji4.svg')}}" alt="emoji" class="mx-auto d-block img-fluid img-emoji">
+            </div>
+            <div class="bg-orange border border-3 border-black rounded-5 box-potential">
+                <h4 class="text-center font-32 font-700 ">Keep it Cheap <br>& Affordable</h4>
+                <p class="text-center font-20 font-400">Menjaga harga tetap terjangkau & menyediakan layanan jalur bantuan</p>
             </div>
 
-            <!-- STEP BY STEP -->
-            {{-- <div class="desktop mt-5 half-up-px">
-        
-        <div class="flex-row">
+        </div>
+    </div>
+
+    <!-- STEP BY STEP -->
+    <div class="desktop mt-5 half-up-px">
+        <div class="row">
+>>>>>>> 7f882d48bb5b40596c392acd292721b57fd4c0cf
         <div class="col-4" >
             <div class="d-flex flex-row gap-3">
             <div class="bg-green circle ratio ratio-1x1 font-82 font-900">
