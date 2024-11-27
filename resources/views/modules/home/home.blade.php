@@ -3,14 +3,14 @@
 @section('content')
 
 <!-- HEADER -->
-<header class="container-fluid bg-img-orange px-md-5 py-md-5 pb-5">
+<header class="container-fluid bg-img-orange px-md-10 py-md-10 pb-10">
     <div class="container align-items-center">
-        <div class="row px-md-5 pt-md-5">
+        <div class="row px-32 pt-20">
             <div>
-                <h1 class="font-400 text-white font-64 mt-5" style="display: inline-block">Persiapkan Dirimu<br>menjadi <br class="mobile"><span class="font-900 stroke-underline auto-type"></span></h1>
+                <h1 class="font-400 text-white font-64" style="display: inline-block">Persiapkan Dirimu<br>menjadi <br class="mobile"><span class="font-900 stroke-underline auto-type"></span></h1>
             </div>
         </div>
-        <div class="row px-md-5 mt-4">
+        <div class="row px-32 my-10">
             <div class="col-12">
             <p class="font-400 text-white font-30">Mendukung pengembangan kemampuan spesifik, dengan tetap<br class="desktop">
                 memperluas Wawasan & Kapabilitas dalam berbagai area lain
@@ -18,10 +18,10 @@
             </div>
         </div>
 
-        <div class="row px-md-5 mt-4">
+        <div class="row px-32 mt-4">
             <div class="col-12">
-            <a target="_blank" href="https://bit.ly/RegistrationTutorService">            
-                <x-button 
+            <a target="_blank" href="https://bit.ly/RegistrationTutorService">
+                <x-button
                     type="button"
                     label="Mulai Belajar"
                 />
@@ -35,162 +35,7 @@
 
 <!-- SERVICE PART -->
 
-<div class="container-fluid px-md-5 py-md-5 mt-5">
-    <div class="container">
-        <div class="row desktop">
-            <div class="col-12">
-            <h2 class="text-center font-60 font-900"><b>Belajar - Eksplorasi - <span class="text-orange">Raih Impianmu</span></b></h2>
-            <p class="text-center font-32 font-400">Satu Platform untuk Semua Kebutuhan Pengembangan Dirimu</p>
-            </div>
-        </div>
-        <div class="row mobile">
-            <div class="col-12">
-            <h2 class="text-center font-60 font-900"><b>Belajar - Eksplorasi<span class="text-orange font-64"><br>Raih Impianmu</span></b></h2>
-            <p class="text-center font-32 font-400">Satu Platform untuk Semua <br>Kebutuhan Pengembangan Dirimu</p>
-            </div>
-        </div>
-
-        <div class="desktop py-md-3 px-md-5">
-            <div class="row gx-5">
-                <div class="col-4">
-                    <a href="{{url('/tutors')}}">
-                        <div  data-aos="fade-down" data-aos-duration="1000" class="hovered">
-                            <div class="bg-orange rounded-5 text-center service-title mx-auto py-2 half-down">
-                                <h4 class="font-32 font-900">Academic Chamber</h4>
-                            </div>
-                            <div class="border border-3 border-black rounded-5 text-center box-service mx-auto px-3 ">
-                                <img loading="lazy"  src="{{asset('assets/home/face1.svg')}}" alt="face icon" class="mx-auto d-block img-fluid img-service">
-                                <h3 class="font-36 text-orange font-900"><b>TUTOR SERVICE</b></h3>
-                                <p id="label-service" class="font-22 font-400">Perkuliahan jadi mudah bersama Expert yang <span class="font-600">membantu pembelajaran akademik</span> kalian</p>
-                            </div>
-                            <div class="bg-orange rounded-5 service-title d-flex flex-row mx-auto py-3 px-2 gap-3 half-up">
-                                <img loading="lazy"  src="{{asset('assets/home/circle.svg')}}" alt="decorative image" class="img-fluid img-circle align-self-center">
-                                <p class="font-24 font-400 mb-0">Minimal IPK 4 :) Ingin Belajar Lebih Dalam</p>
-                            </div>
-                        </div>
-                    </a>
-
-
-                </div>
-                <div class="col-4">
-                    <a href="{{url('/soon')}}">
-                        <div data-aos="fade-down" data-aos-duration="2000" class="hovered">
-                            <div class="bg-black rounded-5 text-center service-title mx-auto py-2 half-down">
-                                <h4 class="font-32 font-900 text-white">Event Space</h4>
-                            </div>
-                            <div class="border border-3 border-black rounded-5 text-center box-service mx-auto px-3 ">
-                                <img loading="lazy"  src="{{asset('assets/home/face2.svg')}}" alt="face icon" class="mx-auto d-block img-fluid img-service">
-                                <h3 class="font-36 font-900"><b>BOOTCAMP</b></h3>
-                                <p id="label-service" class="font-22 font-400">Belajar Ilmu Spesifik & Mendalam untuk <span class="font-600">pengembangan skill beyond kehidupan akademik</span></p>
-                            </div>
-                            <div class="bg-black rounded-5 service-title d-flex flex-row mx-auto py-3 px-2 gap-3 half-up">
-                                <img loading="lazy"  src="{{asset('assets/home/circle.svg')}}" alt="decorative image" class="img-fluid img-circle align-self-center">
-                                <p class="font-24 text-white font-400 mb-0">Never say never untuk Pembelajaran Baru</p>
-                            </div>
-                        </div>
-                    </a>
-
-                </div>
-                <div class="col-4">
-                    <a href="{{url('/soon')}}">
-                        <div data-aos="fade-down" data-aos-duration="3000" class="hovered">
-                            <div class="bg-blue rounded-5 text-center service-title mx-auto py-2 half-down">
-                                <h4 class="font-32 font-900">Mentorship Hub</h4>
-                            </div>
-                            <div class="border border-3 border-black rounded-5 text-center box-service mx-auto ">
-                                <img loading="lazy"  src="{{asset('assets/home/face3.svg')}}" alt="face icon" class="mx-auto d-block img-fluid img-service">
-                                <h3 class="font-36 text-blue font-900"><b>MENTORING</b></h3>
-                                <p id="label-service" class="font-22 font-400 ">Keterbatasan akses bukan menjadi tantangan lagi, tetapi kesempatan buat <span class="font-600">belajar sama orang dalam</span></p>
-                            </div>
-                            <div class="bg-blue rounded-5 service-title d-flex flex-row mx-auto py-3 px-2 gap-3 half-up">
-                                <img loading="lazy"  src="{{asset('assets/home/circle.svg')}}" alt="decorative image" class="img-fluid img-circle align-self-center">
-                                <p class="font-24 font-400 mb-0">Dapatkan Akses 1-on-1 sama Ahlinya</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
-    <!-- MOBILE VERSION -->
-        <div class="mobile">
-            <div class="row g-0">
-            <div id="carouselService" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="3000">
-                    <div class="width-smaller">
-                        <div class="half-down bg-orange rounded-5 text-center service-title mx-auto pt-2 pb-1">
-                            <a href="{{url('/tutors')}}">
-                                <h4 class="font-32 font-900">Academic Chamber</h4>
-                            </a>
-
-                        </div>
-                        <div class="border border-3 border-black rounded-5 text-center box-service mx-auto px-3  py-5 bg-white">
-                            <img loading="lazy"  src="{{asset('assets/home/face1.svg')}}" alt="face icon" class="mx-auto d-block img-fluid img-service pt-1">
-                            <h3 class="font-44 text-orange font-900">TUTOR SERVICE</h3>
-                            <p class="font-24 font-400">Perkuliahan jadi mudah bersama Expert yang <span class="font-600">membantu pembelajaran akademik</span> kalian</p>
-                        </div>
-                        <div class="bg-orange rounded-5 service-title d-flex flex-row mx-auto py-2 px-2 gap-3 half-up">
-                            <img loading="lazy"  src="{{asset('assets/home/circle.svg')}}" alt="decorative image" class="img-fluid img-circle align-self-center">
-                            <p class="font-24 font-400 mb-0">Minimal IPK 4 :) Ingin Belajar Lebih Dalam</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <div  class="width-smaller">
-                        <div class="bg-black rounded-5 text-center service-title mx-auto pt-2 pb-1 half-down">
-                            <a href="{{url('/soon')}}">
-                                <h4 class="font-32 font-900 text-white">Event Space</h4>
-                            </a>
-
-                        </div>
-                        <div class="border border-3 border-black rounded-5 text-center box-service mx-auto px-3  py-5 bg-white">
-                            <img loading="lazy"  src="{{asset('assets/home/face2.svg')}}" alt="face icon" class="mx-auto d-block img-fluid img-service pt-1">
-                            <h3 class="font-44 font-900">BOOTCAMP</h3>
-                            <p class="font-24 font-400">Belajar Ilmu Spesifik & Mendalam untuk <span class="font-600">pengembangan skill beyond kehidupan akademik</span></p>
-                        </div>
-                        <div class="bg-black rounded-5 service-title d-flex flex-row mx-auto py-2 px-2 gap-3 half-up">
-                            <img loading="lazy"  src="{{asset('assets/home/circle.svg')}}" alt="decorative image" class="img-fluid img-circle align-self-center">
-                            <p class="font-24 text-white font-400 mb-0">Never say never untuk Pembelajaran Baru</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                        <div class="width-smaller">
-                            <div class="bg-blue rounded-5 text-center service-title mx-auto pt-2 pb-1 half-down">
-                                <a href="{{url('/soon')}}">
-                                    <h4 class="font-32 font-900">Mentorship Hub</h4>
-                                </a>
-
-                            </div>
-                            <div class="border border-3 border-black rounded-5 text-center box-service mx-auto  py-5 bg-white px-3">
-                                <img loading="lazy"  src="{{asset('assets/home/face3.svg')}}" alt="face icon" class="mx-auto d-block img-fluid img-service pt-1">
-                                <h3 class="font-44 text-blue font-900">MENTORING</h3>
-                                <p class="font-24 font-400">Keterbatasan akses bukan hambatan, tetapi kesempatan buat <span class="font-600">belajar sama orang dalam</span></p>
-                            </div>
-                            <div class="bg-blue rounded-5 service-title d-flex flex-row mx-auto py-2 px-2 gap-3 half-up">
-                                <img loading="lazy"  src="{{asset('assets/home/circle.svg')}}" alt="decorative image" class="img-fluid img-circle align-self-center">
-                                <p class="font-24 font-400 mb-0">Dapatkan Akses 1-on-1 sama Ahlinya</p>
-                            </div>
-                        </div>
-                </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselService" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselService" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            </div>
-        </div>
-
-    </div>
-</div>
+@include('modules.home.sections.service')
 
 <!-- MENTOR PART -->
 <div class="container-fluid bg-black mt-5 mt-md-0">
