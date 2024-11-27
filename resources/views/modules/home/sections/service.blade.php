@@ -33,7 +33,7 @@
     ]    
 @endphp
 
-<div class="container-fluid px-5 py-5 mt-5">
+<div class="container-fluid px-5 py-5 mt-5 max-w-[100vw] overflow-hidden">
     <div class="w-full">
         <div class="text-center flex flex-col gap-4">
             <h2 class="text-3xl md:text-5xl font-black"><b>Belajar - Eksplorasi {{" "}}<span class="text-orange-500"><br class="md:hidden">Raih Impianmu</span></b></h2>
