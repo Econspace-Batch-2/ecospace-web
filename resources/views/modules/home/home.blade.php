@@ -2,144 +2,128 @@
 
 @section('content')
 
-<!-- HEADER -->
-<header class="container-fluid bg-img-orange px-md-10 py-md-10 pb-10">
-    <div class="container align-items-center">
-        <div class="row px-32 pt-20">
-            <div>
-                <h1 class="font-400 text-white font-64" style="display: inline-block">Persiapkan Dirimu<br>menjadi <br class="mobile"><span class="font-900 stroke-underline auto-type"></span></h1>
-            </div>
-        </div>
-        <div class="row px-32 my-10">
-            <div class="col-12">
-            <p class="font-400 text-white font-30">Mendukung pengembangan kemampuan spesifik, dengan tetap<br class="desktop">
-                memperluas Wawasan & Kapabilitas dalam berbagai area lain
-            </p>
-            </div>
-        </div>
+    <!-- HEADER -->
+    @include('modules.home.sections.header')
+    <!-- SERVICE PART -->
 
-        <div class="row px-32 mt-4">
-            <div class="col-12">
-            <a target="_blank" href="https://bit.ly/RegistrationTutorService">
-                <x-button
-                    type="button"
-                    label="Mulai Belajar"
-                />
-            </a>
-            </div>
-        </div>
-    </div>
+    @include('modules.home.sections.service')
 
-</header>
+    <!-- MENTOR PART -->
+    @include('modules.home.temukanTutor')
 
-
-<!-- SERVICE PART -->
-
-@include('modules.home.sections.service')
-
-<!-- MENTOR PART -->
-@include('modules.home.temukanTutor')
-
-<!-- POTENTIAL  -->
-<div class="container-fluid px-md-5 pt-md-5 mt-5 mb-5">
-    <div class="container px-md-5">
-    <div class="row mb-3">
-        <div class="col-12">
-        <h2 class="text-center font-60 font-400">Learn Now & Claim Your Title:</h2>
-        <div class="bg-black mx-auto p-2 mb-3" style="width: fit-content">
-            <h1 class="text-center font-64 font-900 text-white">#Talent-Favorit-Top Company HR</h1>
-        </div>
-        <p class="text-center font-32 font-400">Kembangkan Potensimu sejak dini bersama Economic Space</p>
-        </div>
-    </div>
-
-    <div class="row half-up-px mt-3">
-        <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="750">
-            <div class="half-down">
-                <img loading="lazy"  src="{{asset('assets/home/emoji1.svg')}}" alt="emoji" class="mx-auto d-block img-fluid img-emoji">
-            </div>
-            <div class="bg-red border border-3 border-black rounded-5 box-potential">
-                <h4 class="text-center font-32 font-700 text-white">Easy Access & <br>Widely Available</h4>
-                <p class="text-center font-20 text-white font-400">Tidak ada lagi kata “Sulit” bagi Pelajar untuk mendapatkan akses belajar</p>
-            </div>
-        </div>
-
-        <div class=" col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="1500">
-            <div class="half-down">
-                <img loading="lazy"  src="{{asset('assets/home/emoji2.svg')}}" alt="emoji" class="mx-auto d-block img-fluid img-emoji">
-            </div>
-            <div class="bg-blue border border-3 border-black rounded-5 box-potential">
-                <h4 class="text-center font-32 font-700">One Stop Solution for Students</h4>
-                <p class="text-center font-20 font-400">Tersedia secara lengkap dari pembelajaran akademik, skill penting, lomba, hingga karir</p>
-            </div>
-
-        </div>
-        <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="2250">
-            <div class="half-down">
-                <img loading="lazy"  src="{{asset('assets/home/emoji3.svg')}}" alt="emoji" class="mx-auto d-block img-fluid img-emoji">
-            </div>
-            <div class="bg-mediumblue border border-3 border-black rounded-5 box-potential">
-                <h4 class="text-center font-32 font-700 text-white">Your High Quality <br>Learning Partner</h4>
-                <p class="text-center font-20 text-white font-400">Mengundang & bekerja sama dengan Tutor, Mentor, & Pembicara terbaik </p>
-            </div>
-
-        </div>
-        <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="3000">
-            <div class="half-down">
-                <img loading="lazy"  src="{{asset('assets/home/emoji4.svg')}}" alt="emoji" class="mx-auto d-block img-fluid img-emoji">
-            </div>
-            <div class="bg-orange border border-3 border-black rounded-5 box-potential">
-                <h4 class="text-center font-32 font-700 ">Keep it Cheap <br>& Affordable</h4>
-                <p class="text-center font-20 font-400">Menjaga harga tetap terjangkau & menyediakan layanan jalur bantuan</p>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- STEP BY STEP -->
-    <div class="mt-5">
-        <h2 class="text-center font-extrabold text-6xl mb-5">Gimana cara <span class="text-[#FC8025]">Daftarnya?</span></h2>
-        <p class="text-center text-3xl">Biar bisa jadi <span class="font-bold">#Talent-Favorit-Top Company HR!</span></p>
-        <div class="px-4 sm:px-6 lg:px-10 my-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="flex flex-row items-center">
-                <div class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
-                    1
-                </div>
-                <div class="flex flex-col pl-4">
-                    <p class="text-lg md:text-2xl font-bold">
-                        Sign Up / Sign In
-                    </p>
-                    <p class="text-base md:text-lg font-light">Isi Data Diri & Gabung dalam Komunitas</p>
+    <!-- POTENTIAL  -->
+    <div class="container-fluid px-md-5 pt-md-5 mt-5 mb-5">
+        <div class="container px-md-5">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h2 class="text-center font-60 font-400">Learn Now & Claim Your Title:</h2>
+                    <div class="bg-black mx-auto p-2 mb-3" style="width: fit-content">
+                        <h1 class="text-center font-64 font-900 text-white">#Talent-Favorit-Top Company HR</h1>
+                    </div>
+                    <p class="text-center font-32 font-400">Kembangkan Potensimu sejak dini bersama Economic Space</p>
                 </div>
             </div>
-            <div class="flex flex-row items-center">
-                <div class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
-                    2
-                </div>
-                <div class="flex flex-col pl-4">
-                    <p class="text-lg md:text-2xl font-bold">
-                        Pick & Enroll
-                    </p>
-                    <p class="text-base md:text-lg font-light">Pilih Program sesuai Kebutuhan Belajarmu</p>
-                </div>
-            </div>
-            <div class="flex flex-row items-center">
-                <div class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
-                    3
-                </div>
-                <div class="flex flex-col pl-4">
-                    <p class="text-lg md:text-2xl font-bold">
-                        Make a Change
-                    </p>
-                    <p class="text-base md:text-lg font-light">Selesaikan Pembelajaran & Berkarya secara Nyata</p>
-                </div>
-            </div>
-        </div>
-        
-    </div>
 
-    <!-- STEP BY STEP -->
-    {{-- <div class="desktop mt-5 half-up-px">
+            <div class="row half-up-px mt-3">
+                <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="750">
+                    <div class="half-down">
+                        <img loading="lazy" src="{{ asset('assets/home/emoji1.svg') }}" alt="emoji"
+                            class="mx-auto d-block img-fluid img-emoji">
+                    </div>
+                    <div class="bg-red border border-3 border-black rounded-5 box-potential">
+                        <h4 class="text-center font-32 font-700 text-white">Easy Access & <br>Widely Available</h4>
+                        <p class="text-center font-20 text-white font-400">Tidak ada lagi kata “Sulit” bagi Pelajar untuk
+                            mendapatkan akses belajar</p>
+                    </div>
+                </div>
+
+                <div class=" col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="1500">
+                    <div class="half-down">
+                        <img loading="lazy" src="{{ asset('assets/home/emoji2.svg') }}" alt="emoji"
+                            class="mx-auto d-block img-fluid img-emoji">
+                    </div>
+                    <div class="bg-blue border border-3 border-black rounded-5 box-potential">
+                        <h4 class="text-center font-32 font-700">One Stop Solution for Students</h4>
+                        <p class="text-center font-20 font-400">Tersedia secara lengkap dari pembelajaran akademik, skill
+                            penting, lomba, hingga karir</p>
+                    </div>
+
+                </div>
+                <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="2250">
+                    <div class="half-down">
+                        <img loading="lazy" src="{{ asset('assets/home/emoji3.svg') }}" alt="emoji"
+                            class="mx-auto d-block img-fluid img-emoji">
+                    </div>
+                    <div class="bg-mediumblue border border-3 border-black rounded-5 box-potential">
+                        <h4 class="text-center font-32 font-700 text-white">Your High Quality <br>Learning Partner</h4>
+                        <p class="text-center font-20 text-white font-400">Mengundang & bekerja sama dengan Tutor, Mentor, &
+                            Pembicara terbaik </p>
+                    </div>
+
+                </div>
+                <div class="col col-6 col-md-3 div-up-emoji" data-aos="fade-down" data-aos-duration="3000">
+                    <div class="half-down">
+                        <img loading="lazy" src="{{ asset('assets/home/emoji4.svg') }}" alt="emoji"
+                            class="mx-auto d-block img-fluid img-emoji">
+                    </div>
+                    <div class="bg-orange border border-3 border-black rounded-5 box-potential">
+                        <h4 class="text-center font-32 font-700 ">Keep it Cheap <br>& Affordable</h4>
+                        <p class="text-center font-20 font-400">Menjaga harga tetap terjangkau & menyediakan layanan jalur
+                            bantuan</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- STEP BY STEP -->
+            <div class="mt-5">
+                <h2 class="text-center font-extrabold text-6xl mb-5">Gimana cara <span
+                        class="text-[#FC8025]">Daftarnya?</span></h2>
+                <p class="text-center text-3xl">Biar bisa jadi <span class="font-bold">#Talent-Favorit-Top Company
+                        HR!</span></p>
+                <div class="px-4 sm:px-6 lg:px-10 my-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="flex flex-row items-center">
+                        <div
+                            class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
+                            1
+                        </div>
+                        <div class="flex flex-col pl-4">
+                            <p class="text-lg md:text-2xl font-bold">
+                                Sign Up / Sign In
+                            </p>
+                            <p class="text-base md:text-lg font-light">Isi Data Diri & Gabung dalam Komunitas</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row items-center">
+                        <div
+                            class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
+                            2
+                        </div>
+                        <div class="flex flex-col pl-4">
+                            <p class="text-lg md:text-2xl font-bold">
+                                Pick & Enroll
+                            </p>
+                            <p class="text-base md:text-lg font-light">Pilih Program sesuai Kebutuhan Belajarmu</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row items-center">
+                        <div
+                            class="bg-[#81E0d8] text-black font-bold text-4xl md:text-6xl w-32 h-20 md:w-48 md:h-24 flex items-center justify-center rounded-full">
+                            3
+                        </div>
+                        <div class="flex flex-col pl-4">
+                            <p class="text-lg md:text-2xl font-bold">
+                                Make a Change
+                            </p>
+                            <p class="text-base md:text-lg font-light">Selesaikan Pembelajaran & Berkarya secara Nyata</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- STEP BY STEP -->
+            {{-- <div class="desktop mt-5 half-up-px">
         
         <div class="flex-row">
         <div class="col-4" >
@@ -179,7 +163,7 @@
     </div> --}}
 
 
-    {{-- <div class="mobile swiper step-slider">
+            {{-- <div class="mobile swiper step-slider">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="col-12 mx-auto">
@@ -226,343 +210,454 @@
     </div>
 </div> --}}
 
-<!-- CONTRIBUTION -->
+            <!-- CONTRIBUTION -->
 
-<div class="container-fluid bg-img-white">
-    <div class="container">
-        <div class="row desktop">
-            <div class="col-12">
-                <div class="bg-orange mx-auto half-up mt-5" style="width: fit-content">
-                <h3 class="text-center text-white font-900 font-44">Sejak 2023, Terus Memberi Kontribusi & Berdampak</h3>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="row mobile mt-5">
-            <div class="col-12">
-                <div class="mx-auto half-up" style="width: fit-content">
-                <h3 class="bg-orange text-center text-white font-400 font-38">Sejak 2023, Terus Memberi</h3>
-                <h3 class="bg-orange text-center text-white font-900 font-44">Kontribusi & Berdampak</h3>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="container desktop">
-        <div class="row px-md-5">
-            <div class="col-4">
-                <div>
-                    <img loading="lazy"  src="{{asset('assets/home/contribute1.svg')}}" alt="decorative image" class="mx-auto d-block img-contribute">
-                    <div class="hr-vertical">
-                        <h1 class="text-center font-96 font-900 text-orange"><span id="numcounter1">250</span>+</h1>
-                        <p class="text-center font-28 font-400">Total Mahasiswa dalam<br>Tutor & Mentor Session</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div>
-                    <img loading="lazy"  src="{{asset('assets/home/contribute2.svg')}}" alt="decorative image" class="mx-auto d-block img-contribute">
-                    <div class="hr-vertical">
-                        <h1 class="text-center font-96 font-900 text-orange"><span id="numcounter2">70</span>+</h1>
-                        <p class="text-center font-28 font-400">Sesi Tutor & Mentor<br>telah sukses dilakukan </p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-4">
-                <div>
-                    <img loading="lazy"  src="{{asset('assets/home/contribute3.svg')}}" alt="decorative image" class="mx-auto d-block img-contribute">
-                    <div>
-                        <h1 class="text-center font-96 font-900 text-orange"><span id="numcounter3">90</span>%</h1>
-                        <p class="text-center font-28 font-400">Tingkat Kepuasan<br>Penggunaan Layanan</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="mobile">
-        <div class="swiper step-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="col-12 mx-auto">
-                        <img loading="lazy"  src="{{asset('assets/home/contribute1.svg')}}" alt="decorative image" class="mx-auto d-block img-contribute">
-                        <div class="hr-vertical">
-                            <h1 class="text-center font-96 font-900 text-orange">250+</h1>
-                            <p class="text-center font-28 font-400">Total Mahasiswa dalam<br>Tutor & Mentor Session</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="col-12 mx-auto">
-                        <img loading="lazy"  src="{{asset('assets/home/contribute2.svg')}}" alt="decorative image" class="mx-auto d-block img-contribute">
-                        <div class="hr-vertical">
-                            <h1 class="text-center font-96 text-orange font-900">70+</h1>
-                            <p class="text-center font-28 font-400">Sesi Tutor & Mentor<br>telah sukses dilakukan </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="col-12 mx-auto">
-                        <img loading="lazy"  src="{{asset('assets/home/contribute3.svg')}}" alt="decorative image" class="mx-auto d-block img-contribute">
-                        <div>
-                            <h1 class="text-center font-96 font-900 text-orange">90%</h1>
-                            <p class="text-center font-28 font-400">Tingkat Kepuasan<br>Penggunaan Layanan</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- TESTIMONIAL -->
-<div class="container-fluid px-md-5 py-md-5 mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-            <h2 class="text-center font-60 font-900">Apa Kata Mereka?</h2>
-            <p class="text-center font-32 font-400">Mereka sudah mencoba - Yuk <span class="text-orange font-700">Gabung dengan Ratusan Mahasiswa</span> Lainnya </p>
-            </div>
-        </div>
-        <div class="desktop mt-3">
-            <div class="row">
-                <div class="col-4" data-aos="fade-down" data-aos-duration="1000">
-                    <div class="border border-3 border-black rounded-4 p-4">
-                        <h5 class="font-900 font-26">Belajar jadi Seru</h5>
-                        <img loading="lazy"  src="{{asset('assets/testi/testi1.svg')}}" alt="testimonial picture" class="img-fluid w-100">
-                        <p id="card-testimoni" class="font-20 mt-4 font-500">Wah, nggak nyangka banget deh belajar Ekonomi jadi lebih seru berkat bimbingan Kak Ali! Selain suasana yang asik, penjelasannya juga super jelas dan gampang dimengerti. Kak Ali bener-bener punya cara yang unik untuk menyampaikan materi sehingga ga bikin bosen.</p>
-
-                        <div class="d-flex flex-row">
-                            <div class="me-auto">
-                            <p class="font-20 font-400"><span class="font-bold font-700">Ester Meralda</span><br>Akuntansi 23 - UNAIR</p>
+            <div class="container-fluid bg-img-white">
+                <div class="container">
+                    <div class="row desktop">
+                        <div class="col-12">
+                            <div class="bg-orange mx-auto half-up mt-5" style="width: fit-content">
+                                <h3 class="text-center text-white font-900 font-44">Sejak 2023, Terus Memberi Kontribusi &
+                                    Berdampak</h3>
                             </div>
-                            <div><img loading="lazy"  src="{{asset('assets/univ/unair.svg')}}" alt="Logo Univ" class="img-univ"></div>
+
                         </div>
                     </div>
-                </div>
-                <div class="col-4" data-aos="fade-down" data-aos-duration="2000">
-                    <div class="border border-3 border-blue rounded-4 p-4 d-flex flex-column">
-                        <h5 class="font-900 font-26 font-900">Lebih Pede di Kelas</h5>
-                        <img loading="lazy"  src="{{asset('assets/testi/testi2.svg')}}" alt="testimonial picture" class="img-fluid w-100">
-                        <p id="card-testimoni" class="font-20 mt-4 font-500 ">Kelas Kak Raihan dalam akuntansi adalah petualangan seru! Kak Raihan mengajar dengan sangat baik, sabar, dan penjelasan yang apik. Latihan soalnya sangat membantu untuk persiapan UAS dan meningkatkan kepercayaan diri.
 
-                        </p>
-                        <div class="d-flex flex-row">
-                            <div class="me-auto">
-                                <p class="font-20 font-400"><span class="font-bold font-700">Shalima Nur Kusumastuti</span><br>Akuntansi 23 - UGM</p>
+                    <div class="row mobile mt-5">
+                        <div class="col-12">
+                            <div class="mx-auto half-up" style="width: fit-content">
+                                <h3 class="bg-orange text-center text-white font-400 font-38">Sejak 2023, Terus Memberi
+                                </h3>
+                                <h3 class="bg-orange text-center text-white font-900 font-44">Kontribusi & Berdampak</h3>
                             </div>
-                            <div><img loading="lazy"  src="{{asset('assets/univ/ugm.svg')}}" alt="Logo Univ" class="img-univ"></div>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-4" data-aos="fade-down" data-aos-duration="3000">
-                    <div class="border border-3 border-red rounded-4 p-4">
-                        <h5 class="font-900 font-26 font-900">Asyik Bareng Temen</h5>
-                        <img loading="lazy"  src="{{asset('assets/testi/testi3.svg')}}" alt="testimonial picture" class="img-fluid w-100">
-                        <p id="card-testimoni" class="font-20 mt-4 font-500">Belajar Akuntansi jadi seru dan menyenangkan berkat Kak Imel! Kakak ini nggak hanya enak ngajarnya, tapi juga baik banget karena mau berbagi ilmu dan sharing ke kita. Kalau ada tugas atau ada yang kurang paham, Kak Imel selalu dengan sabar membantu sampai benar-benar paham.
-                        </p>
 
-                        <div class="d-flex flex-row">
-                        <div class="me-auto">
-                            <p class="font-20 font-400"><span class="font-bold font-700">Nabila Putri Melati</span><br>Akuntansi 23 - UNAIR</p>
-                        </div>
-                        <div><img loading="lazy"  src="{{asset('assets/univ/unair.svg')}}" alt="Logo Univ" class="img-univ"></div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="mobile mb-5">
-            <div class="row">
-            <div id="carouselTesti" class="carousel slide mobile carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="3000">
-                    <div class="border border-3 border-black rounded-4 box-testi p-4 width-smaller bg-white ">
-                        <h5 class="font-900 font-28 font-900">Belajar Jadi Seru</h5>
-                        <img loading="lazy"  src="{{asset('assets/testi/testi1.svg')}}" alt="testimonial picture" class="img-fluid w-100">
-                        <p class="font-20 mt-4 font-500" style="height: 150px;">Wah, nggak nyangka banget deh belajar Ekonomi jadi lebih seru berkat bimbingan Kak Ali! Selain suasana yang asik, penjelasannya juga super jelas dan gampang dimengerti. Kak Ali bener-bener punya cara yang unik untuk menyampaikan materi sehingga ga bikin bosen.</p>
-
-                        <div class="d-flex flex-row">
-                            <div class="me-auto">
-                            <p class="font-20 font-400"><span class="font-bold font-700">Ester Meralda</span><br>Akuntansi 23 - UNAIRR</p>
+                <div class="container desktop">
+                    <div class="row px-md-5">
+                        <div class="col-4">
+                            <div>
+                                <img loading="lazy" src="{{ asset('assets/home/contribute1.svg') }}"
+                                    alt="decorative image" class="mx-auto d-block img-contribute">
+                                <div class="hr-vertical">
+                                    <h1 class="text-center font-96 font-900 text-orange"><span
+                                            id="numcounter1">250</span>+</h1>
+                                    <p class="text-center font-28 font-400">Total Mahasiswa dalam<br>Tutor & Mentor Session
+                                    </p>
+                                </div>
                             </div>
-                            <div><img loading="lazy"  src="{{asset('assets/univ/unair.svg')}}" alt="Logo Univ" class="img-univ"></div>
                         </div>
+                        <div class="col-4">
+                            <div>
+                                <img loading="lazy" src="{{ asset('assets/home/contribute2.svg') }}"
+                                    alt="decorative image" class="mx-auto d-block img-contribute">
+                                <div class="hr-vertical">
+                                    <h1 class="text-center font-96 font-900 text-orange"><span id="numcounter2">70</span>+
+                                    </h1>
+                                    <p class="text-center font-28 font-400">Sesi Tutor & Mentor<br>telah sukses dilakukan
+                                    </p>
+                                </div>
 
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <div class="border border-3 border-blue rounded-4 box-testi p-4 width-smaller bg-white ">
-                        <h5 class="font-900 font-28 font-900">Lebih Pede di Kelas</h5>
-                        <img loading="lazy"  src="{{asset('assets/testi/testi2.svg')}}" alt="testimonial picture" class="img-fluid w-100">
-                        <p class="font-20 mt-4 font-500" style="height: 150px;">Kelas Kak Raihan dalam akuntansi adalah petualangan seru! Kak Raihan mengajar dengan sangat baik, sabar, dan penjelasan yang apik. Latihan soalnya sangat membantu untuk persiapan UAS dan meningkatkan kepercayaan diri.</p>
-
-                        <div class="d-flex flex-row">
-                            <div class="me-auto">
-                            <p class="font-20 font-400"><span class="font-bold font-700">Shalima Nur Kusumastuti</span><br>Akuntansi 23 - UGM</p>
                             </div>
-                            <div><img loading="lazy"  src="{{asset('assets/univ/ugm.svg')}}" alt="Logo Univ" class="img-univ"></div>
                         </div>
+                        <div class="col-4">
+                            <div>
+                                <img loading="lazy" src="{{ asset('assets/home/contribute3.svg') }}"
+                                    alt="decorative image" class="mx-auto d-block img-contribute">
+                                <div>
+                                    <h1 class="text-center font-96 font-900 text-orange"><span id="numcounter3">90</span>%
+                                    </h1>
+                                    <p class="text-center font-28 font-400">Tingkat Kepuasan<br>Penggunaan Layanan</p>
+                                </div>
 
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <div class="border border-3 border-red rounded-4 box-testi p-4 width-smaller bg-white ">
-                        <h5 class="font-900 font-26 font-900">Asyik Bareng Temen</h5>
-                        <img loading="lazy"  src="{{asset('assets/testi/testi3.svg')}}" alt="testimonial picture" class="img-fluid w-100">
-                        <p class="font-20 mt-4 font-500" style="height: 150px;">Belajar Akuntansi jadi seru dan menyenangkan berkat Kak Imel! Kakak ini nggak hanya enak ngajarnya, tapi juga baik banget karena mau berbagi ilmu dan sharing ke kita. Kalau ada tugas atau ada yang kurang paham, Kak Imel selalu dengan sabar membantu sampai benar-benar paham.</p>
-
-                        <div class="d-flex flex-row">
-                            <div class="me-auto">
-                            <p class="font-20 font-400"><span class="font-bold font-700">Nabila Putri Melati</span><br>Akuntansi 23 - UNAIR</p>
                             </div>
-                            <div><img loading="lazy"  src="{{asset('assets/univ/unair.svg')}}" alt="Logo Univ" class="img-univ"></div>
                         </div>
-
                     </div>
                 </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTesti" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselTesti" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- CLOSING -->
-<!--desktop-->
-<div class="desktop">
-    <div class="container-fluid bg-img-blue-square mt-5" >
-        <div class="px-md-5 py-md-5" style="background: url('assets/background/assetbgblue.svg');background-repeat: no-repeat;background-size: cover;z-index:0px;padding-top:0px;padding-bottom:100px;height:100%">
-            <div class="wrapper">
-                <div class="p"></div>
-                <div class="img-area">
-                <a href="https://www.linkedin.com/company/economic-space/mycompany/" target="_blank" aria-label="go to economic space linkedin">
-                    <img loading="lazy"  src="{{ asset('assets/home/sheet1.svg') }}" class="img img-box box-4 hovered" alt="linkedin">
-                </a>
-                <a href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank" aria-label="economic space whatsapp number">
-                    <img loading="lazy"  src="{{ asset('assets/home/sheet2.svg') }}" class="img img-box box-5 hovered" alt="whatsapp">
-                </a>
-                <img loading="lazy"  src="{{ asset('assets/home/sheet3.svg') }}" class="img img-box box-6 hovered" alt="website">
-
-
-                <a href="https://www.linkedin.com/company/economic-space/mycompany/" target="_blank" aria-label="go to economic space linkedin">
-                    <img loading="lazy"  src="{{ asset('assets/home/folder1.svg') }}" class="img img-box box-7 hovered" alt="linkedin">
-                </a>
-                <a href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank" aria-label="economic space whatsapp number">
-                    <img loading="lazy"  src="{{ asset('assets/home/folder2.svg') }}" class="img img-box box-8 hovered" alt="whatsapp">
-                </a>
-                <img loading="lazy"  src="{{ asset('assets/home/folder3.svg') }}" class="img img-box box-9 hovered" alt="decorative image">
-                <img loading="lazy"  src="{{ asset('assets/home/arrow.svg') }}" class="img img-box box-10 hovered" alt="decorative image">
-                <img loading="lazy"  src="{{ asset('assets/home/arrow.svg') }}" class="img img-box box-11 hovered" alt="decorative image">
-                <img loading="lazy"  src="{{ asset('assets/home/arrow.svg') }}" class="img img-box box-12 hovered" alt="decorative image">
-                <img loading="lazy"  src="{{ asset('assets/home/ppt2.svg') }}" class="img img-box box-1 hovered" alt="decorative image">
-                <img loading="lazy"  src="{{ asset('assets/home/ppt3.svg') }}" class="img img-box box-2 hovered" alt="decorative image">
-                <img loading="lazy"  src="{{ asset('assets/home/ppt1.svg') }}" class="img img-box box-3 hovered" alt="decorative image">
-                </div>
-            </div>
-            <div class="overlay-text">
-                <div class="col-10 ">
-                    <h5 class="font-36 text-orange "><span class="font-family font-900 bg-white text-center"> Memberikan Layanan</span> </h5>
-                    <h5 class="font-36 text-orange "><span class="font-family font-900  bg-white text-center">End to End untuk</span> </h5>
-                    <h5 class="font-36 text-orange "><span class="font-family font-900 bg-white text-center">Pengembangan Dirimu</span></h5>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="desktop">
-    <div class="container">
-        <div class="box-orange d-flex justify-content-between">
-            <div class="box-wa-1 flex-fill">
-                <h3 class="text-white font-700 font-36 mb-0 mt-2">Punya pertanyaan lebih lanjut?</h3>
-            </div>
-            <div class="box-wa justify-content-center hovered">
-                <img loading="lazy"  class="img-fluid icon-wa" src="{{asset('assets/socmed/wa.svg')}}" alt="icon whatsapp">
-                <div class="font-400 font-24">
-                    <a href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank" aria-label="economic space whatsapp number">
-                        Hubungi Kami
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
-
-
-{{-- KOTAK BIRU YANG MOBILE --}}
-<div class="mobile">
-    <div class="container-fluid bg-img-blue-square justify-content-center" >
-        <div class="px-md-5 py-md-5" style="background: url('');background-repeat: no-repeat;background-size: cover;z-index:0px;padding-top:0px;padding-bottom:100px;height:100%">
-            <div class="overlay-text">
-                <h5 class="text-orange "><span class="font-48 font-family font-900 bg-white text-center"> Memberikan Layanan</span> </h5>
-                <h5 class="text-orange "><span class="font-48 font-family font-900  bg-white text-center">End to End untuk</span> </h5>
-                <h5 class="text-orange "><span class="font-48 font-family font-900 bg-white text-center">Pengembangan Dirimu</span></h5>
-            </div>
-            <div class="row">
-                <div class="col align-self-center justify-content-center cards mt-3">
-                    <div class="card card-1">
-                        <img loading="lazy"  src="{{ asset('assets/home/icon2.svg') }}" class="icon-1 m-1" alt="whatsapp icon" style="width: 50px;">
-                        <h3 class="font-900 font-32 mt-1 text-right">WhatsApp Community</h3>
-                        <p class="font-18 text-right mt-1">Open Space Community to learn insightful thing about College & Professional Life</p>
-                        <button class="btn btn-danger font-700 font-24   mt-1"><a href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank" class="text-white" aria-label="economic space whatsapp number">Join Now</a></button>
-                    </div>
-                    <div class="card card-2">
-                        <img loading="lazy"  src="{{ asset('assets/home/icon1.svg') }}" class="icon-2 m-1" alt="whatsapp icon" style="width: 50px;">
-                        <h3 class="font-900 font-32 mt-1 text-right" style="text-align: right;">LinkedIn Career & Competition</h3>
-                        <p class="font-18 text-right mt-1" style="text-align: right;">Exclusive information on Career, Scholarship, Competition, etc. No More Miss Out on Opportunities</p>
-                        <button class="btn btn-danger font-700 font-24 mt-1"><a href="https://www.linkedin.com/company/economic-space/mycompany/" target="_blank" class="text-white" aria-label="go to economic space linkedin">Discover Now</a></button>
+                <div class="mobile">
+                    <div class="swiper step-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="col-12 mx-auto">
+                                    <img loading="lazy" src="{{ asset('assets/home/contribute1.svg') }}"
+                                        alt="decorative image" class="mx-auto d-block img-contribute">
+                                    <div class="hr-vertical">
+                                        <h1 class="text-center font-96 font-900 text-orange">250+</h1>
+                                        <p class="text-center font-28 font-400">Total Mahasiswa dalam<br>Tutor & Mentor
+                                            Session</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="col-12 mx-auto">
+                                    <img loading="lazy" src="{{ asset('assets/home/contribute2.svg') }}"
+                                        alt="decorative image" class="mx-auto d-block img-contribute">
+                                    <div class="hr-vertical">
+                                        <h1 class="text-center font-96 text-orange font-900">70+</h1>
+                                        <p class="text-center font-28 font-400">Sesi Tutor & Mentor<br>telah sukses
+                                            dilakukan </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="col-12 mx-auto">
+                                    <img loading="lazy" src="{{ asset('assets/home/contribute3.svg') }}"
+                                        alt="decorative image" class="mx-auto d-block img-contribute">
+                                    <div>
+                                        <h1 class="text-center font-96 font-900 text-orange">90%</h1>
+                                        <p class="text-center font-28 font-400">Tingkat Kepuasan<br>Penggunaan Layanan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
+            <!-- TESTIMONIAL -->
+            <div class="container-fluid px-md-5 py-md-5 mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="text-center font-60 font-900">Apa Kata Mereka?</h2>
+                            <p class="text-center font-32 font-400">Mereka sudah mencoba - Yuk <span
+                                    class="text-orange font-700">Gabung dengan Ratusan Mahasiswa</span> Lainnya </p>
+                        </div>
+                    </div>
+                    <div class="desktop mt-3">
+                        <div class="row">
+                            <div class="col-4" data-aos="fade-down" data-aos-duration="1000">
+                                <div class="border border-3 border-black rounded-4 p-4">
+                                    <h5 class="font-900 font-26">Belajar jadi Seru</h5>
+                                    <img loading="lazy" src="{{ asset('assets/testi/testi1.svg') }}"
+                                        alt="testimonial picture" class="img-fluid w-100">
+                                    <p id="card-testimoni" class="font-20 mt-4 font-500">Wah, nggak nyangka banget deh
+                                        belajar Ekonomi jadi lebih seru berkat bimbingan Kak Ali! Selain suasana yang asik,
+                                        penjelasannya juga super jelas dan gampang dimengerti. Kak Ali bener-bener punya
+                                        cara yang unik untuk menyampaikan materi sehingga ga bikin bosen.</p>
 
-    {{-- kotak oren --}}
+                                    <div class="d-flex flex-row">
+                                        <div class="me-auto">
+                                            <p class="font-20 font-400"><span class="font-bold font-700">Ester
+                                                    Meralda</span><br>Akuntansi 23 - UNAIR</p>
+                                        </div>
+                                        <div><img loading="lazy" src="{{ asset('assets/univ/unair.svg') }}"
+                                                alt="Logo Univ" class="img-univ"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4" data-aos="fade-down" data-aos-duration="2000">
+                                <div class="border border-3 border-blue rounded-4 p-4 d-flex flex-column">
+                                    <h5 class="font-900 font-26 font-900">Lebih Pede di Kelas</h5>
+                                    <img loading="lazy" src="{{ asset('assets/testi/testi2.svg') }}"
+                                        alt="testimonial picture" class="img-fluid w-100">
+                                    <p id="card-testimoni" class="font-20 mt-4 font-500 ">Kelas Kak Raihan dalam akuntansi
+                                        adalah petualangan seru! Kak Raihan mengajar dengan sangat baik, sabar, dan
+                                        penjelasan yang apik. Latihan soalnya sangat membantu untuk persiapan UAS dan
+                                        meningkatkan kepercayaan diri.
 
-    <div class="mobile">
-        <div class="container">
-            <div class="box-orange">
-                <div class="text-center">
-                    <p class="font-36 font-700 mb-1">Punya pertanyaan lebih lanjut?</p>
+                                    </p>
+                                    <div class="d-flex flex-row">
+                                        <div class="me-auto">
+                                            <p class="font-20 font-400"><span class="font-bold font-700">Shalima Nur
+                                                    Kusumastuti</span><br>Akuntansi 23 - UGM</p>
+                                        </div>
+                                        <div><img loading="lazy" src="{{ asset('assets/univ/ugm.svg') }}"
+                                                alt="Logo Univ" class="img-univ"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4" data-aos="fade-down" data-aos-duration="3000">
+                                <div class="border border-3 border-red rounded-4 p-4">
+                                    <h5 class="font-900 font-26 font-900">Asyik Bareng Temen</h5>
+                                    <img loading="lazy" src="{{ asset('assets/testi/testi3.svg') }}"
+                                        alt="testimonial picture" class="img-fluid w-100">
+                                    <p id="card-testimoni" class="font-20 mt-4 font-500">Belajar Akuntansi jadi seru dan
+                                        menyenangkan berkat Kak Imel! Kakak ini nggak hanya enak ngajarnya, tapi juga baik
+                                        banget karena mau berbagi ilmu dan sharing ke kita. Kalau ada tugas atau ada yang
+                                        kurang paham, Kak Imel selalu dengan sabar membantu sampai benar-benar paham.
+                                    </p>
+
+                                    <div class="d-flex flex-row">
+                                        <div class="me-auto">
+                                            <p class="font-20 font-400"><span class="font-bold font-700">Nabila Putri
+                                                    Melati</span><br>Akuntansi 23 - UNAIR</p>
+                                        </div>
+                                        <div><img loading="lazy" src="{{ asset('assets/univ/unair.svg') }}"
+                                                alt="Logo Univ" class="img-univ"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mobile mb-5">
+                        <div class="row">
+                            <div id="carouselTesti" class="carousel slide mobile carousel-fade" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active" data-bs-interval="3000">
+                                        <div
+                                            class="border border-3 border-black rounded-4 box-testi p-4 width-smaller bg-white ">
+                                            <h5 class="font-900 font-28 font-900">Belajar Jadi Seru</h5>
+                                            <img loading="lazy" src="{{ asset('assets/testi/testi1.svg') }}"
+                                                alt="testimonial picture" class="img-fluid w-100">
+                                            <p class="font-20 mt-4 font-500" style="height: 150px;">Wah, nggak nyangka
+                                                banget deh belajar Ekonomi jadi lebih seru berkat bimbingan Kak Ali! Selain
+                                                suasana yang asik, penjelasannya juga super jelas dan gampang dimengerti.
+                                                Kak Ali bener-bener punya cara yang unik untuk menyampaikan materi sehingga
+                                                ga bikin bosen.</p>
+
+                                            <div class="d-flex flex-row">
+                                                <div class="me-auto">
+                                                    <p class="font-20 font-400"><span class="font-bold font-700">Ester
+                                                            Meralda</span><br>Akuntansi 23 - UNAIRR</p>
+                                                </div>
+                                                <div><img loading="lazy" src="{{ asset('assets/univ/unair.svg') }}"
+                                                        alt="Logo Univ" class="img-univ"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="3000">
+                                        <div
+                                            class="border border-3 border-blue rounded-4 box-testi p-4 width-smaller bg-white ">
+                                            <h5 class="font-900 font-28 font-900">Lebih Pede di Kelas</h5>
+                                            <img loading="lazy" src="{{ asset('assets/testi/testi2.svg') }}"
+                                                alt="testimonial picture" class="img-fluid w-100">
+                                            <p class="font-20 mt-4 font-500" style="height: 150px;">Kelas Kak Raihan dalam
+                                                akuntansi adalah petualangan seru! Kak Raihan mengajar dengan sangat baik,
+                                                sabar, dan penjelasan yang apik. Latihan soalnya sangat membantu untuk
+                                                persiapan UAS dan meningkatkan kepercayaan diri.</p>
+
+                                            <div class="d-flex flex-row">
+                                                <div class="me-auto">
+                                                    <p class="font-20 font-400"><span class="font-bold font-700">Shalima
+                                                            Nur Kusumastuti</span><br>Akuntansi 23 - UGM</p>
+                                                </div>
+                                                <div><img loading="lazy" src="{{ asset('assets/univ/ugm.svg') }}"
+                                                        alt="Logo Univ" class="img-univ"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="3000">
+                                        <div
+                                            class="border border-3 border-red rounded-4 box-testi p-4 width-smaller bg-white ">
+                                            <h5 class="font-900 font-26 font-900">Asyik Bareng Temen</h5>
+                                            <img loading="lazy" src="{{ asset('assets/testi/testi3.svg') }}"
+                                                alt="testimonial picture" class="img-fluid w-100">
+                                            <p class="font-20 mt-4 font-500" style="height: 150px;">Belajar Akuntansi jadi
+                                                seru dan menyenangkan berkat Kak Imel! Kakak ini nggak hanya enak ngajarnya,
+                                                tapi juga baik banget karena mau berbagi ilmu dan sharing ke kita. Kalau ada
+                                                tugas atau ada yang kurang paham, Kak Imel selalu dengan sabar membantu
+                                                sampai benar-benar paham.</p>
+
+                                            <div class="d-flex flex-row">
+                                                <div class="me-auto">
+                                                    <p class="font-20 font-400"><span class="font-bold font-700">Nabila
+                                                            Putri Melati</span><br>Akuntansi 23 - UNAIR</p>
+                                                </div>
+                                                <div><img loading="lazy" src="{{ asset('assets/univ/unair.svg') }}"
+                                                        alt="Logo Univ" class="img-univ"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTesti"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselTesti"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="box-wa justify-content-center mb-1 mt-0">
-                    <img loading="lazy"  class="icon-wa" src="{{asset('assets/socmed/wa.svg')}}" alt="whatsapp icon">
-                    <a target="_blank" href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" aria-label="economic space whatsapp number">
-                        Hubungi Kami
-                    </a>
+            </div>
+
+            <!-- CLOSING -->
+            <!--desktop-->
+            <div class="desktop">
+                <div class="container-fluid bg-img-blue-square mt-5">
+                    <div class="px-md-5 py-md-5"
+                        style="background: url('assets/background/assetbgblue.svg');background-repeat: no-repeat;background-size: cover;z-index:0px;padding-top:0px;padding-bottom:100px;height:100%">
+                        <div class="wrapper">
+                            <div class="p"></div>
+                            <div class="img-area">
+                                <a href="https://www.linkedin.com/company/economic-space/mycompany/" target="_blank"
+                                    aria-label="go to economic space linkedin">
+                                    <img loading="lazy" src="{{ asset('assets/home/sheet1.svg') }}"
+                                        class="img img-box box-4 hovered" alt="linkedin">
+                                </a>
+                                <a href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank"
+                                    aria-label="economic space whatsapp number">
+                                    <img loading="lazy" src="{{ asset('assets/home/sheet2.svg') }}"
+                                        class="img img-box box-5 hovered" alt="whatsapp">
+                                </a>
+                                <img loading="lazy" src="{{ asset('assets/home/sheet3.svg') }}"
+                                    class="img img-box box-6 hovered" alt="website">
+
+
+                                <a href="https://www.linkedin.com/company/economic-space/mycompany/" target="_blank"
+                                    aria-label="go to economic space linkedin">
+                                    <img loading="lazy" src="{{ asset('assets/home/folder1.svg') }}"
+                                        class="img img-box box-7 hovered" alt="linkedin">
+                                </a>
+                                <a href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank"
+                                    aria-label="economic space whatsapp number">
+                                    <img loading="lazy" src="{{ asset('assets/home/folder2.svg') }}"
+                                        class="img img-box box-8 hovered" alt="whatsapp">
+                                </a>
+                                <img loading="lazy" src="{{ asset('assets/home/folder3.svg') }}"
+                                    class="img img-box box-9 hovered" alt="decorative image">
+                                <img loading="lazy" src="{{ asset('assets/home/arrow.svg') }}"
+                                    class="img img-box box-10 hovered" alt="decorative image">
+                                <img loading="lazy" src="{{ asset('assets/home/arrow.svg') }}"
+                                    class="img img-box box-11 hovered" alt="decorative image">
+                                <img loading="lazy" src="{{ asset('assets/home/arrow.svg') }}"
+                                    class="img img-box box-12 hovered" alt="decorative image">
+                                <img loading="lazy" src="{{ asset('assets/home/ppt2.svg') }}"
+                                    class="img img-box box-1 hovered" alt="decorative image">
+                                <img loading="lazy" src="{{ asset('assets/home/ppt3.svg') }}"
+                                    class="img img-box box-2 hovered" alt="decorative image">
+                                <img loading="lazy" src="{{ asset('assets/home/ppt1.svg') }}"
+                                    class="img img-box box-3 hovered" alt="decorative image">
+                            </div>
+                        </div>
+                        <div class="overlay-text">
+                            <div class="col-10 ">
+                                <h5 class="font-36 text-orange "><span class="font-family font-900 bg-white text-center">
+                                        Memberikan Layanan</span> </h5>
+                                <h5 class="font-36 text-orange "><span
+                                        class="font-family font-900  bg-white text-center">End to End untuk</span> </h5>
+                                <h5 class="font-36 text-orange "><span
+                                        class="font-family font-900 bg-white text-center">Pengembangan Dirimu</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="desktop">
+                <div class="container">
+                    <div class="box-orange d-flex justify-content-between">
+                        <div class="box-wa-1 flex-fill">
+                            <h3 class="text-white font-700 font-36 mb-0 mt-2">Punya pertanyaan lebih lanjut?</h3>
+                        </div>
+                        <div class="box-wa justify-content-center hovered">
+                            <img loading="lazy" class="img-fluid icon-wa" src="{{ asset('assets/socmed/wa.svg') }}"
+                                alt="icon whatsapp">
+                            <div class="font-400 font-24">
+                                <a href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank"
+                                    aria-label="economic space whatsapp number">
+                                    Hubungi Kami
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-{{-- FOOTER --}}
 
-@section('desktopBtn') Daftar Kelas @endsection
-@section('desktopTitle') Siap Buat Belajar bersama Economic Space? @endsection
-@section('desktopContent') Langsung Daftarkan diri & Persiapkan Masa Depanmu @endsection
-@section('mobileTitle1') Siap Buat Belajar bersama @endsection
-@section('mobileTitle2') Economic Space? @endsection
-@section('mobileContent') Langsung Daftarkan diri & <br>Persiapkan Masa Depanmu @endsection
-@section('mobileBtn') Daftar Kelas @endsection
+        {{-- KOTAK BIRU YANG MOBILE --}}
+        <div class="mobile">
+            <div class="container-fluid bg-img-blue-square justify-content-center">
+                <div class="px-md-5 py-md-5"
+                    style="background: url('');background-repeat: no-repeat;background-size: cover;z-index:0px;padding-top:0px;padding-bottom:100px;height:100%">
+                    <div class="overlay-text">
+                        <h5 class="text-orange "><span class="font-48 font-family font-900 bg-white text-center">
+                                Memberikan Layanan</span> </h5>
+                        <h5 class="text-orange "><span class="font-48 font-family font-900  bg-white text-center">End to
+                                End untuk</span> </h5>
+                        <h5 class="text-orange "><span
+                                class="font-48 font-family font-900 bg-white text-center">Pengembangan Dirimu</span></h5>
+                    </div>
+                    <div class="row">
+                        <div class="col align-self-center justify-content-center cards mt-3">
+                            <div class="card card-1">
+                                <img loading="lazy" src="{{ asset('assets/home/icon2.svg') }}" class="icon-1 m-1"
+                                    alt="whatsapp icon" style="width: 50px;">
+                                <h3 class="font-900 font-32 mt-1 text-right">WhatsApp Community</h3>
+                                <p class="font-18 text-right mt-1">Open Space Community to learn insightful thing about
+                                    College & Professional Life</p>
+                                <button class="btn btn-danger font-700 font-24   mt-1"><a
+                                        href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank"
+                                        class="text-white" aria-label="economic space whatsapp number">Join
+                                        Now</a></button>
+                            </div>
+                            <div class="card card-2">
+                                <img loading="lazy" src="{{ asset('assets/home/icon1.svg') }}" class="icon-2 m-1"
+                                    alt="whatsapp icon" style="width: 50px;">
+                                <h3 class="font-900 font-32 mt-1 text-right" style="text-align: right;">LinkedIn Career &
+                                    Competition</h3>
+                                <p class="font-18 text-right mt-1" style="text-align: right;">Exclusive information on
+                                    Career, Scholarship, Competition, etc. No More Miss Out on Opportunities</p>
+                                <button class="btn btn-danger font-700 font-24 mt-1"><a
+                                        href="https://www.linkedin.com/company/economic-space/mycompany/" target="_blank"
+                                        class="text-white" aria-label="go to economic space linkedin">Discover
+                                        Now</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {{-- kotak oren --}}
+
+            <div class="mobile">
+                <div class="container">
+                    <div class="box-orange">
+                        <div class="text-center">
+                            <p class="font-36 font-700 mb-1">Punya pertanyaan lebih lanjut?</p>
+                        </div>
+                        <div class="box-wa justify-content-center mb-1 mt-0">
+                            <img loading="lazy" class="icon-wa" src="{{ asset('assets/socmed/wa.svg') }}"
+                                alt="whatsapp icon">
+                            <a target="_blank" href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW"
+                                aria-label="economic space whatsapp number">
+                                Hubungi Kami
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- FOOTER --}}
+
+    @section('desktopBtn')
+        Daftar Kelas
+    @endsection
+    @section('desktopTitle')
+        Siap Buat Belajar bersama Economic Space?
+    @endsection
+    @section('desktopContent')
+        Langsung Daftarkan diri & Persiapkan Masa Depanmu
+    @endsection
+    @section('mobileTitle1')
+        Siap Buat Belajar bersama
+    @endsection
+    @section('mobileTitle2')
+        Economic Space?
+    @endsection
+    @section('mobileContent')
+        Langsung Daftarkan diri & <br>Persiapkan Masa Depanmu
+    @endsection
+    @section('mobileBtn')
+        Daftar Kelas
+    @endsection
 
 
 @endsection
-
