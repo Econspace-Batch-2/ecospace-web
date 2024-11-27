@@ -1,5 +1,5 @@
 <!-- TESTIMONIAL -->
-<div class="container mx-auto px-4 py-10">
+<main class="px-10 md:px-20 px-4 py-10 max-w-[100vw] overflow-x-hidden">
     <div class="text-center">
         <h2 class="text-4xl font-bold">Apa Kata Mereka?</h2>
         <p class="text-lg mt-2">
@@ -117,12 +117,9 @@
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
-            <!-- Add Navigation -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
     </div>
-</div>
+</main>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
