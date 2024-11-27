@@ -32,7 +32,10 @@
 
     @include('layout.navbar')
 
-    @yield('content')
+    <main class="pt-20 md:pt-32">
+        @yield('content')
+    </main>
+
 
     @include('layout.footer')
 
