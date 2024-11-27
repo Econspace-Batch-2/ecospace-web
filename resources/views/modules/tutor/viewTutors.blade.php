@@ -53,26 +53,14 @@
                         <img loading="lazy"  src="{{asset('assets/mentor/joshua2.svg')}}" alt="Joshua" class="mx-auto d-block img-fluid" style="max-height: 250px">
                     </div>
                 </div>
-                {{-- tulisan, ada di mobile jg --}}
-                <div class="col-12 col-md-7 py-4">
-                    <div class="ps-3 ps-md-0">
-                        <h1 class="font-black font-42 font-900">Tutor Session </h1>
-                        <p class="font-26 font-400">Menyediakan Kebutuhan Belajar Akademikmu | Senantiasa menjaga kualitas pengajar dan memperluas jangkauan jenis mata kuliah.</p>
-                    </div>
-                    <div class="ps-3 ps-md-0 mt-3">
-                        <h3 class="font-26 font-700">Keunggulan Kami:</h3>
-                        <div class="d-flex align-items-center">
-                            <img loading="lazy"  style="width:10%; max-width: 50px;" class="me-2" src="{{asset ('assets/home/icon3.svg')}}" alt="icon">
-                            <div class="font-22 font-400">
-                                Menyediakan <span class="font-700">Tutor berdasarkan Universitas</span>  agar Relevan <br class="desktop">Ilmu & Pembelajaran sesuai dengan kebutuhan Mahasiswa
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mt-2">
-                            <img loading="lazy"  style="width:10%; max-width: 50px;" class="me-2" src="{{asset ('assets/home/icon3.svg')}}" alt="icon">
-                            <div class="font-22 font-400"> <span class="font-700">
-                                Spesialisasi Pengajaran Mata Kuliah</span> pada Bidang Akuntansi, <br class="desktop">Ilmu Ekonomi, Manajemen Bisnis & Keuangan.
-                            </div>
-                        </div>
+                <div class="flex items-center gap-3 md:gap-5">
+                    <img loading="lazy" class="w-[10%] max-md:w-[45px] max-w-[50px]"
+                        src="{{ asset('assets/home/icon3.svg') }}" alt="icon">
+                    <div class="text-[12px] md:text-[18px] max-xl:text-justify relative">
+                        <img loading="lazy" class="w-[12px] md:w-[18px] top-[6px] absolute"
+                            src="{{ asset('assets/home/graduation-cap.svg') }}" alt="icon">
+                        <span class="font-semibold pl-6">Pembicara Ahli:</span> Belajar langsung dari para ahli dan praktisi
+                        industri yang <br class="max-xl:hidden" /> berpengalaman.
                     </div>
                 </div>
             </div>
@@ -80,14 +68,29 @@
     </div>
 
 
+
     <!-- FOOTER -->
-    @section('desktopBtn') Join Mentoring @endsection
-    @section('desktopTitle') Ingin mendapatkan ilmu di luar Akademik? @endsection
-    @section('desktopContent') Yuk mulai mentoring dengan expert di bidang lomba, karir, dll @endsection
-    @section('mobileTitle1') Ingin mendapatkan ilmu di @endsection
-    @section('mobileTitle2') luar Akademik? @endsection
-    @section('mobileContent') Yuk mulai mentoring dengan expert di bidang lomba, karir, dll @endsection
-    @section('mobileBtn') Join Mentoring @endsection
+@section('desktopBtn')
+    Join Mentoring
+@endsection
+@section('desktopTitle')
+    Ingin mendapatkan ilmu di luar Akademik?
+@endsection
+@section('desktopContent')
+    Yuk mulai mentoring dengan expert di bidang lomba, karir, dll
+@endsection
+@section('mobileTitle1')
+    Ingin mendapatkan ilmu di
+@endsection
+@section('mobileTitle2')
+    luar Akademik?
+@endsection
+@section('mobileContent')
+    Yuk mulai mentoring dengan expert di bidang lomba, karir, dll
+@endsection
+@section('mobileBtn')
+    Join Mentoring
+@endsection
 
 
     {{-- jquery for pagination --}}
@@ -96,24 +99,25 @@
         var currentPage = {{ $subjects->currentPage() }};
         var lastPage = {{ $subjects->lastPage() }};
 
-        // Function to show or hide load button based on current page and last page
-        function showOrHideLoadButton() {
-            if (currentPage >= lastPage) {
-                $('.lazy-loading').hide(); // Hide the button if there are no more pages
-            } else {
-                $('.lazy-loading').show(); // Show the button if there are more pages
-            }
+    // Function to show or hide load button based on current page and last page
+    function showOrHideLoadButton() {
+        if (currentPage >= lastPage) {
+            $('.lazy-loading').hide(); // Hide the button if there are no more pages
+        } else {
+            $('.lazy-loading').show(); // Show the button if there are more pages
         }
+    }
 
-        // Function to display "No data" message
-        function showNoDataMessage() {
-            $('#subject-container').html('<p class="text-center">No data to display</p>');
-            $('.lazy-loading').hide(); // Hide the load button
-        }
+    // Function to display "No data" message
+    function showNoDataMessage() {
+        $('#subject-container').html('<p class="text-center">No data to display</p>');
+        $('.lazy-loading').hide(); // Hide the load button
+    }
 
-        // Function to handle live search and filter
-        function handleSearch() {
-            var searchTerm = $('#tutorSearchBar').val().trim(); // Get the search term and remove leading/trailing whitespace
+    // Function to handle live search and filter
+    function handleSearch() {
+        var searchTerm = $('#tutorSearchBar').val()
+            .trim(); // Get the search term and remove leading/trailing whitespace
 
             $.ajax({
                 url: $('#searchForm').attr('action'),
@@ -133,44 +137,48 @@
             });
         }
 
-        // Event listener for live search
-        $(document).ready(function() {
-            $('#tutorSearchBar').on('input', function() {
-                handleSearch();
-            });
-
-            $('#tutorSearchBar').on('keydown', function(event) {
-                if (event.which === 13) {
-                    event.preventDefault();
-                }
-            });
+    // Event listener for live search
+    $(document).ready(function() {
+        $('#tutorSearchBar').on('input', function() {
+            handleSearch();
         });
 
-        // Event listener for lazy loading
-        $('.lazy-loading').click(function() {
-            if (currentPage >= lastPage) {
-                $(this).hide(); // Hide the button if there are no more pages
-                return;
+        $('#tutorSearchBar').on('keydown', function(event) {
+            if (event.which === 13) {
+                event.preventDefault();
             }
-
-            var searchTerm = $('#tutorSearchBar').val().trim(); // Get the current search term
-            var nextPage = currentPage + 1;
-
-            $.ajax({
-                url: "{{ route('viewTutors') }}",
-                type: "GET",
-                data: { page: nextPage, tutorSearchBar: searchTerm }, // Include the search term in the pagination request
-                success: function(data) {
-                    if (data.trim() === '') {
-                        showNoDataMessage(); // Display "No data" message if response is empty
-                    } else {
-                        $('#subject-container').append(data); // Append new subjects
-                        currentPage++; // Update current page after successful load
-                        showOrHideLoadButton(); // Show or hide load button based on current page and last page
-                    }
-                }
-            });
         });
+    });
+
+    // Event listener for lazy loading
+    $('.lazy-loading').click(function() {
+        if (currentPage >= lastPage) {
+            $(this).hide(); // Hide the button if there are no more pages
+            return;
+        }
+
+        var searchTerm = $('#tutorSearchBar').val().trim(); // Get the current search term
+        var nextPage = currentPage + 1;
+
+        $.ajax({
+            url: "{{ route('viewTutors') }}",
+            type: "GET",
+            data: {
+                page: nextPage,
+                tutorSearchBar: searchTerm
+            }, // Include the search term in the pagination request
+            success: function(data) {
+                if (data.trim() === '') {
+                    showNoDataMessage(); // Display "No data" message if response is empty
+                } else {
+                    $('#subject-container').append(data); // Append new subjects
+                    currentPage++; // Update current page after successful load
+                    showOrHideLoadButton
+                        (); // Show or hide load button based on current page and last page
+                }
+            }
+        });
+    });
 
         // Initial setup
         $(document).ready(function() {

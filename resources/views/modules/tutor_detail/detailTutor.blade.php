@@ -102,20 +102,22 @@
                         alt="{{ $subject->subject_image }}" class="img-fluid h-100 rounded-4 w-100">
                 </div>
 
-
+            {{-- Right Column --}}
+            <div class="w-full">
+                <img loading="lazy" src="{{ asset('assets/courseInside/'.$subject->subject_image) }}" alt="{{ $subject->subject_image }}" class="w-full h-full rounded-3xl object-cover">
             </div>
         </div>
     </div>
 
     {{-- tutor content --}}
-    <div class="container-fluid mt-4">
+    <div class="container mt-4 md:px-20">
         <div class="container">
             {{-- garis pembatas --}}
             <div class="row mb-md-3">
                 <hr style="border: none; border-bottom: 3px solid grey;">
             </div>
 
-            <div class="row gx-5">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 {{-- sebelah kiri --}}
                 <div class="col-12 col-md-8">
@@ -160,14 +162,14 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4">
+                <div class="space-y-6">
                     <div>
-                        {{-- card pertama --}}
-                        <div class="border border-2 rounded-4 pt-3 px-4">
-                            <h3 class="font-36 font-900">Tutor Background</h3>
-                            <p class="font-26 font-400">Asal Universitas Tutor:</p>
+                        {{-- card pertama: Tutor Background --}}
+                        <div class="border-2 rounded-2xl mt-4 p-8 space-y-4">
+                            <h3 class="text-3xl font-extrabold">Tutor Background</h3>
+                            <p class="text-xl font-normal">Asal Universitas Tutor:</p>
 
-                            <div class="d-lg-flex justify-content-left gap-lg-3 flex-wrap">
+                            <div class="flex flex-wrap gap-4">
                                 @php $counter = 0 @endphp
                                 @foreach (json_decode($subject->subject_univ) as $univ)
                                     @if ($counter < 4)
