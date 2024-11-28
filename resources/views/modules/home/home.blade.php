@@ -20,8 +20,8 @@
 
         <div class="row px-md-5 mt-4">
             <div class="col-12">
-            <a target="_blank" href="https://bit.ly/RegistrationTutorService">            
-                <x-button 
+            <a target="_blank" href="https://bit.ly/RegistrationTutorService">
+                <x-button
                     type="button"
                     label="Mulai Belajar"
                 />
@@ -684,11 +684,9 @@
 <!-- CLOSING -->
 <!--desktop-->
 <div class="desktop">
-    <div class="container-fluid bg-img-blue-square mt-5" >
-        <div class="px-md-5 py-md-5" style="background: url('assets/background/assetbgblue.svg');background-repeat: no-repeat;background-size: cover;z-index:0px;padding-top:0px;padding-bottom:100px;height:100%">
-            <div class="wrapper">
-                <div class="p"></div>
-                <div class="img-area">
+    <div class="bg-img-blue-square mt-5 bg-cover min-h-screen relative">
+        <div style="background: url('assets/background/assetbgblue.svg');background-repeat: no-repeat;background-size: cover;z-index:0px;padding-top:0px;padding-bottom:100px;height:100%">
+            <div class="img-area absolute top-0 left-0 translate-x-[50%] translate-y-[50%] xl:scale-150">
                 <a href="https://www.linkedin.com/company/economic-space/mycompany/" target="_blank" aria-label="go to economic space linkedin">
                     <img loading="lazy"  src="{{ asset('assets/home/sheet1.svg') }}" class="img img-box box-4 hovered" alt="linkedin">
                 </a>
@@ -711,12 +709,11 @@
                 <img loading="lazy"  src="{{ asset('assets/home/ppt2.svg') }}" class="img img-box box-1 hovered" alt="decorative image">
                 <img loading="lazy"  src="{{ asset('assets/home/ppt3.svg') }}" class="img img-box box-2 hovered" alt="decorative image">
                 <img loading="lazy"  src="{{ asset('assets/home/ppt1.svg') }}" class="img img-box box-3 hovered" alt="decorative image">
-                </div>
             </div>
-            <div class="overlay-text">
-                <div class="col-10 ">
-                    <h5 class="font-36 text-orange "><span class="font-family font-900 bg-white text-center"> Memberikan Layanan</span> </h5>
-                    <h5 class="font-36 text-orange "><span class="font-family font-900  bg-white text-center">End to End untuk</span> </h5>
+            <div class="relative top-[15%] left-[22%] -translate-x-[50%] -translate-y-[50%] text-left p-[20px] w-[80%] max-w-[525px]">
+                <div class="col-10">
+                    <h5 class="font-36 text-orange "><span class="font-family font-900 bg-white text-center">Memberikan Layanan</span> </h5>
+                    <h5 class="font-36 text-orange "><span class="font-family font-900 bg-white text-center">End to End untuk</span> </h5>
                     <h5 class="font-36 text-orange "><span class="font-family font-900 bg-white text-center">Pengembangan Dirimu</span></h5>
                 </div>
             </div>
@@ -724,22 +721,22 @@
         </div>
     </div>
 
-    <div class="desktop">
-    <div class="container">
-        <div class="box-orange d-flex justify-content-between">
-            <div class="box-wa-1 flex-fill">
-                <h3 class="text-white font-700 font-36 mb-0 mt-2">Punya pertanyaan lebih lanjut?</h3>
-            </div>
-            <div class="box-wa justify-content-center hovered">
-                <img loading="lazy"  class="img-fluid icon-wa" src="{{asset('assets/socmed/wa.svg')}}" alt="icon whatsapp">
-                <div class="font-400 font-24">
-                    <a href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank" aria-label="economic space whatsapp number">
-                        Hubungi Kami
-                    </a>
+    <div class="desktop w-full">
+        <div class="container mx-auto">
+            <div class="box-orange flex flex-row items-center">
+                <div class="box-wa-1 flex-grow">
+                    <h3 class="text-white font-700 font-36 mb-0 mt-2">Punya pertanyaan lebih lanjut?</h3>
+                </div>
+                <div class="box-wa">
+                    <img loading="lazy"  class="img-fluid icon-wa" src="{{asset('assets/socmed/wa.svg')}}" alt="icon whatsapp">
+                    <div>
+                        <a class="text-black" href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank" aria-label="economic space whatsapp number">
+                            Hubungi Kami
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 
@@ -776,14 +773,19 @@
     {{-- kotak oren --}}
 
     <div class="mobile">
-        <div class="container">
-            <div class="box-orange">
+        <div class="container mx-auto">
+            <div class="box-orange pt-4 flex flex-col items-center">
                 <div class="text-center">
                     <p class="font-36 font-700 mb-1">Punya pertanyaan lebih lanjut?</p>
                 </div>
-                <div class="box-wa justify-content-center mb-1 mt-0">
+                <div class="box-wa mb-1 mt-0">
                     <img loading="lazy"  class="icon-wa" src="{{asset('assets/socmed/wa.svg')}}" alt="whatsapp icon">
-                    <a target="_blank" href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" aria-label="economic space whatsapp number">
+                    <a
+                        target="_blank"
+                        href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW"
+                        aria-label="economic space whatsapp number"
+                        class="text-black"
+                    >
                         Hubungi Kami
                     </a>
                 </div>
