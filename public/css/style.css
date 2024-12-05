@@ -747,6 +747,9 @@ button:hover {
     left: 60%;
 }
 
+.btn {
+    border-radius: 15px;
+}
 .btn-danger {
     background-color: var(--color-red);
     border-radius: 15px;

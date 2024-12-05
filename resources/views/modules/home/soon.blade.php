@@ -1,24 +1,23 @@
 @extends('layout.layout')
-
 @section('content')
-<div id="soon" style="background: url('{{ asset('assets/background/comingsoon-bg.svg') }}');background-repeat: no-repeat;width:100%;background-size: cover;z-index:20;">
-    <div class="container">
-        <div class="row align-items-center d-flex text-center" style="height:80vh">
-            <div class="col-12 align-self-center">
-                <h1 class="font-900 font-60">LAUNCHING SOON</h1>
-                <div class="col-12 align-self-center">
-                    <h1 class="font-900 font-60 mb-3">29.04.2024</h1>
+<div id="soon" class="bg-cover bg-no-repeat w-full z-20" style="background-image: url('{{ asset('assets/background/comingsoon-bg.svg') }}');">
+    <div class="container mx-auto">
+        <div class="flex items-center justify-center text-center h-[80vh]">
+            <div class="w-full">
+                <h1 class="font-bold text-6xl">LAUNCHING SOON</h1>
+                <div class="w-full">
+                    <h1 class="font-bold text-6xl mb-3">29.04.2024</h1>
                 </div>
-                <div class="col-12">
-                    <p style="visibility: hidden;">/</p>
+                <div class="w-full">
+                    <p class="invisible">/</p>
                 </div>
-                <div class="button-above col-12 align-self-center">
-                    <button class="bg-orange font-700 font-32 p-3 rounded-3" style="border: none;" onclick="window.location='{{ url('/') }}'">Back to Home</button>
+                <div class="w-full">
+
+                    <button class="btn btn-lg text-white bg-orange-500 hover:bg-orange-600" onclick="window.location='{{ url('/') }}'">Back to Home</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <!-- FOOTER -->

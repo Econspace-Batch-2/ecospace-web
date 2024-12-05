@@ -17,12 +17,12 @@
         <div id="navbarContent" class="hidden md:flex md:items-center md:space-x-6">
             <ul class="flex flex-col md:flex-row md:space-x-6">
                 <li>
-                    <a href="{{ url('/tutors') }}" class="text-lg {{ Route::is('viewTutors') ? 'text-blue-500' : 'text-gray-700 hover:text-blue-500' }}">
+                    <a href="{{ url('/tutors') }}" class="text-lg {{ Route::is('viewTutors') ? 'text-orange-500 duration-300' : 'text-gray-700 hover:text-orange-500 duration-300' }}">
                         Tutor
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/soon') }}" class="text-lg text-gray-700 hover:text-blue-500">
+                    <a href="{{ url('/soon') }}" class="text-lg text-gray-700 hover:text-orange-500 duration-300">
                         Event
                     </a>
                 </li>
@@ -33,21 +33,21 @@
                 @guest
                     @if (Route::has('register'))
                         <li>
-                            <a href="{{ route('register') }}" class="text-lg bg-black px-4 py-2 text-white rounded-xl hover:bg-gray-800">
+                            <button onclick="window.location.href='{{ route('register') }}'" class="btn text-white rounded-xl">
                                 {{ __('Sign Up') }}
-                            </a>
+                            </button>
                         </li>
                     @endif
                     @if (Route::has('login'))
                         <li>
-                            <a href="{{ route('login') }}" class="text-lg border border-black px-4 py-2 rounded-xl hover:bg-gray-100">
+                            <button onclick="window.location.href='{{ route('login') }}'" class="btn btn-outline rounded-xl">
                                 {{ __('Sign In') }}
-                            </a>
+                            </button>
                         </li>
                     @endif
                 @else
                     <li class="relative group">
-                        <a id="navbarDropdown" class="text-lg text-gray-700 cursor-pointer hover:text-blue-500 flex items-center">
+                        <a id="navbarDropdown" class="text-lg text-gray-700 cursor-pointer hover:text-orange-500 flex items-center">
                             {{ Auth::user()->name }}
                             <svg id="chevron" xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -74,12 +74,12 @@
 <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
     <ul class="flex flex-col space-y-2 p-4">
         <li>
-            <a href="{{ url('/tutors') }}" class="text-gray-700 hover:text-blue-500">
+            <a href="{{ url('/tutors') }}" class="text-gray-700 hover:text-orange-500">
                 Tutor
             </a>
         </li>
         <li>
-            <a href="{{ url('/soon') }}" class="text-gray-700 hover:text-blue-500">
+            <a href="{{ url('/soon') }}" class="text-gray-700 hover:text-orange-500">
                 Event
             </a>
         </li>
@@ -100,12 +100,12 @@
             @endif
         @else
             <li>
-                <a href="#" class="text-gray-700 hover:text-blue-500">
+                <a href="#" class="text-gray-700 hover:text-orange-500">
                     {{ Auth::user()->name }}
                 </a>
             </li>
             <li>
-                <a href="{{ route('logout') }}" class="text-gray-700 hover:text-blue-500"
+                <a href="{{ route('logout') }}" class="text-gray-700 hover:text-orange-500"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
