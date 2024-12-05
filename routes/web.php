@@ -43,3 +43,7 @@ Route::get('/mentorship/detail', [DetailMentorshipController::class, 'index'])->
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Get Purchase Page
+Route::get('/purchase', [App\Http\Controllers\PurchaseController::class, 'index'])->name('purchase');

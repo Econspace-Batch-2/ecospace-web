@@ -32,7 +32,7 @@
 
     @include('layout.navbar')
 
-    <main class="pt-20 md:pt-32 max-w-[100vw]">
+    <main class="pt-20 md:pt-32 max-w-[100vw] min-h-[100vh]">
         @yield('content')
     </main>
 
