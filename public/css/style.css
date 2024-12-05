@@ -749,6 +749,7 @@ button:hover {
 
 .btn {
     border-radius: 15px;
+    text-transform: none;
 }
 .btn-danger {
     background-color: var(--color-red);
