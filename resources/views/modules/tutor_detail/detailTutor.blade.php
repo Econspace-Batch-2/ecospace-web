@@ -193,7 +193,7 @@
                         </div>
 
                         {{-- card kedua --}}
-                        <div class="border border-2 rounded-4 mt-4 py-3 px-4">
+                        <div class="border rounded-4 mt-4 py-3 px-4">
                             <h3 class="font-900 font-36 text-orange">Benefit for You</h3>
                             <div class="d-flex justify-content-left gap-2">
                                 <img loading="lazy" src="{{ asset('assets/tutorDetail/benefit1.svg') }}"
@@ -397,7 +397,6 @@
 @section('mobileBtn')
     Join Mentoring
 @endsection
-
 
 
 @endsection
