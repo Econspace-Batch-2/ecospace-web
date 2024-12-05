@@ -1,4 +1,4 @@
-    <div class="desktop">
+    <div class="desktop max-w-[100vw] overflow-hidden h-fit">
         <div class="bg-img-blue-square mt-5 bg-cover min-h-screen relative">
             <div
                 style="background: url('assets/background/assetbgblue.svg');background-repeat: no-repeat;background-size: cover;z-index:0px;padding-top:0px;padding-bottom:100px;height:100%">
