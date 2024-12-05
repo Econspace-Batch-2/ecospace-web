@@ -163,7 +163,7 @@
                 <div class="col-12 col-md-4">
                     <div>
                         {{-- card pertama --}}
-                        <div class="border border-2 rounded-4 pt-3 px-4">
+                        <div class="border rounded-4 pt-3 px-4">
                             <h3 class="font-36 font-900">Tutor Background</h3>
                             <p class="font-26 font-400">Asal Universitas Tutor:</p>
 
@@ -191,7 +191,7 @@
                         </div>
 
                         {{-- card kedua --}}
-                        <div class="border border-2 rounded-4 mt-4 py-3 px-4">
+                        <div class="border rounded-4 mt-4 py-3 px-4">
                             <h3 class="font-900 font-36 text-orange">Benefit for You</h3>
                             <div class="d-flex justify-content-left gap-2">
                                 <img loading="lazy" src="{{ asset('assets/tutorDetail/benefit1.svg') }}"
@@ -395,7 +395,6 @@
 @section('mobileBtn')
     Join Mentoring
 @endsection
-
 
 
 @endsection
