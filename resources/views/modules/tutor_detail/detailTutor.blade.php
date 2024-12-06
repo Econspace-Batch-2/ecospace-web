@@ -6,15 +6,15 @@
     {{-- tutor content --}}
     @include('modules.tutor_detail.sections.tutor_content')
 
-    {{-- PAKET PROMOSI --}}
+{{-- PAKET PROMOSI --}}
 
-    <div class="container-fluid mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h4 class="font-700 font-34">Pilihan Paket Promosi</h4>
-                </div>
+<div class="container-fluid mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="font-700 font-34">Pilihan Paket Promosi</h4>
             </div>
+        </div>
 
             {{-- desktop --}}
             <div class="desktop">
@@ -76,7 +76,7 @@
             </div>
 
 
-            {{-- mobile --}}
+        {{-- mobile --}}
 
             <div class="mobile">
                 <div id="carouselPromotion" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -144,8 +144,8 @@
             </div>
 
 
-        </div>
     </div>
+</div>
 
 
 
