@@ -71,11 +71,6 @@
                                 </option>
                             @endforeach
                         </select>
-                        <span class="absolute right-2 top-1/2 -translate-y-1/2">
-                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6.96924 9L12.9692 15L18.9692 9" stroke="#15172A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </span>
                     </div>
                 </div>
             </form>
