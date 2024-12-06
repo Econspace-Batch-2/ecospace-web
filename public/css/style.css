@@ -748,6 +748,8 @@ button:hover {
 }
 
 .btn {
+    color: white;
+    border: none;
     border-radius: 15px;
     text-transform: none;
 }
