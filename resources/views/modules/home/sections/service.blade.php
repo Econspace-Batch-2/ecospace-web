@@ -44,7 +44,7 @@
         <div class="hidden md:block py-3">
             <div class="flex flex-col md:flex-row gap-5">
                 @foreach ($components as $item)
-                    <div class="w-full md:w-1/3">
+                    <div class="w-full md:w-1/3 duration-300 hover:scale-105">
                         <a href="{{$item['route']}}">
                             <div data-aos="fade-down" data-aos-duration="{{1000 * ($loop->index + 1)}}" class="hovered">
                                 <div class="bg-{{$item['bg']}} rounded-full text-center mx-auto py-2 w-[90%] lg:w-[70%] translate-y-6">

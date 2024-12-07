@@ -38,7 +38,7 @@
 
     @include('layout.navbar')
 
-    <main class="pt-20 md:pt-32 max-w-[100vw] min-h-[100vh] bg-white">
+    <main class="pt-20 md:pt-32 max-w-[100vw] min-h-[100vh] bg-white text-black">
         @yield('content')
     </main>
 
