@@ -14,6 +14,7 @@
             @include('modules.purchase.sections.appointlet')
         @elseif (request()->get('step', 1) == 4)
             @include('modules.purchase.sections.bukti_pembayaran')
+        @endif
 
         <div class="w-full flex justify-between md:max-w-[70vw] my-10">
             <button
