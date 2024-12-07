@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Economic Space</title>
     {{-- font --}}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css" />
+    
     {{-- custom css --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/tutor.css') }}" rel="stylesheet">
@@ -22,17 +27,21 @@
     {{-- typed animation --}}
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
+
     @vite('resources/css/app.css')
     {{-- meta description --}}
-    <meta
-  name="description"
-  content="Ultimate hub for university students to support them Academically with Expert Tutors, while providing with Insights for their Future Career Plan through Insights Exploration with Mentors">
+    <meta name="description"
+        content="Ultimate hub for university students to support them Academically with Expert Tutors, while providing with Insights for their Future Career Plan through Insights Exploration with Mentors">
 </head>
+
 <body class="overflow-x-hidden">
 
     @include('layout.navbar')
 
-    @yield('content')
+    <main class="pt-20 md:pt-32 max-w-[100vw] min-h-[100vh] bg-white text-black">
+        @yield('content')
+    </main>
+
 
     @include('layout.footer')
 
@@ -55,4 +64,5 @@
     {{-- custom js --}}
     <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 </body>
+
 </html>

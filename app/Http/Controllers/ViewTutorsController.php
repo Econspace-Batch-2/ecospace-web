@@ -11,13 +11,17 @@ class ViewTutorsController extends Controller
         // all by default -> dikasih gini agar filter ga error
         $major = 'all';
         $semester = 'all';
+        $univ = 'all';
         $subjects = Subject::where('status', 'active')->paginate(6);
-
-        if ($request->ajax()) {
+        $reccomendedSubjects = Subject::where('status', 'active')
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+            if ($request->ajax()) {
             return view('layout.subjects', compact('subjects'))->render(); // return partial view
         }
 
-        return view('modules.tutor.viewTutors', compact('subjects', 'major', 'semester'));
+        return view('modules.tutor.viewTutors', compact('subjects', 'reccomendedSubjects', 'major', 'semester', 'univ'));
     }
 
     // FILTER SUBJECT BASED ON MAJOR AND SEMESTER
@@ -25,6 +29,7 @@ class ViewTutorsController extends Controller
     {
         $major = $request->input('major');
         $semester = $request->input('semester');
+        $univ = $request->input('univ');
 
         $query = Subject::where('status', 'active');
 
@@ -36,9 +41,13 @@ class ViewTutorsController extends Controller
             $query->where('subject_semester', $semester);
         }
 
+        if ($univ != 'all') {
+            $query->whereJsonContains('univ', $univ);
+        }
+
         $subjects = $query->paginate(6);
 
-        return view('modules.tutor.viewTutors', compact('subjects', 'semester', 'major'));
+        return view('modules.tutor.viewTutors', compact('subjects', 'semester', 'major', 'univ'));
     }
 
     // SEARCH BASED ON SUBJECT TITLE

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('mentor_thumbnail', 255); // gambar tutor di view all page
             $table->string('mentor_profile', 255); // gambar tutor di detail page
             $table->string('mentor_linkedin', 255); // link linkedin
-
+            $table->json('mentor_achievements'); //achievent mentor dalam array.
             $table->json('mentor_category'); // tag di detail
             $table->json('mentor_photo_journey'); // foto slideshow di detail
 

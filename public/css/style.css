@@ -747,6 +747,15 @@ button:hover {
     left: 60%;
 }
 
+.select {
+    background-color: white;
+}
+.btn {
+    color: white;
+    border: none;
+    border-radius: 15px;
+    text-transform: none;
+}
 .btn-danger {
     background-color: var(--color-red);
     border-radius: 15px;

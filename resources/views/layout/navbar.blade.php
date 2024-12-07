@@ -1,65 +1,133 @@
 <!-- NAVBAR -->
-<nav class="flex">
-    <div class="container">
-    <a href="{{ url('/') }}" class="logo-link">
-        <img loading="lazy"  src="{{ asset('assets/socmed/logo.svg') }}" class="logo-img" alt="Economic space">
-    </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<nav class="flex items-center justify-between p-4 bg-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto flex items-center justify-between">
+        <!-- Logo -->
+        <a href="{{ url('/') }}" class="flex items-center">
+            <img loading="lazy" src="{{ asset('assets/socmed/logo.svg') }}" class="h-10 w-auto md:h-16" alt="Economic space">
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button id="mobile-menu-toggle" class="text-gray-500 focus:outline-none md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="flex">
-            <li class="nav-item px-2">
-                <a class="nav-link font-24 {{ Route::is('viewTutors') ? 'active' : '' }}" aria-current="page" href="{{url('/tutors')}}">Tutor</a>
-            </li>
-            <li class="nav-item px-2">
-                <a class="nav-link font-24" aria-current="page" href="{{url('/soon')}}">Event</a>
-            </li>
-            <li class="nav-item px-2">
-                <a class="nav-link font-24" aria-current="page" href="{{url('/mentorship')}}">Mentorship</a>
-            </li>
 
-        </ul>
-        <ul class="navbar-nav mb-2 mb-lg-0">
-            @guest
-                @if (Route::has('register'))
-                    <li class="nav-item px-2">
-                        <a class="nav-link font-24" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
-                    </li>
-                @endif
-                @if (Route::has('login'))
-                    <li class="nav-item px-2">
-                        <a class="btn btn-dark font-24" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                @endif
+        <!-- Navbar Links -->
+        <div id="navbarContent" class="hidden md:flex md:items-center md:space-x-6">
+            <ul class="flex flex-col md:flex-row md:space-x-6">
+                <li>
+                    <a href="{{ url('/tutors') }}" class="text-lg {{ Route::is('viewTutors') ? 'text-orange-500 duration-300' : 'text-gray-700 hover:text-orange-500 duration-300' }}">
+                        Tutor
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('/soon') }}" class="text-lg text-gray-700 hover:text-orange-500 duration-300">
+                        Event
+                    </a>
+                </li>
+            </ul>
 
-
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
+            <!-- Authentication Links -->
+            <ul class="flex flex-col md:flex-row md:space-x-6 ml-auto">
+                @guest
+                    @if (Route::has('register'))
+                        <li>
+                            <button onclick="window.location.href='{{ route('register') }}'" class="btn text-white rounded-xl">
+                                {{ __('Sign Up') }}
+                            </button>
                         </li>
-                    @endguest
-
-
-        </ul>
+                    @endif
+                    @if (Route::has('login'))
+                        <li>
+                            <button onclick="window.location.href='{{ route('login') }}'" class="btn btn-outline rounded-xl">
+                                {{ __('Sign In') }}
+                            </button>
+                        </li>
+                    @endif
+                @else
+                    <li class="relative group">
+                        <a id="navbarDropdown" class="text-lg text-gray-700 cursor-pointer hover:text-orange-500 flex items-center">
+                            {{ Auth::user()->name }}
+                            <svg id="chevron" xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <div class="hidden group-hover:block absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg">
+                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
         </div>
     </div>
 </nav>
 
-<div class="mobile bg-black font-400 font-18 text-white text-center">
+<!-- Mobile Dropdown -->
+<div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+    <ul class="flex flex-col space-y-2 p-4">
+        <li>
+            <a href="{{ url('/tutors') }}" class="text-gray-700 hover:text-orange-500">
+                Tutor
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('/soon') }}" class="text-gray-700 hover:text-orange-500">
+                Event
+            </a>
+        </li>
+        @guest
+            @if (Route::has('register'))
+                <li>
+                    <a href="{{ route('register') }}" class="bg-black text-white px-4 py-2 rounded-xl hover:bg-gray-800">
+                        {{ __('Sign Up') }}
+                    </a>
+                </li>
+            @endif
+            @if (Route::has('login'))
+                <li>
+                    <a href="{{ route('login') }}" class="border border-black px-4 py-2 rounded-xl hover:bg-gray-100">
+                        {{ __('Sign In') }}
+                    </a>
+                </li>
+            @endif
+        @else
+            <li>
+                <a href="#" class="text-gray-700 hover:text-orange-500">
+                    {{ Auth::user()->name }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('logout') }}" class="text-gray-700 hover:text-orange-500"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                    @csrf
+                </form>
+            </li>
+        @endguest
+    </ul>
+</div>
+
+<!-- Mobile Message -->
+<div class="md:hidden bg-black text-white text-center py-2">
     Open on the desktop for the best experience
 </div>
+
+<script>
+    // Mobile Menu Toggle
+    const toggleButton = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggleButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
