@@ -10,11 +10,11 @@
             ['label' => 'Join WAG', 'completed' => $step >= 5],
         ];
     @endphp
-    <ol class="flex w-3/4">
+    <ol class="flex w-full px-[10vw]">
         @foreach ($steps as $index => $stepItem)
             @if ($index == count($steps) - 1)
                 @if ($index + 1 == $step)
-                    <li class="flex items-end w-full">
+                    <li class="flex items-end w-fit">
                         <div class="flex flex-col justify-center items-center z-10">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,7 @@
                         </div>
                     </li>
                 @else
-                    <li class="flex items-end w-full">
+                    <li class="flex items-end w-fit">
                         <div class="flex flex-col justify-center items-center z-10">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">

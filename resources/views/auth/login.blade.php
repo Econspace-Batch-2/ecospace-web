@@ -10,7 +10,7 @@
     </div>
     <div class="flex justify-center mt-4">
         <div class="w-full md:w-6/12">
-            <div class="border-2 rounded-3xl px-6 md:px-20 py-10">
+            <div class="border-2 rounded-3xl px-4 md:px-20 py-10">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
@@ -30,7 +30,7 @@
                     </div>
 
                     @error('email')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="text-sm font-normal text-red-400" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
@@ -50,18 +50,14 @@
                     </div>
 
                     @error('password')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="text-sm font-normal text-red-400" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
 
-                    {{-- submit --}}
-                    <x-button
-                        class="w-full text-sm font-bold mt-4 bg-black text-white py-2 rounded-xl"
-                        type="submit"
-                    >
-                        {{ __('Login') }}
-                    </x-button>
+                    <button class="btn text-white w-full rounded-xl mt-4" type="submit">
+                        Submit
+                    </button>
 
                     {{-- forget password --}}
                     @if (Route::has('password.request'))
@@ -71,8 +67,7 @@
                     @endif
 
                     {{-- sign in --}}
-                    <p class="text-center text-base mt-3">Belum punya akun? <a href="{{ route('register') }}" class="text-orange-500">Sign in</a></p>
-
+                    <p class="text-center text-base mt-3">Belum punya akun? <a href="{{ route('register') }}" class="text-orange-500">Sign Up</a></p>
                 </form>
             </div>
         </div>

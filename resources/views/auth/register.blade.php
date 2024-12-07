@@ -4,9 +4,7 @@
     <div class="flex flex-col justify-center items-center gap-8">
 
         <img src="{{ asset('assets/socmed/logo_orange.svg') }}" alt="" class="mx-auto d-block logo-auth">
-        <p class="text-center text-[28px] max-w-[884px]">Ayo, bergabunglah sekarang! Daftarkan akunmu dan eksplorasi
-            dunia
-            ekonomi yang menarik di platform kami</p>
+        <p class="text-center text-xl max-w-[884px]">Ayo, bergabunglah sekarang! Daftarkan akunmu dan eksplorasi dunia ekonomi yang menarik di platform kami</p>
 
         <div class="border-[1.5px] mt-2 border-[#00000040] rounded-[26px] md:w-[600px] w-[300px] lg:w-[800px] p-10 mb-5">
             <form class="p-5 mb-5 flex flex-col gap-6" method="POST" action="{{ route('register') }}">
@@ -70,14 +68,12 @@
                     class="form-control border-[1.5px] border-[#00000040] rounded-[14px] px-6 py-3"
                     name="password_confirmation" required autocomplete="new-password" placeholder="Confirm your password">
 
-                <button type="submit"
-                    class="bg-black text-white p-4 px-8 rounded-4 font-bold text-xl md:text-2xl lg:text-3xl rounded-xl hover:scale-105 duration-300">
+                <button type="submit" class="btn text-white rounded-xl" >
                     {{ __('Sign Up') }}
                 </button>
 
                 {{-- login --}}
-                <p class="text-center text-[21px] mt-3">Sudah punya akun? <a href="{{ route('login') }}"
-                        class="text-orange">Log in</a></p>
+                <p class="text-center text-base mt-3">Sudah punya akun? <a href="{{ route('login') }}" class="text-orange">Log in</a></p>
             </form>
         </div>
     </div>

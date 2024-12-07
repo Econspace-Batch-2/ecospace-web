@@ -1,10 +1,8 @@
 @extends('layout.layout')
 
 @section('content')
-
-
-    <img   src="{{asset('assets/background/bgtutors.svg')}}" alt="Banner tutor" class="h-full w-full hidden sm:block">
-    <img   src="{{asset('assets/background/bgtutors_mobile.svg')}}" alt="Banner tutor" class="h-full w-full sm:hidden block">
+    <img src="{{ asset('assets/background/bgtutors.svg') }}" alt="Banner tutor" class="w-full hidden sm:block">
+    <img src="{{ asset('assets/background/bgtutors_mobile.svg') }}" alt="Banner tutor" class="h-full w-full sm:hidden block">
     
     @include('modules.tutor.components.filterCourse')
 
@@ -20,56 +18,43 @@
 
     <!-- LIST TUTORS -->
     <div class="list-tutor-up w-full px-10">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="subject-container">
-            
-    <div class="flex flex-col w-full justify-center items-center mt-8">
-    <div class="w-full my-4">
-        <h3 class="font-bold text-4xl text-left whasil-pencarian w-full">Hasil Pencarian</h3>
-    </div>
-    <div class="w-full grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="subject-container">
-            @include('layout.subjects', ['subjects' => $subjects])
-        </div>
+        <div class="flex flex-col w-full justify-center items-center mt-8">
+            <div class="w-full my-4">
+                <h3 class="font-bold text-4xl text-left whasil-pencarian w-full">Hasil Pencarian</h3>
+            </div>
+            <div class="w-full grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="subject-container">
+                @include('layout.subjects', ['subjects' => $subjects])
+            </div>
 
-        <!-- lazy loading -->
-        <div class="row mt-3 justify-content-center">
-            <button class="btn btn-danger hovered rounded-4 lazy-loading" style="width: fit-content">Load more</button>
+            <!-- lazy loading -->
+            <div class="row mt-3 justify-content-center">
+                <button class="btn btn-danger hovered rounded-4 lazy-loading" style="width: fit-content">Load more</button>
+            </div>
         </div>
     </div>
-
 
     <!-- TUTOR SESSION -->
     <div class="container-fluid bg-milk-mobile">
-        <div id="t-session"  class="container mt-0 mt-md-5 mb-5">
+        <div id="t-session" class="container mt-0 mt-md-5 mb-5">
             <div class="row justify-content-center justify-content-md-start bg-milk rounded-xl">
-                {{-- gambar joshua --}}
                 <div class="col-10 col-md-4 py-4 desktop">
-                    <!-- <div class="emo1 full-down quarter-right">
-                        <img loading="lazy"  src="{{asset('assets/home/emoji1.svg')}}" alt="emoji 1" class="mx-auto d-block img-fluid img-emoji">
-                    </div>
-                    <div class="emo2 full-down quarter-right ">
-                        <img loading="lazy"  src="{{asset('assets/home/emoji2.svg')}}" alt="emoji 2" class="mx-auto d-block img-fluid img-emoji">
-                    </div> -->
-                    <div class="m-5 bg-orange border border-dark mx-auto mb-0" style="height: 180px; width:80% ;border-radius:10px">
-                        <img loading="lazy"  src="{{asset('assets/mentor/joshua2.svg')}}" alt="Joshua" class="mx-auto d-block img-fluid" style="max-height: 250px">
+                    <div class="m-5 bg-orange border border-dark mx-auto mb-0" style="height: 180px; width:80%; border-radius:10px">
+                        <img loading="lazy" src="{{ asset('assets/mentor/joshua2.svg') }}" alt="Joshua" class="mx-auto d-block img-fluid" style="max-height: 250px">
                     </div>
                 </div>
                 <div class="flex items-center gap-3 md:gap-5">
-                    <img loading="lazy" class="w-[10%] max-md:w-[45px] max-w-[50px]"
-                        src="{{ asset('assets/home/icon3.svg') }}" alt="icon">
+                    <img loading="lazy" class="w-[10%] max-md:w-[45px] max-w-[50px]" src="{{ asset('assets/home/icon3.svg') }}" alt="icon">
                     <div class="text-[12px] md:text-[18px] max-xl:text-justify relative">
-                        <img loading="lazy" class="w-[12px] md:w-[18px] top-[6px] absolute"
-                            src="{{ asset('assets/home/graduation-cap.svg') }}" alt="icon">
-                        <span class="font-semibold pl-6">Pembicara Ahli:</span> Belajar langsung dari para ahli dan praktisi
-                        industri yang <br class="max-xl:hidden" /> berpengalaman.
+                        <img loading="lazy" class="w-[12px] md:w-[18px] top-[6px] absolute" src="{{ asset('assets/home/graduation-cap.svg') }}" alt="icon">
+                        <span class="font-semibold pl-6">Pembicara Ahli:</span> Belajar langsung dari para ahli dan praktisi industri yang <br class="max-xl:hidden" /> berpengalaman.
                     </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
 
-
-
-    <!-- FOOTER -->
+<!-- FOOTER -->
 @section('desktopBtn')
     Join Mentoring
 @endsection
@@ -92,12 +77,10 @@
     Join Mentoring
 @endsection
 
-
-    {{-- jquery for pagination --}}
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <script>
-        var currentPage = {{ $subjects->currentPage() }};
-        var lastPage = {{ $subjects->lastPage() }};
+<!-- jQuery for pagination -->
+<script>
+    var currentPage = {{ $subjects->currentPage() }};
+    var lastPage = {{ $subjects->lastPage() }};
 
     // Function to show or hide load button based on current page and last page
     function showOrHideLoadButton() {
@@ -116,26 +99,25 @@
 
     // Function to handle live search and filter
     function handleSearch() {
-        var searchTerm = $('#tutorSearchBar').val()
-            .trim(); // Get the search term and remove leading/trailing whitespace
+        var searchTerm = $('#tutorSearchBar').val().trim(); // Get the search term and remove leading/trailing whitespace
 
-            $.ajax({
-                url: $('#searchForm').attr('action'),
-                type: $('#searchForm').attr('method'),
-                data: $('#searchForm').serialize(),
-                success: function(response) {
-                    if (response.trim() === '') {
-                        $('#hasil-pencarian').hide();
-                        showNoDataMessage(); // Display "No data" message if response is empty
-                    } else {
-                        $('#hasil-pencarian').show();
-                        $('#subject-container').html(response); // Update subject container with response
-                        currentPage = 1; // Reset current page to 1 after search/filter
-                        showOrHideLoadButton(); // Show or hide load button based on current page and last page
-                    }
+        $.ajax({
+            url: $('#searchForm').attr('action'),
+            type: $('#searchForm').attr('method'),
+            data: $('#searchForm').serialize(),
+            success: function(response) {
+                if (response.trim() === '') {
+                    $('#hasil-pencarian').hide();
+                    showNoDataMessage(); // Display "No data" message if response is empty
+                } else {
+                    $('#hasil-pencarian').show();
+                    $('#subject-container').html(response); // Update subject container with response
+                    currentPage = 1; // Reset current page to 1 after search/filter
+                    showOrHideLoadButton(); // Show or hide load button based on current page and last page
                 }
-            });
-        }
+            }
+        });
+    }
 
     // Event listener for live search
     $(document).ready(function() {
@@ -173,17 +155,14 @@
                 } else {
                     $('#subject-container').append(data); // Append new subjects
                     currentPage++; // Update current page after successful load
-                    showOrHideLoadButton
-                        (); // Show or hide load button based on current page and last page
+                    showOrHideLoadButton(); // Show or hide load button based on current page and last page
                 }
             }
         });
     });
 
-        // Initial setup
-        $(document).ready(function() {
-            showOrHideLoadButton(); // Show or hide load button based on current page and last page
-        });
-
-    </script>
-@endsection
+    // Initial setup
+    $(document).ready(function() {
+        showOrHideLoadButton(); // Show or hide load button based on current page and last page
+    });
+</script>

@@ -9,6 +9,8 @@
     </p>
 
     <a target="_blank" href="https://bit.ly/RegistrationTutorService">
-        <x-button type="button" label="Mulai Belajar" />
+        <button class="btn btn-neutral btn-lg text-white mt-5">
+            Mulai Belajar
+        </button>
     </a>
 </header>
