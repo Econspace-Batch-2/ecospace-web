@@ -16,6 +16,9 @@ class PurchaseController extends Controller
             $step = 1;
         }
 
-        return view('modules.purchase.purchase', ['step' => $step]);
+        $hasPrev = $step > 1;
+        $hasNext = $step < $maxSteps;
+
+        return view('modules.purchase.purchase', ['step' => $step, 'hasPrev' => $hasPrev, 'hasNext' => $hasNext]);
     }
 }
