@@ -1,10 +1,10 @@
-<button onclick="toggleModal('tutorModal')" class="bg-white text-[#ff6600] max-sm:w-full border-[#ff6600] border-[5px] p-4 py-2 hover:bg-gray-50">
-    View Tutor Details
-</button>
+<h1 onclick="toggleModal('tutorModal')" class="text-black font-medium text-lg mb-6 mt-10 text-center">
+    Sebelum melanjutkan proses registrasi, mohon cermati <span class="text-[#FF8412] font-bold cursor-pointer underline">INFORMASI PENTING</span> terlebih dahulu.
+</h1>
 
 <div id="tutorModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50">
     <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white overflow-scroll w-full max-w-2xl shadow-[0px_4px_10px_10px_rgba(0,0,0,0.2)] max-h-[80vh] md:max-h-full md:overflow-hidden overflow-y-auto">
+        <div class="bg-white overflow-scroll rounded-lg w-full max-w-2xl shadow-[0px_4px_10px_10px_rgba(0,0,0,0.2)] max-h-[80vh] md:max-h-full md:overflow-hidden overflow-y-auto">
             <div class="bg-[#ff6600] text-white text-center py-4 ">
                 <h2 class="text-2xl font-bold">INFORMASI PENTING</h2>
             </div>
