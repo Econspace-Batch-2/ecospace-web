@@ -1,5 +1,5 @@
 <!-- NAVBAR -->
-<nav class="flex items-center justify-between p-4 bg-white shadow-md fixed w-full z-50">
+<nav class="flex items-center justify-between p-4 bg-white/70 backdrop-blur-md fixed w-full z-50">
     <div class="container mx-auto flex items-center justify-between">
         <!-- Logo -->
         <a href="{{ url('/') }}" class="flex items-center">
