@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DetailMentorshipController;
 use App\Http\Controllers\DetailTutorsController;
+use App\Http\Controllers\ProfileEventListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewTutorsController;
 use App\Http\Controllers\ViewMentorshipController;
@@ -47,3 +48,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Get Purchase Page
 Route::get('/purchase', [App\Http\Controllers\PurchaseController::class, 'index'])->name('purchase');
+
+// View Profile Page
+Route::get('/profile/event/available', [ProfileEventListController::class, 'available'])->name('eventAvailable');
+Route::get('/profile/event/history', [ProfileEventListController::class, 'history'])->name('eventHistory');
