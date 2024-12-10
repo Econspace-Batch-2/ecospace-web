@@ -87,7 +87,7 @@
                 <p class="text-[#FF8412] text-sm md:text-base font-medium">${data.link}</p>
             `;
             card.addEventListener('click', () => {
-                window.open(data.link, '_blank');
+                window.open(`https://${data.link}`, '_blank');
             });
             appointlet.appendChild(card);
         });
@@ -122,7 +122,6 @@
                 title.appendChild(x);
                 buktiAppointlet.innerHTML = '';
                 buktiAppointlet.appendChild(title);
-                //buktiAppointlet.appendChild(x);
             };
             reader.readAsDataURL(file);
         });

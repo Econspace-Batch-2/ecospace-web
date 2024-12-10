@@ -9,10 +9,6 @@
         <p class="text-sm font-normal mb-2"><a href="{{ route('viewTutors') }}">Academy</a> >
             {{ $subject->subject_title }}</p>
 
-        {{-- khusus mobile, peletakan gambarnya beda --}}
-        <img loading="lazy" src="{{ asset('assets/courseInside/' . $subject->subject_image) }}"
-            alt="{{ $subject->subject_image }}" class="img-fluid w-full rounded-lg md:hidden mb-2">
-
         {{-- info spt judul dll yg sebelah kiri --}}
         <h1 class="text-4xl font-bold">{{ $subject->subject_title }}</h1>
 
