@@ -12,6 +12,8 @@
             @include('modules.purchase.sections.universitasAsal')
         @elseif (request()->get('step', 1) == 2)
             @include('modules.purchase.sections.appointlet')
+        @elseif (request()->get('step', 1) == 3)
+            @include('modules.purchase.sections.data_diri')
         @elseif (request()->get('step', 1) == 4)
             @include('modules.purchase.sections.bukti_pembayaran')
         @endif
