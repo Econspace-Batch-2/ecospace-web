@@ -16,6 +16,8 @@
             @include('modules.purchase.sections.data_diri')
         @elseif (request()->get('step', 1) == 4)
             @include('modules.purchase.sections.bukti_pembayaran')
+        @elseif (request()->get('step', 1) == 5)
+            @include('modules.purchase.sections.wa_group')
         @endif
 
         <div class="w-full flex justify-between lg:flex-row flex-col items-center max-w-[90vw] max-lg:gap-8 xl:max-w-[70vw] my-10">
