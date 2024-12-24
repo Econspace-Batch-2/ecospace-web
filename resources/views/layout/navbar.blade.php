@@ -17,12 +17,12 @@
         <div id="navbarContent" class="hidden md:flex md:items-center md:space-x-6">
             <ul class="flex flex-col md:flex-row md:space-x-6">
                 <li>
-                    <a href="{{ url('/tutors') }}" class="text-lg {{ Route::is('viewTutors') ? 'text-orange-500 duration-300' : 'text-gray-700 hover:text-orange-500 duration-300 text-sm' }}">
+                    <a href="{{ url('/tutors') }}" class="{{ Route::is('viewTutors') ? 'text-orange-500 duration-300' : 'text-gray-700 hover:text-orange-500 duration-300 text-sm' }}">
                         Tutor
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/events') }}" class=" text-gray-700 hover:text-orange-500 duration-300 text-sm">
+                    <a href="{{ url('/events') }}" class="{{ Route::is('viewEvents') ? 'text-orange-500 duration-300' : 'text-gray-700 hover:text-orange-500 duration-300 text-sm' }}">
                         Event
                     </a>
                 </li>

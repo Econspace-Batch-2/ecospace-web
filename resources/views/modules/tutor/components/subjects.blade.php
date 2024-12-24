@@ -6,7 +6,7 @@
             $universities = json_decode($s->univ, true);
         @endphp
 
-        <div class="w-full h-96 relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out group">
+        <div class="w-full h-60 relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out">
             <a href="{{ route('detailTutor', $s->id) }}">
                 <div class="relative w-full h-full overflow-hidden shadow-2xl rounded-xl">
                     <!-- Desktop Image with conditional URLs based on whether 'UGM' is in the 'univ' array -->
@@ -20,7 +20,7 @@
 
                     <!-- Subject Tutor Image -->
                     <img src="{{ asset('assets/tutorImage/' . $s->subject_tutor) }}" alt="Subject Tutor Image"
-                        class="w-1/2 bottom-0 right-0 absolute">
+                        class="w-1/2 -bottom-20 right-0 absolute">
                 </div>
                 <h5 class="text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">
                     {{ $s->subject_title }}

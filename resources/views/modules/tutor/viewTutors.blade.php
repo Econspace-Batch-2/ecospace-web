@@ -12,8 +12,8 @@
     <p class="text-3xl font-bold">Rekomendasi Buat Kamu</p>
     <p class="text-base mb-5">Berbagai pilihan kelas untuk kebutuhan kamu</p>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        @include('layout.subjects', ['subjects' => $subjects])
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-10">
+        @include('modules.tutor.components.subjects', ['subjects' => $recommendedSubjects])
     </div>
 </div>
 
@@ -21,16 +21,22 @@
 <div class="list-tutor-up w-full px-10 text-black">
     <div class="flex flex-col w-full justify-center items-center mt-8">
         <div class="w-full my-4">
-            <h3 class="font-bold text-3xl text-left whasil-pencarian w-full">Hasil Pencarian</h3>
+            <h3 class="font-bold text-3xl text-left whasil-pencarian w-full">
+                {{-- If there is queries, then show text --}}
+                @if (request('tutorSearchBar') || request('univ') || request('major') || request('semester'))
+                    Hasil Pencarian
+                @else
+                    Semua Kelas
+                @endif
+            </h3>
         </div>
         <div class="w-full grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
             id="subject-container">
-            @include('layout.subjects', ['subjects' => $subjects])
+            @include('modules.tutor.components.subjects', ['subjects' => $subjects])
         </div>
 
-        <!-- lazy loading -->
         <div class="row mt-3 justify-content-center">
-            <button class="btn btn-danger hovered rounded-4 lazy-loading" style="width: fit-content">Load more</button>
+            <button class="btn btn-danger hovered rounded-4">Load more</button>
         </div>
     </div>
 </div>

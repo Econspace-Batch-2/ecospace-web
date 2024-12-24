@@ -36,9 +36,6 @@ Route::get(
 /* View Tutor */
 Route::prefix('tutors')->group(function () {
     Route::get('/', [ViewTutorsController::class, 'index'])->name('viewTutors');
-    Route::get('/filter', [ViewTutorsController::class, 'filterSubjects'])->name('filterTutor');
-    Route::get('/clear', [ViewTutorsController::class, 'clearFilters'])->name('clearFilters');
-    Route::get('/search', [ViewTutorsController::class, 'searchSubjects'])->name('searchTutor');
     Route::get('/{id}', [DetailTutorsController::class, 'index'])->name('detailTutor');
 });
 
