@@ -20,9 +20,9 @@
 
                     <!-- Subject Tutor Image -->
                     <img src="{{ asset('assets/tutorImage/' . $s->subject_tutor) }}" alt="Subject Tutor Image"
-                        class="w-1/2 -bottom-20 right-0 absolute">
+                        class="w-1/2 -bottom-8 sm:-bottom-8 md:-bottom-20 right-0 absolute">
                 </div>
-                <h5 class="text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">
+                <h5 class="text-base md:text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">
                     {{ $s->subject_title }}
                 </h5>
             </a>

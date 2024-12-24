@@ -2,17 +2,16 @@
 
 @section('content')
 <img src="{{ asset('assets/background/bgtutors.svg') }}" alt="Banner tutor" class="w-full hidden sm:block">
-<img src="{{ asset('assets/background/bgtutors_mobile.svg') }}" alt="Banner tutor"
-    class="h-full w-full sm:hidden block">
+<img src="{{ asset('assets/background/bgtutors_mobile.svg') }}" alt="Banner tutor" class="w-full sm:hidden" >
 
-@include('modules.tutor.components.filterCourse')
+@include('modules.tutor.components.filter_course')
 
 <!-- LIST REKOMENDASI -->
 <div class="mt-5 px-10 text-black">
     <p class="text-3xl font-bold">Rekomendasi Buat Kamu</p>
     <p class="text-base mb-5">Berbagai pilihan kelas untuk kebutuhan kamu</p>
 
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         @include('modules.tutor.components.subjects', ['subjects' => $recommendedSubjects])
     </div>
 </div>
@@ -35,11 +34,25 @@
             @include('modules.tutor.components.subjects', ['subjects' => $subjects])
         </div>
 
-        <div class="row mt-3 justify-content-center">
-            <button class="btn btn-danger hovered rounded-4">Load more</button>
-        </div>
+        {{-- If Take === Subject Count then dont show --}}
+        @if ($subjects->count() < $subjects->total())
+            <div class="lazy-loading w-full flex justify-center mt-3">
+                <button id="load-more" class="btn btn-danger hovered rounded-4">Load more</button>
+            </div>
+        @endif
     </div>
 </div>
+
+<script>
+    // if load more clicked, then concat ?take=10
+    document.getElementById('load-more').addEventListener('click', function () {
+        let url = new URL(window.location.href);
+        let take = url.searchParams.get('take') || 10;
+        url.searchParams.set('take', parseInt(take) + 10);
+
+        window.location.href = url;
+    });
+</script>
 
 @include('modules.tutor.sections.tutor_session')
 @endsection

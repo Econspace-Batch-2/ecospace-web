@@ -5,12 +5,12 @@
         method="GET"
         class="w-full flex flex-wrap justify-center items-center gap-4 p-4 h-fit bg-blue-950 rounded-xl -translate-y-10">
         <div class="flex flex-wrap gap-2 items-center grow">
-            <input id="tutorSearchBar" class="input bg-white max-w-[300px]" type="text" name="tutorSearchBar"
+            <input id="tutorSearchBar" class="input bg-white w-full md:max-w-[300px]" type="text" name="tutorSearchBar"
                 placeholder="Cari Nama Mata Kuliah" aria-label="Cari Nama Mata Kuliah"
                 value="{{ request('tutorSearchBar') }}">
             <select 
                 value="{{ request('univ') }}"
-                name="univ" id="univ" class="select">
+                name="univ" id="univ" class="select w-full md:w-fit">
                 @php
                     $universities = [
                         'all' => 'Semua Universitas',
@@ -30,7 +30,7 @@
             <!-- Major Filter -->
             <select 
                 value="{{ request('major') }}"
-                name="major" id="major" class="select">
+                name="major" id="major" class="select w-full md:w-fit">
                 @php
                     $majors = [
                         'all' => 'Semua Jurusan',
@@ -51,7 +51,7 @@
 
             <select 
                 value="{{ request('semester') }}"
-                name="semester" id="semester" class="select">
+                name="semester" id="semester" class="select w-full md:w-fit">
                 @php
                     $semesters = [
                         'all' => 'Semua Semester',
