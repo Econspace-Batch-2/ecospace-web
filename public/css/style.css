@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*=== GENERAL STYLE AND HOME ====*/
 
 * {
@@ -755,10 +759,6 @@ button:hover {
     border: none;
     border-radius: 8px;
     text-transform: none;
-}
-
-.btn-primary {
-    background-color: var(--color-orange);
 }
 
 .btn-danger {

@@ -19,6 +19,7 @@
     <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
     {{-- logo for page title --}}
     <link rel="icon" type="image/svg" href="{{ asset('assets/socmed/logo_favicon.svg') }}" sizes="32x32">
+
     {{-- animation --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
@@ -28,7 +29,7 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/css/ds.css'])
     {{-- meta description --}}
     <meta name="description"
         content="Ultimate hub for university students to support them Academically with Expert Tutors, while providing with Insights for their Future Career Plan through Insights Exploration with Mentors">

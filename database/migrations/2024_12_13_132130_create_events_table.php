@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->dateTime('start_date');
+            $table->double('harga');
             $table->dateTime('end_date');
             $table->string('categories');
             $table->string('event_image');

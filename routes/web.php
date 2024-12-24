@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\DetailMentorshipController;
 use App\Http\Controllers\DetailTutorsController;
+use App\Http\Controllers\EventsController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PurchaseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewTutorsController;
 use App\Http\Controllers\ViewMentorshipController;
@@ -30,11 +33,18 @@ Route::get(
 )->name('soon');
 
 /* View Tutor */
-Route::get('/tutors', [ViewTutorsController::class, 'index'])->name('viewTutors');
-Route::get('/tutors/filter', [ViewTutorsController::class, 'filterSubjects'])->name('filterTutor');
-Route::get('/tutors/clear', [ViewTutorsController::class, 'clearFilters'])->name('clearFilters');
-Route::get('/tutors/search', [ViewTutorsController::class, 'searchSubjects'])->name('searchTutor');
-Route::get('/tutors/{id}', [DetailTutorsController::class, 'index'])->name('detailTutor');
+Route::prefix('tutors')->group(function () {
+    Route::get('/', [ViewTutorsController::class, 'index'])->name('viewTutors');
+    Route::get('/filter', [ViewTutorsController::class, 'filterSubjects'])->name('filterTutor');
+    Route::get('/clear', [ViewTutorsController::class, 'clearFilters'])->name('clearFilters');
+    Route::get('/search', [ViewTutorsController::class, 'searchSubjects'])->name('searchTutor');
+    Route::get('/{id}', [DetailTutorsController::class, 'index'])->name('detailTutor');
+});
+
+// Event
+Route::prefix('events')->group(function () {
+    Route::get('/', [EventsController::class, 'show'])->name('viewEvents');
+});
 
 /* View mentorship */
 Route::get('/mentorship', [ViewMentorshipController::class, 'index'])->name('viewMentorship');
@@ -42,8 +52,7 @@ Route::get('/mentorship/detail', [DetailMentorshipController::class, 'index'])->
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Get Purchase Page
-Route::get('/purchase', [App\Http\Controllers\PurchaseController::class, 'index'])->name('purchase');
+Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase');

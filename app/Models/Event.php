@@ -16,9 +16,10 @@ class Event extends Model
         'start_date',
         'end_date',
         'categories',
+        'harga',
         'event_image',
         'speaker',
-        'speaker_image'        
+        'speaker_image'
     ];
 
     // Has many registered user
