@@ -20,7 +20,7 @@
         ]
     ]
 @endphp
-<section class="px-20 pb-52 mt-10">
+<section class="px-5 md:px-20 pb-52 mt-10">
     <h1 class="font-bold text-2xl">Profil Tutor</h1>
     <div class="flex gap-10 overflow-x-auto pb-10">
         @foreach ($mentors as $mentor)

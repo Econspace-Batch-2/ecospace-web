@@ -41,7 +41,7 @@
         @include('layout.navbar')
     @endif
 
-    <main class="{{!(isset($hideNavbar) && $hideNavbar) ? "pt-20 md:pt-32" : ""}}max-w-[100vw] min-h-[100vh] bg-white text-black">
+    <main class="{{!(isset($hideNavbar) && $hideNavbar) ? "pt-20 md:pt-32" : ""}} max-w-[100vw] min-h-[100vh] bg-white text-black relative overflow-x-hidden">
         @yield('content')
     </main>
 

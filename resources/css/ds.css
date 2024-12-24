@@ -24,7 +24,7 @@
 }
 
 .btn-primary {
-    @apply bg-orange-400 font-medium hover:bg-orange-500 duration-300;
+    @apply bg-orange-400 font-medium hover:bg-orange-500 duration-300 text-white;
 }
 
 .btn-outline {
