@@ -10,6 +10,7 @@ class EventsController extends Controller
     public function show() {
         $search = request('search');
         $category = request('category');
+        $take = request('take');
 
         if ($category == 'all') {
             $category = '';
@@ -20,6 +21,11 @@ class EventsController extends Controller
             return $query->where('categories', 'like', "%$category%");
             })
             ->get();
+
+        // Take top 6 events
+        $events = $events->take(
+            $take ? $take : 6
+        );
 
         return view('modules.event.show', compact('events'));
     }
