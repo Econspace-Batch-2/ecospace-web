@@ -58,6 +58,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Get Purchase Page
 Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase');
 
-// View Profile Page
-Route::get('/profile/event/available', [ProfileEventListController::class, 'available'])->name('eventAvailable');
-Route::get('/profile/event/history', [ProfileEventListController::class, 'history'])->name('eventHistory');
+// Profile
+Route::prefix('profile')->middleware('auth')->group(function () {
+    Route::prefix('event')->group(function () {
+        Route::get('/available', [ProfileEventListController::class, 'available'])->name('eventAvailable');
+        Route::get('/history', [ProfileEventListController::class, 'history'])->name('eventHistory');
+    });
+});

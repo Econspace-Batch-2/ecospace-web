@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/soon') }}" class=" text-gray-700 hover:text-orange-500 duration-300 text-sm">
+                    <a href="{{ url('/events') }}" class=" text-gray-700 hover:text-orange-500 duration-300 text-sm">
                         Event
                     </a>
                 </li>
@@ -46,24 +46,11 @@
                         </li>
                     @endif
                 @else
-                    <li class="relative group">
-                        <a id="navbarDropdown" class="text-lg text-gray-700 cursor-pointer hover:text-orange-500 flex items-center">
-                            {{ Auth::user()->name }}
-                            <svg id="chevron" xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </a>
-                        <!-- Dropdown Menu -->
-                        <div class="hidden group-hover:block absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg">
-                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
+                    <a href="{{route('eventAvailable')}}">
+                        <button class="btn btn-neutral">
+                            My Account
+                        </button>
+                    </a>
                 @endguest
             </ul>
         </div>
@@ -79,7 +66,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ url('/soon') }}" class="text-gray-700 hover:text-orange-500">
+            <a href="{{ url('/events') }}" class="text-gray-700 hover:text-orange-500">
                 Event
             </a>
         </li>

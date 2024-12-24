@@ -22,7 +22,7 @@
                             name="email"
                             id="email"
                             placeholder="Enter your email address"
-                            class="form-control @error('email') is-invalid @enderror"
+                            class="input @error('email') is-invalid @enderror"
                             required="true"
                             autocomplete="email"
                             autofocus="true"
@@ -43,7 +43,7 @@
                             name="password"
                             id="password"
                             placeholder="Enter your password"
-                            class="form-control @error('password') is-invalid @enderror"
+                            class="input @error('password') is-invalid @enderror"
                             required
                             autocomplete="current-password"
                         />
