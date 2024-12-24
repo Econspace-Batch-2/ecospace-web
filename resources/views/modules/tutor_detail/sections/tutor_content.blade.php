@@ -11,6 +11,32 @@
                         {{ $reference }}
                     @endforeach
                 </p>
+
+                <div class="flex flex-col gap-4">
+                    <div class="flex my-3">
+                        <a href="">
+                            <div class="border-b-2 border-orange-500 text-orange-500 px-3">
+                                UNAIR
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="border-b-2 border-orange-500 text-orange-500 px-3 opacity-20">
+                                UNAIR
+                            </div>
+                        </a>
+                    </div>
+                    <div class="space-y-4">
+                        @foreach ([1,2,3] as $accordion)
+                            <div class="collapse collapse-arrow bg-base-200">
+                                <input type="radio" name="my-accordion-2" checked="checked" />
+                                <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
+                                <div class="collapse-content">
+                                    <p>hello</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
 
             <div class="space-y-6 col-span-1">

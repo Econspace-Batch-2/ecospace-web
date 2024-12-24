@@ -33,7 +33,7 @@
                 @guest
                     @if (Route::has('register'))
                         <li>
-                            <button onclick="window.location.href='{{ route('register') }}'" class="btn text-white rounded-xl">
+                            <button onclick="window.location.href='{{ route('register') }}'" class="btn btn-black rounded-xl">
                                 {{ __('Sign Up') }}
                             </button>
                         </li>

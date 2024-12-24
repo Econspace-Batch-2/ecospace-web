@@ -18,12 +18,17 @@
     @apply px-10 font-normal;
 }
 
+
+.btn-black {
+    @apply bg-black text-white hover:bg-gray-900 duration-300;
+}
+
 .btn-primary {
     @apply bg-orange-400 font-medium hover:bg-orange-500 duration-300;
 }
 
 .btn-outline {
-    @apply bg-white text-gray-700 border-2 border-gray-300 hover:bg-gray-100;
+    @apply bg-white text-gray-700 border-2 border-gray-300 hover:bg-gray-100 hover:text-black duration-300;
 }
 
 .input {
@@ -37,4 +42,14 @@
 
 .shadow-smooth {
     @apply shadow-[0_4px_6px_rgba(0,0,0,0.1)]
+}
+
+
+
+.collapse {
+    @apply bg-[#F7941D1A]/10 border-[1px] border-[#F7941D];
+}
+
+.collapse-title {
+    @apply text-base
 }

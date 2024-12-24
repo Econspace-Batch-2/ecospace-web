@@ -9,7 +9,7 @@
     </p>
 
     <a target="_blank" href="https://bit.ly/RegistrationTutorService">
-        <button class="btn btn-neutral btn-lg text-white mt-5">
+        <button class="btn btn-black btn-lg text-white mt-5">
             Mulai Belajar
         </button>
     </a>
