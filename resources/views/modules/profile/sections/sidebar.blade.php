@@ -34,10 +34,13 @@
 
         <!-- Sign Out -->
         <div class="p-4 py-10 border-t border-gray-300">
-            <a href="#" class="flex items-center px-2 text-[#9D0000] font-normal hover:font-bold hover:scale-105 duration-200">
-                <img src="{{ asset('assets/profile/logOut.svg') }}" alt="Sign out Icon" class="icon-default w-5 mr-4">
-                Sign Out
-            </a>
+            <form action="{{ route('logout') }}" method="POST" class="flex items-center px-2 text-[#9D0000] font-normal hover:font-bold hover:scale-105 duration-200">
+                @csrf
+                <button class="flex">
+                    <img src="{{ asset('assets/profile/logOut.svg') }}" alt="Sign out Icon" class="icon-default w-5 mr-4">
+                    Sign Out
+                </button>
+            </form>
         </div>
     </div>
 </div>
