@@ -22,7 +22,6 @@ return new class extends Migration
             $table->json('mentor_achievements'); //achievent mentor dalam array.
             $table->json('mentor_category'); // tag di detail
             $table->json('mentor_photo_journey'); // foto slideshow di detail
-
             $table->timestamps();
         });
     }

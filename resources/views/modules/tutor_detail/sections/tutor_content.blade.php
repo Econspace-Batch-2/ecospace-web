@@ -1,5 +1,5 @@
     <div class="mt-4 md:px-20 w-full">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex flex-col lg:grid grid-cols-1 md:grid-cols-3 gap-6">
             {{-- sebelah kiri --}}
             <div class="col-span-2">
                 <h2 class="text-orange text-3xl font-extrabold">Tutor Material Discussion</h2>
@@ -11,35 +11,6 @@
                         {{ $reference }}
                     @endforeach
                 </p>
-
-                <div class="accordion mt-4" id="accordionPanelsStayOpenExample">
-                    @foreach ($subject->topics as $index => $topic)
-                        <div class="accordion-item mb-3">
-                            <h2 class="accordion-header" id="panelsStayOpen-heading{{ $topic->topic_number }}">
-                                <button class="accordion-button font-24 font-500 {{ $index === 0 ? '' : 'collapsed' }}"
-                                    type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapse{{ $topic->topic_number }}"
-                                    aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
-                                    aria-controls="panelsStayOpen-collapse{{ $topic->topic_number }}">
-                                    {{ $topic->topic_number }}. {{ $topic->topic_title }}
-                                </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapse{{ $topic->topic_number }}"
-                                class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
-                                aria-labelledby="panelsStayOpen-heading{{ $topic->topic_number }}">
-                                <div class="accordion-body p-0 px-4 pt-3">
-                                    <ol style="list-style-position: inside; padding-left: 0;" type="a">
-                                        @foreach (json_decode($topic->topic_content) as $content)
-                                            <li class="font-22 font-400">{{ $content }}</li>
-                                        @endforeach
-                                    </ol>
-                                    <p class="font-22 font-400"><span class="font-700">Objective:
-                                        </span>{{ $topic->topic_objective }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
             </div>
 
             <div class="space-y-6 col-span-1">

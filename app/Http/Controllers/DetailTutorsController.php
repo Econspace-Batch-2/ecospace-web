@@ -34,6 +34,9 @@ class DetailTutorsController extends Controller
             $other_subjects = $other_subjects->merge($random_subjects);
         }
 
-        return view('modules.tutor_detail.detailTutor', compact('subject', 'other_subjects'));
+        // Get Mentors
+        $mentors = $subject->mentors()->get();
+
+        return view('modules.tutor_detail.detailTutor', compact('subject', 'other_subjects', 'mentors'));
     }
 }
