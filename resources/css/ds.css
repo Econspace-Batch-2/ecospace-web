@@ -1,3 +1,19 @@
+::-webkit-scrollbar {
+    @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-orange-400 rounded-lg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-200;
+}
+
 .btn {
     @apply px-10 font-normal;
 }
@@ -16,4 +32,9 @@
 
 .select {
     @apply border-none rounded-lg bg-white font-medium;
+}
+
+
+.shadow-smooth {
+    @apply shadow-[0_4px_6px_rgba(0,0,0,0.1)]
 }

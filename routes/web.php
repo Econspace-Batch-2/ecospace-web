@@ -26,8 +26,7 @@ Route::get('/', function () {
     return view('modules.home.home');
 });
 
-Route::get(
-    '/soon',
+Route::get('/soon',
     function () {
         return view('modules.home.soon');
     }
@@ -45,8 +44,10 @@ Route::prefix('events')->group(function () {
 });
 
 /* View mentorship */
-Route::get('/mentorship', [ViewMentorshipController::class, 'index'])->name('viewMentorship');
-Route::get('/mentorship/detail', [DetailMentorshipController::class, 'index'])->name('detailMentorship');
+Route::prefix('mentorship')->group(function () {
+    Route::get('/', [ViewMentorshipController::class, 'index'])->name('viewMentorship');
+    Route::get('/detail', [DetailMentorshipController::class, 'index'])->name('detailMentorship');
+});
 
 Auth::routes();
 

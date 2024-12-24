@@ -8,11 +8,23 @@ class ProfileEventListController extends Controller
 {
     public function available()
     {
-        return view('modules.profile.available');
+        $hideNavbar = true;
+
+        $user = auth()->user();
+
+        $events = $user->events->where('start_date', '>=', now());
+
+        return view('modules.profile.available', compact('hideNavbar', 'events'));
     }
 
     public function history()
     {
-        return view('modules.profile.history');
+        $hideNavbar = true;
+
+        $user = auth()->user();
+
+        $events = $user->events->where('start_date', '<', now());
+
+        return view('modules.profile.history', compact('hideNavbar', 'events'));
     }
 }
