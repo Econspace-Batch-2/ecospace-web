@@ -10,8 +10,8 @@
                 </a>
                 <a href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank"
                     aria-label="economic space whatsapp number">
-                    <img loading="lazy" src="{{ asset('assets/home/sheet2.svg') }}"
-                        class="img img-box box-5 hovered" alt="whatsapp">
+                    <img loading="lazy" src="{{ asset('assets/home/sheet2.svg') }}" class="img img-box box-5 hovered"
+                        alt="whatsapp">
                 </a>
                 <img loading="lazy" src="{{ asset('assets/home/sheet3.svg') }}" class="img img-box box-6 hovered"
                     alt="website">
@@ -19,13 +19,13 @@
 
                 <a href="https://www.linkedin.com/company/economic-space/mycompany/" target="_blank"
                     aria-label="go to economic space linkedin">
-                    <img loading="lazy" src="{{ asset('assets/home/folder1.svg') }}"
-                        class="img img-box box-7 hovered" alt="linkedin">
+                    <img loading="lazy" src="{{ asset('assets/home/folder1.svg') }}" class="img img-box box-7 hovered"
+                        alt="linkedin">
                 </a>
                 <a href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW" target="_blank"
                     aria-label="economic space whatsapp number">
-                    <img loading="lazy" src="{{ asset('assets/home/folder2.svg') }}"
-                        class="img img-box box-8 hovered" alt="whatsapp">
+                    <img loading="lazy" src="{{ asset('assets/home/folder2.svg') }}" class="img img-box box-8 hovered"
+                        alt="whatsapp">
                 </a>
                 <img loading="lazy" src="{{ asset('assets/home/folder3.svg') }}" class="img img-box box-9 hovered"
                     alt="decorative image">
@@ -45,14 +45,36 @@
             <div
                 class="relative top-[15%] left-[22%] -translate-x-[50%] -translate-y-[50%] text-left p-[20px] w-[80%] max-w-[525px]">
                 <div class="col-10">
-                    <h5 class="font-36 text-orange "><span
-                            class="font-family font-900 bg-white text-center">Memberikan Layanan</span> </h5>
+                    <h5 class="font-36 text-orange "><span class="font-family font-900 bg-white text-center">Memberikan
+                            Layanan</span> </h5>
                     <h5 class="font-36 text-orange "><span class="font-family font-900 bg-white text-center">End to
                             End untuk</span> </h5>
                     <h5 class="font-36 text-orange "><span
                             class="font-family font-900 bg-white text-center">Pengembangan Dirimu</span></h5>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="p-10 pt-0">
+    <div class="flex flex-col-reverse md:flex-row justify-between">
+        <div class="flex items-center mt-10 md:mt-0">
+            <img loading="lazy" class="img-fluid icon-smile w-20" src="{{ asset('assets/home/smile.svg') }}"
+                alt="economic space logo">
+            <a class="ml-3" href="{{ route('viewTutors') }}">
+                <button class="font-bold btn btn-black w-full text-lg">
+                    Daftar Kelas
+                </button>
+            </a>
+        </div>
+        <div class="items-center pt-3 text-center md:text-right">
+            <h3 class="font-bold text-2xl">
+                Siap Buat Belajar bersama Economic Space?
+            </h3>
+            <p class="font-normal text-xl">
+                Langsung Daftarkan diri & Persiapkan Masa Depanmu
+            </p>
         </div>
     </div>
 </div>
@@ -67,8 +89,7 @@
                         Layanan</span> </h5>
                 <h5 class="text-orange "><span class="font-48 font-family font-900  bg-white text-center">End to End
                         untuk</span> </h5>
-                <h5 class="text-orange "><span
-                        class="font-48 font-family font-900 bg-white text-center">Pengembangan
+                <h5 class="text-orange "><span class="font-48 font-family font-900 bg-white text-center">Pengembangan
                         Dirimu</span></h5>
             </div>
             <div class="row">
