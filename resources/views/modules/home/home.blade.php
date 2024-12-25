@@ -17,5 +17,4 @@
     @include('modules.home.sections.testimony')
 
     @include('modules.home.sections.bottom')
-
 @endsection
