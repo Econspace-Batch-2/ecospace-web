@@ -4,9 +4,9 @@
     <div class="flex flex-col justify-center items-center gap-8">
 
         <img src="{{ asset('assets/socmed/logo_orange.svg') }}" alt="" class="mx-auto d-block logo-auth">
-        <p class="text-center text-xl max-w-[884px]">Ayo, bergabunglah sekarang! Daftarkan akunmu dan eksplorasi dunia ekonomi yang menarik di platform kami</p>
+        <p class="text-center text-base md:text-lg max-w-[600px]">Ayo, bergabunglah sekarang! Daftarkan akunmu dan eksplorasi dunia ekonomi yang menarik di platform kami</p>
 
-        <div class="border-[1.5px] mt-2 border-[#00000040] rounded-[26px] md:w-[600px] w-[300px] lg:w-[800px] p-10 mb-5">
+        <div class="border-[1.5px] mt-2 border-[#00000040] rounded-[26px] md:w-[600px] p-2 lg:p-10 mb-5">
             <form class="p-5 mb-5 flex flex-col gap-6" method="POST" action="{{ route('register') }}">
                 @csrf
                 {{-- name --}}
@@ -68,7 +68,7 @@
                     class="input"
                     name="password_confirmation" required autocomplete="new-password" placeholder="Confirm your password">
 
-                <button type="submit" class="btn text-white rounded-xl" >
+                <button type="submit" class="btn btn-black" >
                     {{ __('Sign Up') }}
                 </button>
 
