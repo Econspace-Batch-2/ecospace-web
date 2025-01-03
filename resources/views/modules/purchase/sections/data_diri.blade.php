@@ -1,5 +1,6 @@
-<section style="box-shadow: 0px 4px 10px 10px #00000033;" class="bg-white p-6 md:p-10 rounded-lg md:min-w-[70vw] max-w-[95vw] max-md:mx-5">
-    <form class="grid lg:grid-cols-2 gap-x-7 gap-y-4 md:gap-y-8" method="POST" action="{{ route('register') }}">
+<section style="box-shadow: 0px 4px 10px 10px #00000033;"
+    class="bg-white p-6 md:p-10 rounded-lg md:min-w-[70vw] max-w-[95vw] max-md:mx-5">
+    <form data-personal-form class="grid lg:grid-cols-2 gap-x-7 gap-y-4 md:gap-y-8">
         @csrf
 
         {{-- name --}}
@@ -38,15 +39,15 @@
 
         {{-- link whatsapp --}}
         <div class="flex flex-col">
-            <label for="whatsapp" class="text-black md:text-4xl text-2xl font-bold">Link Whatsapp <span
+            <label for="whatsapp_link" class="text-black md:text-4xl text-2xl font-bold">Link Whatsapp <span
                     class="text-[#D42727]">*</span></label>
             <p class="text-[#9B9B9B] text-xs md:text-sm font-medium my-2">Isi dengan wa.me/[nomor perwakilan pendaftar].
             </p>
-            <input id="whatsapp" type="text"
-                class="form-control border-2 border-black rounded-[8px] px-6 py-3 @error('whatsapp') is-invalid @enderror"
-                name="whatsapp" value="{{ old('whatsapp') }}" required autocomplete="whatsapp">
+            <input id="whatsapp_link" type="text"
+                class="form-control border-2 border-black rounded-[8px] px-6 py-3 @error('whatsapp_link') is-invalid @enderror"
+                name="whatsapp_link" value="{{ old('whatsapp_link') }}" required autocomplete="whatsapp_link">
 
-            @error('whatsapp')
+            @error('whatsapp_link')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -55,7 +56,7 @@
 
         {{-- email --}}
         <div class="flex flex-col">
-            <label for="name" class="text-black md:text-4xl text-2xl font-bold">Alamat Email <span
+            <label for="email" class="text-black md:text-4xl text-2xl font-bold">Alamat Email <span
                     class="text-[#D42727]">*</span></label>
             <p class="text-[#9B9B9B] text-xs md:text-sm font-medium my-2">Isi dengan alamat email perwakilan pendaftar.
             </p>
@@ -72,14 +73,16 @@
 
         {{-- nama dosen mata kuliah --}}
         <div class="flex flex-col">
-            <label for="dosen_mata_kuliah" class="text-black md:text-4xl text-2xl font-bold">Nama Dosen Mata Kuliah <span
-                    class="text-[#D42727]">*</span></label>
-            <p class="text-[#9B9B9B] text-xs md:text-sm font-medium my-2">Isi dengan nama dosen pengajar pada mata kuliah tersebut.</p>
-            <input id="dosen_mata_kuliah" type="text"
-                class="form-control border-2 border-black rounded-[8px] px-6 py-3 @error('dosen_mata_kuliah') is-invalid @enderror"
-                name="dosen_mata_kuliah" value="{{ old('dosen_mata_kuliah') }}" required autocomplete="dosen_mata_kuliah">
+            <label for="lecturer_name" class="text-black md:text-4xl text-2xl font-bold">Nama Dosen Mata Kuliah
+                <span class="text-[#D42727]">*</span></label>
+            <p class="text-[#9B9B9B] text-xs md:text-sm font-medium my-2">Isi dengan nama dosen pengajar pada mata
+                kuliah tersebut.</p>
+            <input id="lecturer_name" type="text"
+                class="form-control border-2 border-black rounded-[8px] px-6 py-3 @error('lecturer_name') is-invalid @enderror"
+                name="lecturer_name" value="{{ old('lecturer_name') }}" required
+                autocomplete="lecturer_name">
 
-            @error('dosen_mata_kuliah')
+            @error('lecturer_name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

@@ -56,3 +56,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Get Purchase Page
 Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase.index');
+    Route::post('/purchase/step1', [PurchaseController::class, 'storeStep1'])->name('purchase.step1');
+    Route::post('/purchase/step2', [PurchaseController::class, 'storeStep2'])->name('purchase.step2');
+    Route::post('/purchase/step3', [PurchaseController::class, 'storeStep3'])->name('purchase.step3');
+    Route::post('/purchase/step4', [PurchaseController::class, 'storeStep4'])->name('purchase.step4');
+    Route::post('/purchase/store', [PurchaseController::class, 'store'])->name('purchase.store');
+});

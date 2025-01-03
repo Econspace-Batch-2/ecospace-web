@@ -2,7 +2,8 @@
     class="bg-white p-10 rounded-lg flex flex-col gap-5 md:max-w-[70vw] max-md:mx-5">
     <div class="">
         <h1 class="font-bold text-3xl max-md:text-center md:text-4xl text-black">Jadwal Appointlet</h1>
-        <p class="text-[#9B9B9B] text-sm md:text-base font-medium lg:max-w-[60%] mt-4 text-justify">Pilih mata kuliah dan jadwal yang tersedia
+        <p class="text-[#9B9B9B] text-sm md:text-base font-medium lg:max-w-[60%] mt-4 text-justify">Pilih mata kuliah dan
+            jadwal yang tersedia
             dengan click card atau
             akses
             link-nya.
@@ -37,7 +38,7 @@
                     </div>
                     <p class="text-base text-center text-black">Drag file to upload</p>
                 </div>
-                <input type="file" name="input_appointlet" id="input_appointlet" accept="image/*"
+                <input data-appointlet-input type="file" name="input_appointlet" id="input_appointlet" accept="image/*"
                     class="w-full border border-[#9B9B9B] opacity-0 rounded-lg p-2 h-[200px] absolute top-0 cursor-pointer">
             </div>
             <button onclick="document.getElementById('input_appointlet').click()"
@@ -105,7 +106,8 @@
             reader.onload = () => {
                 const title = document.createElement('div');
                 title.textContent = file.name;
-                title.classList.add('text-black', 'md:text-2xl', 'text-xl','font-semibold', 'border-[5px]', 'border-black',
+                title.classList.add('text-black', 'md:text-2xl', 'text-xl', 'font-semibold', 'border-[5px]',
+                    'border-black',
                     'rounded-lg', 'py-2', 'px-4', 'flex', 'items-center', 'justify-between');
                 const x = document.createElement('div');
                 x.classList.add('cursor-pointer', 'transition-all', 'duration-300');
@@ -126,5 +128,4 @@
             reader.readAsDataURL(file);
         });
     </script>
-
 </section>
