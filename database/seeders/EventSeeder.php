@@ -51,5 +51,20 @@ class EventSeeder extends Seeder
         ];
 
         DB::table('events')->insert($events);
+
+        // Register all user to all event
+        $users = DB::table('users')->get();
+
+        foreach ($users as $user) {
+            $events = DB::table('events')->get();
+            foreach ($events as $event) {
+                DB::table('event_user')->insert([
+                    'user_id' => $user->id,
+                    'event_id' => $event->id,
+                ]);
+            }
+        }
     }
+
+
 }

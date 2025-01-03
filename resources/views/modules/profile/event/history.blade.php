@@ -49,18 +49,25 @@
                 @foreach ($events as $event)                
                     <div class="bg-white p-4 rounded-md shadow flex items-center justify-between outline outline-2">
                         <div class="flex items-center">
-                            <img src="{{ asset('assets/profile/Accounting.svg') }}" alt="Event 1" class="w-52 h-auto rounded-md outline outline-2">
+                            @if (file_exists(public_path('assets/profile/' . $event->event_image)))
+                                <img src="{{ asset('assets/profile/' . $event->event_image) }}" alt="Event 1" class="w-52 rounded-md outline outline-2 h-full">
+                            @else
+                                <img src="{{ asset('assets/profile/Accounting.svg') }}" alt="Default Event" class="w-52 rounded-md outline outline-2 h-full">
+                            @endif
                             <div class="ml-6">
-                                <h2 class="text-xl font-semibold">Seminar Edukasi Terkait Pentingnya...</h2>
-                                <p class="text-lg text-gray-600">Sherinna Dawn</p>
+                                <h2 class="text-xl font-semibold">
+                                    {{$event->name}}
+                                </h2>
+                                <p class="text-lg text-gray-600">
+                                    {{$event->speaker}}
+                                </p>
                                 <div class="flex">
                                     <img src="{{ asset('assets/profile/calendar-icon.svg') }}" alt="Calendar" class="w-7 h-auto border-2 border-white mt-2">
-                                    <span class="mt-2.5 ml-2 text-[#FF4778]"> 8 October 2024 | 12:00 - 14:30 WIB </span>
+                                    <span class="mt-2.5 ml-2 text-[#FF4778]">
+                                        {{ \Carbon\Carbon::parse($event->start_date)->format('F j, Y, g:i a') }}
+                                    </span>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <button class="bg-orange-500 text-white px-4 py-2 rounded-md ml-4">Expired</button>
                         </div>
                     </div>
                 @endforeach

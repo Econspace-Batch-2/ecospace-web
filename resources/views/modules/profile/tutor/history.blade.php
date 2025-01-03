@@ -48,19 +48,34 @@
             @else
                 @foreach ($subjects as $event)                
                     <div class="bg-white p-4 rounded-md shadow flex items-center justify-between outline outline-2">
-                        <div class="flex items-center">
-                            <img src="{{ asset('assets/profile/Accounting.svg') }}" alt="Event 1" class="w-52 h-auto rounded-md outline outline-2">
-                            <div class="ml-6">
-                                <h2 class="text-xl font-semibold">Seminar Edukasi Terkait Pentingnya...</h2>
-                                <p class="text-lg text-gray-600">Sherinna Dawn</p>
-                                <div class="flex">
-                                    <img src="{{ asset('assets/profile/calendar-icon.svg') }}" alt="Calendar" class="w-7 h-auto border-2 border-white mt-2">
-                                    <span class="mt-2.5 ml-2 text-[#FF4778]"> 8 October 2024 | 12:00 - 14:30 WIB </span>
-                                </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6">
+                            @php
+                                // Decode the JSON-encoded 'univ' field for each subject
+                                $universities = json_decode($event->univ, true);
+                            @endphp
+                            <div class="relative w-full lg:min-w-52 lg:max-w-52 h-full overflow-hidden rounded-xl">
+                                <!-- Desktop Image with conditional URLs based on whether 'UGM' is in the 'univ' array -->
+                                @if (is_array($universities) && in_array('UGM', $universities))
+                                    <img src="{{ asset('assets/tutorImage/UGM_cardbg.png') }}" alt="UGM Image"
+                                        class="object-cover w-full h-full">
+                                @else
+                                    <img src="{{ asset('assets/tutorImage/UNAIR_cardbg.png') }}" alt="UNAIR Image"
+                                        class="object-cover w-full h-full">
+                                @endif
+
+                                <!-- Subject Tutor Image -->
+                                <img src="{{ asset('assets/tutorImage/' . $event->subject_tutor) }}"
+                                    alt="Subject Tutor Image"
+                                    class="w-1/2 -bottom-8 sm:-bottom-8 md:-bottom-10 absolute right-1/2 transform translate-x-1/2">
                             </div>
-                        </div>
-                        <div>
-                            <button class="bg-orange-500 text-white px-4 py-2 rounded-md ml-4">Expired</button>
+                            <div class="">
+                                <h2 class="text-xl font-semibold">
+                                    {{ $event->subject_title }}
+                                </h2>
+                                <p class="text-sm text-gray-600">
+                                    {{ $event->subject_description }}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 @endforeach

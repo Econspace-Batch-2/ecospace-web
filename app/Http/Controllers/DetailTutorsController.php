@@ -37,7 +37,7 @@ class DetailTutorsController extends Controller
         // Get Mentors
         $mentors = $subject->mentors()->get();
 
-        $univ_query = $request->univ;
+        $univ_query = $request->univ ? $request->univ : pathinfo(json_decode($subject->subject_univ)[0], PATHINFO_FILENAME);
 
         // Get All FAQs based on the subject
         $faqs = $subject->faqs()->get();

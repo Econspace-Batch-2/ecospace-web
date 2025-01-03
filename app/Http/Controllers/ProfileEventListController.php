@@ -12,7 +12,9 @@ class ProfileEventListController extends Controller
 
         $user = auth()->user();
 
-        $events = $user->events->where('start_date', '>=', now());
+        $events = $user->events;
+        // ->where('start_date', '>=', now());
+
 
         return view('modules.profile.event.available', compact('hideNavbar', 'events'));
     }
