@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 
-class viewMentorshipController extends Controller
+class ViewMentorshipController extends Controller
 {
     public function index(Request $request)
     {
