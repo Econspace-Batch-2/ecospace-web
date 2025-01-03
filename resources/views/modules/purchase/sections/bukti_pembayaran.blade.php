@@ -31,48 +31,49 @@
                         </div>
                         <p class="text-base text-center text-black">Drag file to upload</p>
                     </div>
-                    <input type="file" name="pembayaran" id="input_pembayaran" accept="image/*"
+                    <input data-payment-input type="file" name="pembayaran" id="input_pembayaran" accept="image/*"
                         class="w-full border border-[#9B9B9B] opacity-0 rounded-lg p-2 h-[200px] absolute top-0 cursor-pointer">
                 </div>
                 <button onclick="document.getElementById('input_pembayaran').click()"
-                    class="btn bg-[#FF8412] rounded-lg text-white font-semibold hover:bg-[#FF8412]/90 duration-300 w-full mt-5">Choose File</button>
+                    class="btn bg-[#FF8412] rounded-lg text-white font-semibold hover:bg-[#FF8412]/90 duration-300 w-full mt-5">Choose
+                    File</button>
             </div>
             <div id="bukti-pembayaran"></div>
         </div>
     </div>
 </section>
 <script>
-        const inputPembayaran = document.getElementById('input_pembayaran');
-        const buktiPembayaran = document.getElementById('bukti-pembayaran');
+    const inputPembayaran = document.getElementById('input_pembayaran');
+    const buktiPembayaran = document.getElementById('bukti-pembayaran');
 
-        inputPembayaran.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file.size > 10 * 1024 * 1024) {
-                alert('File size exceeds 10 MB');
-                return;
-            }
-            const reader = new FileReader();
-            reader.onload = () => {
-                const title = document.createElement('div');
-                title.textContent = file.name;
-                title.classList.add('text-black', 'text-xl','font-medium', 'border-[5px]', 'border-black',
-                    'rounded-lg', 'py-2', 'px-4', 'flex', 'items-center', 'justify-between');
-                const x = document.createElement('div');
-                x.classList.add('cursor-pointer', 'transition-all', 'duration-300');
-                x.innerHTML = `
+    inputPembayaran.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file.size > 10 * 1024 * 1024) {
+            alert('File size exceeds 10 MB');
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = () => {
+            const title = document.createElement('div');
+            title.textContent = file.name;
+            title.classList.add('text-black', 'text-xl', 'font-medium', 'border-[5px]', 'border-black',
+                'rounded-lg', 'py-2', 'px-4', 'flex', 'items-center', 'justify-between');
+            const x = document.createElement('div');
+            x.classList.add('cursor-pointer', 'transition-all', 'duration-300');
+            x.innerHTML = `
                     <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30 2.5L3 29.5" stroke="#D42727" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M3 2.5L30 29.5" stroke="#D42727" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 `;
-                x.addEventListener('click', () => {
-                    buktiPembayaran.innerHTML = '';
-                    inputPembayaran.value = '';
-                });
-                title.appendChild(x);
+            x.addEventListener('click', () => {
                 buktiPembayaran.innerHTML = '';
-                buktiPembayaran.appendChild(title);
-            };
-            reader.readAsDataURL(file);
-        });
+                inputPembayaran.value = '';
+            });
+            title.appendChild(x);
+            buktiPembayaran.innerHTML = '';
+            buktiPembayaran.appendChild(title);
+        };
+        reader.readAsDataURL(file);
+    });
 </script>

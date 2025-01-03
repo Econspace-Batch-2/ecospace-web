@@ -20,7 +20,8 @@
             @include('modules.purchase.sections.wa_group')
         @endif
 
-        <div class="w-full flex justify-between lg:flex-row flex-col items-center max-w-[90vw] max-lg:gap-8 xl:max-w-[70vw] my-10">
+        <div
+            class="w-full flex justify-between lg:flex-row flex-col items-center max-w-[90vw] max-lg:gap-8 xl:max-w-[70vw] my-10">
             <button
                 class="rounded-lg text-white bg-[#25D366] text-xl md:text-2xl font-semibold hover:shadow-lg transition-all px-10 py-5 h-[76px] flex items-center gap-4"><svg
                     width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +33,7 @@
             </button>
             <div class="gap-6 sm:gap-10 flex">
                 @if (request()->get('step', 1) > 1)
-                    <button id="prevButton"
+                    <button data-prev-button
                         class="rounded-lg text-[#FF8412] text-xl md:text-2xl font-semibold hover:shadow-lg transition-all border-[5px] border-[#FF8412] px-10 md:px-16 py-5 h-[76px]">
                         Back
                     </button>
@@ -42,7 +43,7 @@
                         View Tutor Details
                     </button>
                 @endif
-                <button id="nextButton"
+                <button data-next-button
                     class="btn bg-[#FF8412] rounded-lg text-white text-xl md:text-2xl font-semibold hover:bg-[#FF8412]/90 transition-all border-0 px-10 md:px-16 py-5 h-[76px]">
                     Next
                 </button>
@@ -55,22 +56,116 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             let currentStep = parseInt(document.getElementById('currentStep').value);
+            const nextButton = document.querySelector('[data-next-button]');
+            const prevButton = document.querySelector('[data-prev-button]');
 
-            // Handle "Next" button click
-            document.getElementById('nextButton').addEventListener('click', function() {
-                currentStep = currentStep + 1;
-                window.location.href = `/purchase?step=${currentStep}`;
+            nextButton.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // If on final step
+                if (currentStep === 5) {
+                    submitFinalStep();
+                    return;
+                }
+
+                let formData = new FormData();
+                formData.append('_token', '{{ csrf_token() }}');
+
+                switch (currentStep) {
+                    case 1:
+                        const selectedUniversity = document.querySelector('[data-university]:checked');
+                        if (!selectedUniversity) {
+                            alert('Please select a university');
+                            return;
+                        }
+                        formData.append('university', selectedUniversity.value);
+                        console.log(selectedUniversity.value);
+                        submitStep('{{ route('purchase.step1') }}', formData);
+                        break;
+
+                    case 2:
+                        const appointletFile = document.querySelector('[data-appointlet-input]');
+                        if (!appointletFile.files[0]) {
+                            alert('Please upload appointlet proof');
+                            return;
+                        }
+                        formData.append('input_appointlet', appointletFile.files[0]);
+                        console.log(appointletFile.files[0]);
+                        submitStep('{{ route('purchase.step2') }}', formData);
+                        console.log(JSON.stringify(JSON.parse(localStorage.getItem('purchase'))))
+                        break;
+
+                    case 3:
+                        const personalDataForm = document.querySelector('[data-personal-form]');
+                        forms = new FormData(personalDataForm);
+                        forms.forEach((value, key) => {
+                            console.log(`${key}: ${value}`);
+                            formData.append(key, value);
+                        });
+                        submitStep('{{ route('purchase.step3') }}', formData);
+                        break;
+
+                    case 4:
+                        const paymentFile = document.querySelector('[data-payment-input]');
+                        if (!paymentFile.files[0]) {
+                            alert('Please upload payment proof');
+                            return;
+                        }
+                        formData.append('payment_proof', paymentFile.files[0]);
+                        console.log(paymentFile.files[0]);
+                        submitStep('{{ route('purchase.step4') }}', formData);
+                        break;
+                }
             });
 
             // Handle "Previous" button click
-            const prevButton = document.getElementById('prevButton');
             if (prevButton) {
                 prevButton.addEventListener('click', function() {
-                    currentStep = currentStep - 1;
-                    window.location.href = `/purchase?step=${currentStep}`;
+                    window.location.href = `/purchase?step=${currentStep - 1}`;
                 });
+            }
+
+            function submitStep(url, formData) {
+                fetch(url, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = `/purchase?step=${currentStep + 1}`;
+                            saveToLocalStorage(currentStep, data.data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again.');
+                    });
+            }
+
+            function saveToLocalStorage(step, data) {
+                let purchaseData = JSON.parse(localStorage.getItem('purchase')) || {};
+                purchaseData[`step${step}`] = data;
+                localStorage.setItem('purchase', JSON.stringify(purchaseData));
+            }
+
+            function submitFinalStep() {
+                fetch('{{ route('purchase.store') }}', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                        }
+                    })
+                    .then(response => {
+                        if (response.redirected) {
+                            window.location.href = response.url;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again.');
+                    });
             }
         });
     </script>
 @endsection
-

@@ -3,7 +3,8 @@
     <h1 class="font-bold text-3xl md:text-4xl text-black">Proses Registrasi Hampir Selesai..!</h1>
     <img src="{{ asset('assets/purchase/RegisDone.png') }}" alt="" class="object-contain w-[400px] h-[300px]">
     <h2 class="font-semibold text-xl md:text-2xl text-black">Ingin menjadi mahasiswa/i FEB terbaik versi kamu?</h2>
-    <h3 class="font-medium text-xl md:text-2xl text-black">Join community grup Economic Space untuk mendapatkan<br />konfirmasi
+    <h3 class="font-medium text-xl md:text-2xl text-black">Join community grup Economic Space untuk
+        mendapatkan<br />konfirmasi
         lokasi dan waktu dengan tutor kami!</h3>
     <button
         class="rounded-lg text-white bg-[#25D366] text-xl md:text-2xl font-semibold hover:shadow-lg transition-all px-10 py-5 h-[76px] flex items-center gap-4"><svg
