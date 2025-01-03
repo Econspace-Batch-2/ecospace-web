@@ -5,6 +5,8 @@ use App\Http\Controllers\DetailTutorsController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\ProfileEventListController;
+use App\Http\Controllers\ProfileTutorListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewTutorsController;
 use App\Http\Controllers\ViewMentorshipController;
@@ -25,8 +27,7 @@ Route::get('/', function () {
     return view('modules.home.home');
 });
 
-Route::get(
-    '/soon',
+Route::get('/soon',
     function () {
         return view('modules.home.soon');
     }
@@ -35,9 +36,6 @@ Route::get(
 /* View Tutor */
 Route::prefix('tutors')->group(function () {
     Route::get('/', [ViewTutorsController::class, 'index'])->name('viewTutors');
-    Route::get('/filter', [ViewTutorsController::class, 'filterSubjects'])->name('filterTutor');
-    Route::get('/clear', [ViewTutorsController::class, 'clearFilters'])->name('clearFilters');
-    Route::get('/search', [ViewTutorsController::class, 'searchSubjects'])->name('searchTutor');
     Route::get('/{id}', [DetailTutorsController::class, 'index'])->name('detailTutor');
 });
 
@@ -47,8 +45,10 @@ Route::prefix('events')->group(function () {
 });
 
 /* View mentorship */
-Route::get('/mentorship', [ViewMentorshipController::class, 'index'])->name('viewMentorship');
-Route::get('/mentorship/detail', [DetailMentorshipController::class, 'index'])->name('detailMentorship');
+Route::prefix('mentorship')->group(function () {
+    Route::get('/', [ViewMentorshipController::class, 'index'])->name('viewMentorship');
+    Route::get('/detail', [DetailMentorshipController::class, 'index'])->name('detailMentorship');
+});
 
 Auth::routes();
 
@@ -56,6 +56,19 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Get Purchase Page
 Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase');
+
+// Profile
+Route::prefix('profile')->middleware('auth')->group(function () {
+    Route::prefix('event')->group(function () {
+        Route::get('/available', [ProfileEventListController::class, 'available'])->name('eventAvailable');
+        Route::get('/history', [ProfileEventListController::class, 'history'])->name('eventHistory');
+    });
+
+    Route::prefix('tutor')->group(function () {
+        Route::get('/available', [ProfileTutorListController::class, 'available'])->name('tutorAvailable');
+        Route::get('/history', [ProfileTutorListController::class, 'history'])->name('tutorHistory');
+    });
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase.index');
