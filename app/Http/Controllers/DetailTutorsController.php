@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class DetailTutorsController extends Controller
 {
-    public function index($id) {
+    public function index(Request $request, $id) {
         $subject = Subject::with('topics')->find($id);
 
         $other_subjects = Subject::where('id', '!=', $id)
@@ -37,6 +37,11 @@ class DetailTutorsController extends Controller
         // Get Mentors
         $mentors = $subject->mentors()->get();
 
-        return view('modules.tutor_detail.detailTutor', compact('subject', 'other_subjects', 'mentors'));
+        $univ_query = $request->univ;
+
+        // Get All FAQs based on the subject
+        $faqs = $subject->faqs()->get();
+
+        return view('modules.tutor_detail.detailTutor', compact('subject', 'other_subjects', 'mentors', 'univ_query', 'faqs'));
     }
 }

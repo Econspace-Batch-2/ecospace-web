@@ -3,7 +3,7 @@
     <div
         class="bg-black w-[200vw] md:w-[130vw] h-96 top-10 z-0 rounded-b-full mx-auto absolute left-1/2 transform -translate-x-1/2">
         <img loading="lazy" src="{{ asset('assets/tutorDetail/faces3.svg') }}" alt="economic space logo"
-            class="absolute right-72 top-20 h-32 md:h-40">
+            class="absolute right-52 md:right-72 top-16 md:top-20 h-32 md:h-40">
     </div>
     <section class="bg-white shadow-lg  m-5 mt-40 text-black rounded-3xl overflow-hidden z-20 relative">
         <div class="p-10">
@@ -21,15 +21,15 @@
             </div>
     
             {{-- CATEGORY AND SEMESTER --}}
-            <div class="flex justify-start gap-3 mb-2">
+            <div class="flex flex-col md:flex-row justify-start gap-3 mb-2">
                 <p class="text-sm font-medium"><i class="fa-solid fa-folder mr-2"></i>
                     {{ $subject->subject_category }}</p>
                 <p class="text-sm font-medium"><i class="fa-solid fa-gem mr-2"></i> {{ $subject->subject_semester }}
                 </p>
             </div>
             <div class="flex w-full justify-end">
-                <a target="_blank" href="https://bit.ly/RegistrationTutorService">
-                    <button class="btn btn-primary px-20">Book Now</button>
+                <a target="_blank" href="/purchase" class="w-full md:w-fit"> 
+                    <button class="btn btn-primary px-20 w-full md:w-fit">Book Now</button>
                 </a>
             </div>
         </div>

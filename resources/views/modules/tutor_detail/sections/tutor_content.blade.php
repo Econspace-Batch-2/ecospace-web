@@ -14,24 +14,37 @@
 
             <div class="flex flex-col gap-4">
                 <div class="flex my-3">
-                    <a href="">
-                        <div class="border-b-2 border-orange-500 text-orange-500 px-3">
-                            UNAIR
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="border-b-2 border-orange-500 text-orange-500 px-3 opacity-20">
-                            UNAIR
-                        </div>
-                    </a>
+                    @foreach (json_decode($subject->subject_univ) as $univ)
+                        <a href={{
+                            route('detailTutor', [
+                                'id' => $subject->id,
+                                'univ' => pathinfo($univ, PATHINFO_FILENAME)
+                            ])
+                        }}>
+                            <div class="border-b-2 {{
+                                $univ_query == pathinfo($univ, PATHINFO_FILENAME) ? 'border-orange-400 text-orange-500' : 'border-gray-200 text-gray-200'
+                            }} px-3">
+                                {{ strtoupper(pathinfo($univ, PATHINFO_FILENAME)) }}
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
                 <div class="space-y-4">
-                    @foreach ([1,2,3] as $accordion)
+                    @php
+                        // Filter faq by univ
+                        $faqs = $faqs->filter(function ($faq) use ($univ_query) {
+                            
+                            return (pathinfo($faq->univ, PATHINFO_FILENAME)) == $univ_query;
+                        });
+                    @endphp
+                    @foreach ($faqs as $faq)
                         <div class="collapse collapse-arrow bg-base-200">
                             <input type="radio" name="my-accordion-2" checked="checked" />
-                            <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
+                            <div class="collapse-title text-xl font-medium">
+                                {{ $faq->faq_question }}
+                            </div>
                             <div class="collapse-content">
-                                <p>hello</p>
+                                <p class="text-sm font-normal">{{ $faq->faq_answer }}</p>
                             </div>
                         </div>
                     @endforeach

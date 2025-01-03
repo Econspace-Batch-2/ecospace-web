@@ -35,4 +35,9 @@ class Subject extends Model
     {
         return $this->belongsToMany(Mentor::class);
     }
+
+    public function faqs()
+    {
+        return $this->hasMany(SubjectUnivFaq::class, 'subject_id');
+    }
 }

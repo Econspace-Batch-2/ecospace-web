@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Subject;
+use App\Models\SubjectUnivFaq;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -231,5 +233,45 @@ class SubjectSeeder extends Seeder
 
         // Insert data into the subjects table
         DB::table('subjects')->insert($subjects);
+
+        // generate new subject Faq
+        $subject_faqs = [
+            [
+                'faq_question' => 'Apa yang dimaksud dengan Management Accounting?',
+                'faq_answer' => 'Management Accounting adalah proses pengukuran, analisis, dan pelaporan informasi keuangan yang membantu manajemen dalam membuat keputusan bisnis yang tepat.'
+            ],
+            [
+                'faq_question' => 'Apa saja yang dipelajari dalam Management Accounting?',
+                'faq_answer' => 'Dalam Management Accounting, kamu akan mempelajari tentang analisis biaya, perencanaan keuangan, pengendalian biaya, dan evaluasi kinerja.'
+            ],
+            [
+                'faq_question' => 'Apa perbedaan antara Management Accounting dan Financial Accounting?',
+                'faq_answer' => 'Management Accounting lebih berfokus pada informasi keuangan yang digunakan oleh manajemen dalam membuat keputusan bisnis, sedangkan Financial Accounting lebih berfokus pada informasi keuangan yang digunakan oleh pihak eksternal seperti investor dan kreditor.'
+            ],
+            [
+                'faq_question' => 'Apa yang dimaksud dengan Intermediate Accounting I?',
+                'faq_answer' => 'Intermediate Accounting I adalah mata kuliah yang membahas tentang konsep-konsep dasar akuntansi keuangan, seperti penyusunan laporan keuangan, perlakuan akuntansi untuk kas, piutang, persediaan, dan aset tetap.'
+            ],
+            [
+                'faq_question' => 'Apa saja yang dipelajari dalam Intermediate Accounting I?',
+                'faq_answer' => 'Dalam Intermediate Accounting I, kamu akan mempelajari tentang kerangka konseptual akuntansi, perlakuan akuntansi untuk kas, piutang, persediaan, dan aset tetap, serta bagaimana menyusun laporan keuangan'
+            ],
+        ];
+
+        // Seed every subject 
+        $subjects = Subject::all();
+
+        foreach ($subjects as $subject) {
+            foreach (json_decode($subject->subject_univ) as $subject_univ) {
+                foreach ($subject_faqs as $faq) {
+                    SubjectUnivFaq::create([
+                        'subject_id' => $subject->id,
+                        'univ'=> $subject_univ,
+                        'faq_question' => $faq['faq_question'],
+                        'faq_answer' => $faq['faq_answer'],
+                    ]);
+                }
+            }    
+        }
     }
 }
