@@ -45,7 +45,11 @@
                 @endif
                 <button data-next-button
                     class="btn bg-[#FF8412] rounded-lg text-white text-xl md:text-2xl font-semibold hover:bg-[#FF8412]/90 transition-all border-0 px-10 md:px-16 py-5 h-[76px]">
-                    Next
+                    @if (request()->get('step', 1) == 5)
+                        Submit
+                    @else
+                        Next
+                    @endif
                 </button>
             </div>
         </div>
@@ -98,11 +102,26 @@
                     case 3:
                         const personalDataForm = document.querySelector('[data-personal-form]');
                         forms = new FormData(personalDataForm);
+                        let isValid = true;
+                        let emptyFields = [];
+
                         forms.forEach((value, key) => {
-                            console.log(`${key}: ${value}`);
-                            formData.append(key, value);
+                            if (value === '') {
+                                isValid = false;
+                                emptyFields.push(key); // Collect the names of empty fields
+                            } else if (key !== '_token') {
+                                formData.append(key, value);
+                            }
                         });
-                        submitStep('{{ route('purchase.step3') }}', formData);
+
+                        if (!isValid) {
+                            alert('Please fill all fields: ' + emptyFields.join(
+                                ', ')); // Show a single alert
+                            return;
+                        } else {
+                            saveToLocalStorage(currentStep, Object.fromEntries(forms));
+                            window.location.href = `/purchase?step=${currentStep + 1}`;
+                        }
                         break;
 
                     case 4:
@@ -150,15 +169,41 @@
             }
 
             function submitFinalStep() {
+                const purchaseData = JSON.parse(localStorage.getItem('purchase'));
+
+                const data = {
+                    university: purchaseData.step1.university,
+                    appointlet_proof: purchaseData.step2.appointlet_proof,
+                    name: purchaseData.step3.name,
+                    email: purchaseData.step3.email,
+                    whatsapp_link: purchaseData.step3.whatsapp_link,
+                    major: purchaseData.step3.asal_jurusan,
+                    lecturer_name: purchaseData.step3.lecturer_name,
+                    payment_proof: purchaseData.step4.payment_proof,
+                };
+
                 fetch('{{ route('purchase.store') }}', {
                         method: 'POST',
                         headers: {
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-                        }
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                        },
+                        body: JSON.stringify(data),
                     })
                     .then(response => {
-                        if (response.redirected) {
-                            window.location.href = response.url;
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error('Failed to submit final data');
+                        }
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            alert('Purchase completed successfully');
+                            localStorage.removeItem('purchase');
+                            window.location.href = '/'; // Replace with your success page URL
+                        } else {
+                            throw new Error(data.message || 'Unknown error occurred');
                         }
                     })
                     .catch(error => {
@@ -166,6 +211,7 @@
                         alert('An error occurred. Please try again.');
                     });
             }
+
         });
     </script>
 @endsection
