@@ -5,9 +5,9 @@
                 <img loading="lazy" src="{{ asset('assets/socmed/logowhite.svg') }}" alt="economic space logo white"
                     class="logo-img mr-auto">
 
-                <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex flex-col lg:flex-row gap-4">
                     <a target="_blank" href="https://bit.ly/TutoringEconomicSpace2024" class="w-full">
-                        <button class="btn btn-primary text-xs md:text-sm w-full">
+                        <button class="btn btn-primary text-xs md:text-sm w-full ">
                             Join as Tutor / Mentor <i class="fa fa-external-link text-white ml-2"></i>
                         </button>
                     </a>
