@@ -6,6 +6,7 @@ use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProfileEventListController;
+use App\Http\Controllers\ProfileTutorListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewTutorsController;
 use App\Http\Controllers\ViewMentorshipController;
@@ -61,6 +62,11 @@ Route::prefix('profile')->middleware('auth')->group(function () {
     Route::prefix('event')->group(function () {
         Route::get('/available', [ProfileEventListController::class, 'available'])->name('eventAvailable');
         Route::get('/history', [ProfileEventListController::class, 'history'])->name('eventHistory');
+    });
+
+    Route::prefix('tutor')->group(function () {
+        Route::get('/available', [ProfileTutorListController::class, 'available'])->name('tutorAvailable');
+        Route::get('/history', [ProfileTutorListController::class, 'history'])->name('tutorHistory');
     });
 });
 

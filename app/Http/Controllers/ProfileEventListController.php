@@ -14,7 +14,7 @@ class ProfileEventListController extends Controller
 
         $events = $user->events->where('start_date', '>=', now());
 
-        return view('modules.profile.available', compact('hideNavbar', 'events'));
+        return view('modules.profile.event.available', compact('hideNavbar', 'events'));
     }
 
     public function history()
@@ -25,6 +25,6 @@ class ProfileEventListController extends Controller
 
         $events = $user->events->where('start_date', '<', now());
 
-        return view('modules.profile.history', compact('hideNavbar', 'events'));
+        return view('modules.profile.event.history', compact('hideNavbar', 'events'));
     }
 }

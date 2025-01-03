@@ -40,4 +40,9 @@ class Subject extends Model
     {
         return $this->hasMany(SubjectUnivFaq::class, 'subject_id');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

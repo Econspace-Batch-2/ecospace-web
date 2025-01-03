@@ -47,7 +47,7 @@
                     @endif
                 @else
                     <a href="{{route('eventAvailable')}}">
-                        <button class="btn btn-neutral">
+                        <button class="btn btn-black">
                             My Account
                         </button>
                     </a>
@@ -102,11 +102,6 @@
             </li>
         @endguest
     </ul>
-</div>
-
-<!-- Mobile Message -->
-<div class="md:hidden bg-black text-white text-center py-2">
-    Open on the desktop for the best experience
 </div>
 
 <script>

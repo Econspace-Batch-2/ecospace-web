@@ -11,9 +11,9 @@
             <ul class="space-y-8">
                 <!-- Tutor Section -->
                 <li>
-                    <a href="#" class="icon-link flex items-center p-2 rounded-md group w-full">
+                    <a href="{{route('tutorAvailable')}}" class="icon-link flex items-center p-2 rounded-md group w-full">
                         <img src="{{ asset('assets/profile/tutor.svg') }}" alt="Tutor Icon" class="icon-default w-10">
-                        <span class="ml-2 p-2 w-full rounded-md group-hover:bg-[#15172B] group-hover:text-white hover:scale-105 duration-300 {{ request()->is('profile/tutor') ? 'bg-[#15172B] text-white' : '' }}">
+                        <span class="ml-2 p-2 w-full rounded-md group-hover:bg-[#15172B] group-hover:text-white hover:scale-105 duration-300 {{ request()->is('profile/tutor/available') || request()->is('profile/tutor/history') ? 'bg-[#15172B] text-white' : '' }}">
                     Tutor
                 </span>
                     </a>

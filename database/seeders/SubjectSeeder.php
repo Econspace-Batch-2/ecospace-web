@@ -273,5 +273,19 @@ class SubjectSeeder extends Seeder
                 }
             }    
         }
+
+        // Register all user to all subject
+        $users = DB::table('users')->get();
+
+        foreach ($users as $user) {
+            foreach ($subjects as $subject) {
+                DB::table('subject_user')->insert([
+                    'subject_id' => $subject->id,
+                    'user_id' => $user->id,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
+        }
     }
 }
