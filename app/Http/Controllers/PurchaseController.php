@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Purchase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class PurchaseController extends Controller
 {
@@ -79,21 +81,44 @@ class PurchaseController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'university' => 'required|string|max:255',
-            'appointlet_proof' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'major' => 'required|string|max:255',
-            'whatsapp_link' => 'required|string|max:255',
-            'email' => 'required|email',
-            'lecturer_name' => 'required|string|max:255',
-            'payment_proof' => 'required|string|max:255',
-        ]);
+        try {
 
-        $purchase = new Purchase($validated);
-        $purchase->user_id = auth()->id();
-        $purchase->save();
+            if (!auth()->check()) {
+                return response()->json(['error' => 'User not authenticated'], 401);
+            }
 
-        return response()->json(['success' => true, 'message' => 'Purchase completed successfully']);
+            // Validate the incoming request
+            $validated = $request->validate([
+                'university' => 'required|string|max:255',
+                'appointlet_proof' => 'required|string|max:255',
+                'name' => 'required|string|max:255',
+                'major' => 'required|string|max:255',
+                'whatsapp_link' => 'required|string|max:255',
+                'email' => 'required|email',
+                'lecturer_name' => 'required|string|max:255',
+                'payment_proof' => 'required|string|max:255',
+            ]);
+
+            // Add the user_id manually
+            if (auth()->check()) {
+                $validated['user_id'] = auth()->id();
+            } else {
+                return response()->json(['success' => false, 'message' => 'User not authenticated'], 401);
+            }
+
+            // Create the purchase record
+            Purchase::create($validated);
+
+            return response()->json(['success' => true, 'message' => 'Purchase completed successfully']);
+        } catch (\Exception $e) {
+            // Log the error with more context
+            Log::error('Error saving purchase:', [
+                'error' => $e->getMessage(),
+                'user_id' => auth()->id(),
+                'request_data' => $request->all(),
+            ]);
+
+            return response()->json(['success' => false, 'message' => 'An error occurred.'], 500);
+        }
     }
 }

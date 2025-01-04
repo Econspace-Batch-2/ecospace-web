@@ -18,6 +18,7 @@ class Purchase extends Model
         'email',
         'lecturer_name',
         'payment_proof',
+        'user_id'
     ];
 
     public function user()
