@@ -1,0 +1,6 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/economi1/repositories/ecospace-web
+    - /bin/cp -r * $DEPLOYPATH 
+    - /bin/cp ./public/js/*.js $DEPLOYPATH/public_html/js
+    - /bin/cp ./public/css/*.css $DEPLOYPATH/public_html/css
