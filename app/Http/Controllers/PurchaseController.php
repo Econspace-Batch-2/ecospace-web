@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Purchase;
+use App\Services\UploadFileService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
 
 class PurchaseController extends Controller
 {
+    protected $service;
+
+    public function __construct()
+    {
+        $this->service = new UploadFileService();
+    }
 
     public function index(Request $request)
     {
@@ -38,16 +43,23 @@ class PurchaseController extends Controller
 
     public function storeStep2(Request $request)
     {
-        $request->validate([
-            'input_appointlet' => 'required|image|max:10240'
-        ]);
-
-        if ($request->hasFile('input_appointlet')) {
-            $path = $request->file('input_appointlet')->store('appointlet_proofs', 'public');
-            return response()->json(['success' => true, 'data' => ['appointlet_proof' => $path]]);
+        try {
+            $request->validate([
+                'input_appointlet' => 'required|image|max:10240'
+            ]);
+    
+            if ($request->hasFile('input_appointlet')) {
+                $user = auth()->user();
+                $path = $this->service->uploadToS3($request, 'input_appointlet', 'appointlet_proofs', 'appointlet_proof_' . $user->email);
+    
+                return response()->json(['success' => true, 'data' => ['appointlet_proof' => $path]]);
+            }
+    
+            return response()->json(['success' => false, 'message' => 'File upload failed'], 400);
         }
-
-        return response()->json(['success' => false, 'message' => 'File upload failed'], 400);
+        catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'An error occurred. ' . $e->getMessage() ], 500);
+        }
     }
 
     public function storeStep3(Request $request)
@@ -72,7 +84,8 @@ class PurchaseController extends Controller
         ]);
 
         if ($request->hasFile('payment_proof')) {
-            $path = $request->file('payment_proof')->store('payment_proofs', 'public');
+            $user = auth()->user();
+            $path = $this->service->uploadToS3($request, 'payment_proof', 'payment_proofs', 'payment_proof_' . $user->email);
             return response()->json(['success' => true, 'data' => ['payment_proof' => $path]]);
         }
 
