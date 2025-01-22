@@ -13,9 +13,9 @@ class DetailTutorsController extends Controller
         $other_subjects = Subject::where('id', '!=', $id)
             ->where('status', 'active')
             ->where(function ($query) use ($subject) {
-                $query->whereJsonContains('subject_majors', $subject->subject_majors)
-                    ->orWhere('subject_category', $subject->subject_category)
-                    ->orWhere('subject_semester', $subject->subject_semester);
+                $query->whereJsonContains('majors', $subject->majors)
+                    ->orWhere('category', $subject->category)
+                    ->orWhere('semester', $subject->semester);
             })
             ->limit(3)
             ->get();

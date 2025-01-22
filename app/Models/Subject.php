@@ -11,14 +11,14 @@ class Subject extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'subject_image',
-        'subject_tutor',
-        'subject_title',
-        'subject_majors',
-        'subject_category',
-        'subject_semester',
-        'subject_description',
-        'subject_references',
+        'image',
+        'tutor',
+        'title',
+        'majors',
+        'category',
+        'semester',
+        'description',
+        'references',
         'subject_univ',
         'univ',
         'status',

@@ -18,11 +18,11 @@ class ViewTutorsController extends Controller
         $query = Subject::where('status', 'active');
 
         if ($major != 'all') {
-            $query->whereJsonContains('subject_majors', $major);
+            $query->whereJsonContains('majors', $major);
         }
 
         if ($semester != 'all') {
-            $query->where('subject_semester', $semester);
+            $query->where('semester', $semester);
         }
 
         if ($univ != 'all') {

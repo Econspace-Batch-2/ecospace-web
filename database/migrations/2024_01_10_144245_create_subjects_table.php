@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->string('subject_image', 50);
-            $table->string('subject_tutor', 50);
+            $table->string('image', 50);
+            $table->string('tutor', 50);
 
-            $table->string('subject_title', 50);
-            $table->json('subject_majors');
-            $table->string('subject_category', 50);
-            $table->string('subject_semester', 50);
+            $table->string('title', 50);
+            $table->json('majors');
+            $table->string('category', 50);
+            $table->string('semester', 50);
 
-            $table->text('subject_description');
-            $table->json('subject_references');
+            $table->text('description');
+            $table->json('references');
             $table->json('subject_univ');
             $table->json('univ');
 

@@ -32,11 +32,11 @@ class ViewMentorshipController extends Controller
         $query = Subject::where('status', 'active');
 
         if ($major != 'all') {
-            $query->whereJsonContains('subject_majors', $major);
+            $query->whereJsonContains('majors', $major);
         }
 
         if ($semester != 'all') {
-            $query->where('subject_semester', $semester);
+            $query->where('semester', $semester);
         }
 
         $subjects = $query->paginate(6);
@@ -50,7 +50,7 @@ class ViewMentorshipController extends Controller
         $major = $semester = 'all';
         $searchTerm = $request->input('mentorSearchBar');
 
-        $subjects = Subject::where('subject_title', 'like', "%{$searchTerm}%")
+        $subjects = Subject::where('title', 'like', "%{$searchTerm}%")
             ->where('status', 'active')
             ->paginate(6);
 

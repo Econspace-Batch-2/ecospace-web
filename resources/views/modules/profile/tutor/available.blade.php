@@ -62,16 +62,16 @@
                                     @endif
 
                                     <!-- Subject Tutor Image -->
-                                    <img src="{{ asset('assets/tutorImage/' . $subject->subject_tutor) }}"
+                                    <img src="{{ asset('assets/tutorImage/' . $subject->tutor) }}"
                                         alt="Subject Tutor Image"
                                         class="w-1/2 -bottom-8 sm:-bottom-8 md:-bottom-10 absolute right-1/2 transform translate-x-1/2">
                                 </div>
                                 <div class="">
                                     <h2 class="text-xl font-semibold">
-                                        {{ $subject->subject_title }}
+                                        {{ $subject->title }}
                                     </h2>
                                     <p class="text-sm text-gray-600">
-                                        {{ $subject->subject_description }}
+                                        {{ $subject->description }}
                                     </p>
                                 </div>
                             </div>

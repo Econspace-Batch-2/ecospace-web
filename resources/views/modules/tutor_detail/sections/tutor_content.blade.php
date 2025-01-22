@@ -7,7 +7,7 @@
                 <b class="">
                     Referensi Pembelajaran:
                 </b>
-                @foreach (json_decode($subject->subject_references) as $reference)
+                @foreach (json_decode($subject->references) as $reference)
                     {{ $reference }}
                 @endforeach
             </p>
