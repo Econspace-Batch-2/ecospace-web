@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\EventAdminController;
 use App\Http\Controllers\Admin\MentorAdminController;
 use App\Http\Controllers\Admin\TutorAdminController;
+use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,5 +42,14 @@ Route::middleware([AdminMiddleware::class])->group(function () {
         Route::post('/', [MentorAdminController::class, 'store']);
         Route::put('/{mentorId}', [MentorAdminController::class, 'update']);
         Route::delete('/{mentorId}', [MentorAdminController::class, 'destroy']);
+    });
+
+    Route::prefix('/users')->group(function () {
+        Route::get('/', [UserAdminController::class, 'index']);
+        Route::get('/{userId}', [UserAdminController::class, 'show']);
+    
+        Route::post('/', [UserAdminController::class, 'store']);
+        Route::put('/{userId}', [UserAdminController::class, 'update']);
+        Route::delete('/{userId}', [UserAdminController::class, 'destroy']);
     });
 });

@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class MentorAdminController extends Controller
 {
+    /**
+     * Get all purchases (tutor)
+     * Requires ADMIN_KEY authentication
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
         $mentors = Mentor::all();
@@ -18,6 +25,14 @@ class MentorAdminController extends Controller
         ], 200);
     }
 
+    /**
+     * Get a specific mentor
+     * Requires ADMIN_KEY authentication
+     * 
+     * @param Request $request
+     * @param int $mentorId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show($mentorId)
     {
         $mentor = Mentor::findOrFail($mentorId);
@@ -28,6 +43,14 @@ class MentorAdminController extends Controller
         ], 200);
     }
 
+    /**
+     * Store a specific mentor
+     * Requires ADMIN_KEY authentication
+     * 
+     * @param Request $request
+     * @param int $mentorId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(Request $request)
     {
         $request->validate(
@@ -63,6 +86,14 @@ class MentorAdminController extends Controller
         ], 201);
     }
 
+    /**
+     * Update a specific mentor
+     * Requires ADMIN_KEY authentication
+     * 
+     * @param Request $request
+     * @param int $mentorId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(Request $request, $mentorId)
     {
         $request->validate(
@@ -78,7 +109,7 @@ class MentorAdminController extends Controller
                 'photo_journey' => 'required'
             ]
         );
-        
+
         $mentor = Mentor::findOrFail($mentorId);
         $mentor->name = $request->name;
         $mentor->position = $request->position;
@@ -98,6 +129,14 @@ class MentorAdminController extends Controller
         ], 200);
     }
 
+    /**
+     * Delete a specific mentor
+     * Requires ADMIN_KEY authentication
+     * 
+     * @param Request $request
+     * @param int $mentorId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function destroy($mentorId)
     {
         $mentor = Mentor::findOrFail($mentorId);
