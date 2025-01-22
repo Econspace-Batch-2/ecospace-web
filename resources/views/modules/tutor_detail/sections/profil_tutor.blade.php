@@ -49,16 +49,16 @@
                                 <path d="M284.638 79.2039C273.473 81.0154 272.004 82.4824 270.195 93.6485C268.384 82.4824 266.917 81.0154 255.752 79.2039C266.917 77.3945 268.384 75.9255 270.195 64.7614C272.004 75.9255 273.473 77.3945 284.638 79.2039ZM95.2106 262.617C86.0816 264.098 84.8831 265.298 83.4024 274.425C81.9218 265.298 80.7213 264.098 71.5942 262.617C80.7213 261.136 81.9218 259.938 83.4024 250.809C84.8831 259.938 86.0816 261.136 95.2106 262.617Z" fill="{{$theme['detail']}}"/>
                                 </svg>
                     </div>
-                    <img src="{{ asset('assets/tutorImage/' . $mentor->mentor_profile) }}" alt="" class="absolute w-full h-full object-contain bottom-0">
+                    <img src="{{ asset('assets/tutorImage/' . $mentor->profile) }}" alt="" class="absolute w-full h-full object-contain bottom-0">
                 </div>
                 <div style="background-color: {{$theme['text']}}; color: white;" class="absolute w-[60%] px-5 py-2 flex flex-col items-center rounded-full -translate-y-6 left-1/2 transform -translate-x-1/2">
-                    <h5 class="text-sm font-medium">{{$mentor->mentor_name}}</h5>
-                    <p class="text-xs">{{$mentor->mentor_position}}</p>
+                    <h5 class="text-sm font-medium">{{$mentor->name}}</h5>
+                    <p class="text-xs">{{$mentor->position}}</p>
                 </div>
                 <div style="background-color: {{$theme['accent']}}; color: {{$theme['text']}};" class="min-h-[50%] w-full p-5 pt-10 flex flex-col rounded-tl-[80px]">
                     <h3 class="font-medium w-full text-center">Pengalaman dan Prestasi</h3>
                     <ul class="list-disc pl-10 mt-4 font-light">
-                        @foreach ($mentor->mentor_achievements as $prestasi)
+                        @foreach ($mentor->achievements as $prestasi)
                             <li class="text-sm">{{ $prestasi }}</li>
                         @endforeach
                     </ul>

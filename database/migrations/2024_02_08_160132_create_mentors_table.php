@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('mentors', function (Blueprint $table) {
             $table->id();
-            $table->string('mentor_name', 255);
-            $table->string('mentor_position', 255);
-            $table->string('mentor_company', 255);
-            $table->string('mentor_thumbnail', 255); // gambar tutor di view all page
-            $table->string('mentor_profile', 255); // gambar tutor di detail page
-            $table->string('mentor_linkedin', 255); // link linkedin
-            $table->json('mentor_achievements'); //achievent mentor dalam array.
-            $table->json('mentor_category'); // tag di detail
-            $table->json('mentor_photo_journey'); // foto slideshow di detail
+            $table->string('name', 255);
+            $table->string('position', 255);
+            $table->string('company', 255);
+            $table->string('thumbnail', 255); // gambar tutor di view all page
+            $table->string('profile', 255); // gambar tutor di detail page
+            $table->string('linkedin', 255); // link linkedin
+            $table->json('achievements'); //achievent mentor dalam array.
+            $table->json('category'); // tag di detail
+            $table->json('photo_journey'); // foto slideshow di detail
             $table->timestamps();
         });
     }

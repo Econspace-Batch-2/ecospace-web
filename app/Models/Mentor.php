@@ -11,21 +11,21 @@ class Mentor extends Model
 
 
     protected $fillable = [
-        'mentor_name',
-        'mentor_position',
-        'mentor_company',
-        'mentor_thumbnail',
-        'mentor_profile',
-        'mentor_linkedin',
-        'mentor_achievements',
-        'mentor_category',
-        'mentor_photo_journey',
+        'name',
+        'position',
+        'company',
+        'thumbnail',
+        'profile',
+        'linkedin',
+        'achievements',
+        'category',
+        'photo_journey',
     ];
 
     protected $casts = [
-        'mentor_achievements' => 'array',
-        'mentor_category' => 'array',
-        'mentor_photo_journey' => 'array',
+        'achievements' => 'array',
+        'category' => 'array',
+        'photo_journey' => 'array',
     ];
 
     public function subjects()

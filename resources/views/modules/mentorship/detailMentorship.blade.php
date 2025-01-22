@@ -17,7 +17,7 @@
                 <div class="col-12 col-md-8">
                     <div class="row">
                         <div class="col-4">
-                            <img src="{{asset('assets/mentorDetail/mentor_profile.svg')}}" alt="" class="w-75 img-fluid">
+                            <img src="{{asset('assets/mentorDetail/profile.svg')}}" alt="" class="w-75 img-fluid">
                         </div>
                         <div class="col-8">
                             <h1 class="font-48 font-700">Delvin Theodorus Hansell</h1>
