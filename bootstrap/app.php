@@ -52,4 +52,7 @@ $app->singleton(
 |
 */
 
+// be sure to add the following line before the $app is returned
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
 return $app;
