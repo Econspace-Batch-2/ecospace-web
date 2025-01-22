@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Purchase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -17,22 +18,6 @@ class TutorAdminController extends Controller
      */
     public function index(Request $request)
     {
-        // Check for ADMIN_KEY in request header
-        $adminKey = $request->header('X-Admin-Key');
-        
-        // Validate ADMIN_KEY
-        if (!$adminKey || $adminKey !== env('ADMIN_KEY')) {
-            Log::warning('Unauthorized access attempt to tutors endpoint', [
-                'ip' => $request->ip(),
-                'provided_key' => $adminKey
-            ]);
-            
-            return response()->json([
-                'message' => 'Unauthorized access',
-                'status' => 'error'
-            ], 401);
-        }
-
         try {
             $purchases = Purchase::all();
 

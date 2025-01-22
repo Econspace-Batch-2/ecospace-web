@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -16,20 +17,6 @@ class EventAdminController extends Controller
      */
     public function index(Request $request)
     {
-        $adminKey = $request->header('X-Admin-Key');
-        
-        if (!$adminKey || $adminKey !== env('ADMIN_KEY')) {
-            Log::warning('Unauthorized access attempt to events endpoint', [
-                'ip' => $request->ip(),
-                'provided_key' => $adminKey
-            ]);
-            
-            return response()->json([
-                'message' => 'Unauthorized access',
-                'status' => 'error'
-            ], 401);
-        }
-
         try {
             $events = Event::all();
             
@@ -58,20 +45,6 @@ class EventAdminController extends Controller
      */
     public function getParticipants(Request $request, $eventId)
     {
-        $adminKey = $request->header('X-Admin-Key');
-        
-        if (!$adminKey || $adminKey !== env('ADMIN_KEY')) {
-            Log::warning('Unauthorized access attempt to event participants endpoint', [
-                'ip' => $request->ip(),
-                'provided_key' => $adminKey
-            ]);
-            
-            return response()->json([
-                'message' => 'Unauthorized access',
-                'status' => 'error'
-            ], 401);
-        }
-
         try {
             $event = Event::findOrFail($eventId);
             
