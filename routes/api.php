@@ -24,10 +24,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/purchases', [TutorAdminController::class, 'index']);
     
-    Route::get('/events', [EventAdminController::class, 'index']);
-    Route::get('/events/{eventId}/participants', [EventAdminController::class, 'getParticipants']);
-
-    Route::post('/events', [EventAdminController::class, 'store']);
-    Route::put('/events/{eventId}', [EventAdminController::class, 'update']);
-    Route::delete('/events/{eventId}', [EventAdminController::class, 'destroy']);
+    Route::prefix('/events')->group(function () {
+        Route::get('/', [EventAdminController::class, 'index']);
+        Route::get('/{eventId}/participants', [EventAdminController::class, 'getParticipants']);
+    
+        Route::post('/', [EventAdminController::class, 'store']);
+        Route::put('/{eventId}', [EventAdminController::class, 'update']);
+        Route::delete('/{eventId}', [EventAdminController::class, 'destroy']);
+    });
 });
