@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\EventAdminController;
+use App\Http\Controllers\Admin\MentorAdminController;
 use App\Http\Controllers\Admin\TutorAdminController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Http\Request;
@@ -31,5 +32,14 @@ Route::middleware([AdminMiddleware::class])->group(function () {
         Route::post('/', [EventAdminController::class, 'store']);
         Route::put('/{eventId}', [EventAdminController::class, 'update']);
         Route::delete('/{eventId}', [EventAdminController::class, 'destroy']);
+    });
+
+    Route::prefix('/mentors')->group(function () {
+        Route::get('/', [MentorAdminController::class, 'index']);
+        Route::get('/{mentorId}', [MentorAdminController::class, 'show']);
+    
+        Route::post('/', [MentorAdminController::class, 'store']);
+        Route::put('/{mentorId}', [MentorAdminController::class, 'update']);
+        Route::delete('/{mentorId}', [MentorAdminController::class, 'destroy']);
     });
 });
