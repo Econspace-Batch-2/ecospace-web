@@ -28,6 +28,8 @@ return new class extends Migration
 
             $table->string('status')->default('active');
 
+            $table->string('appointlet_url')->nullable();
+
             $table->timestamps();
         });
     }

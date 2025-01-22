@@ -11,7 +11,15 @@
     </div>
 
     {{-- Appointlet Link --}}
-    <div id="appointlet" class="grid lg:grid-cols-2 gap-x-6 gap-y-8"></div>
+    <div id="appointlet" class="grid lg:grid-cols-2 gap-x-6 gap-y-8">
+        @foreach ($appointlets as $appointlet)
+            <div class="bg-white md:p-8 p-4 rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 border-[5px] border-[#FF8412]"
+                onclick="window.open('{{ $appointlet->link }}', '_blank')">
+                <h1 class="font-semibold text-xl md:text-2xl text-[#FF8412]">{{ $appointlet->title }}</h1>
+                <p class="text-[#FF8412] text-sm md:text-base font-medium">{{ $appointlet->link }}</p>
+            </div>
+        @endforeach
+    </div>
 
     {{-- Bukti Screenshot --}}
     <h1 class="font-bold text-3xl max-md:text-center md:text-4xl text-black">Bukti Screenshot Appointlet</h1>
@@ -47,52 +55,6 @@
         <div id="bukti-appointlet"></div>
     </div>
     <script>
-        const appointlet = document.getElementById('appointlet');
-        const appointletData = [{
-                title: 'Akuntansi Pengantar',
-                link: 'appt.link/economic-space/akuntansi-pengantar'
-            },
-            {
-                title: 'Statistika Ekonomi 1',
-                link: 'appt.link/economic-space/statistika-ekonomi-1'
-            },
-            {
-                title: 'Manajemen Keuangan',
-                link: 'appt.link/economic-space/manajemen-keuangan'
-            },
-            {
-                title: 'Akuntansi Keuangan Menengah II',
-                link: 'appt.link/economic-space/akuntansi-keuangan-2'
-            },
-            {
-                title: 'Perpajakan',
-                link: 'appt.link/economic-space/perpajakan'
-            },
-            {
-                title: 'MMatematika Ekonomi 1 (FMIPA)',
-                link: 'appt.link/economic-space/matematika-eko-1-fmipa'
-            },
-            {
-                title: 'Matematika Ekonomi 1 (FEB)',
-                link: 'appt.link/economic-space/matematika-eko-1-feb'
-            }
-
-        ];
-
-        appointletData.forEach(data => {
-            const card = document.createElement('div');
-            card.classList.add('bg-white', 'md:p-8', 'p-4', 'rounded-lg', 'cursor-pointer', 'hover:shadow-lg',
-                'transition-all', 'duration-300', 'border-[5px]', 'border-[#FF8412]');
-            card.innerHTML = `
-                <h1 class="font-semibold text-xl md:text-2xl text-[#FF8412]">${data.title}</h1>
-                <p class="text-[#FF8412] text-sm md:text-base font-medium">${data.link}</p>
-            `;
-            card.addEventListener('click', () => {
-                window.open(`https://${data.link}`, '_blank');
-            });
-            appointlet.appendChild(card);
-        });
-
         const inputAppointlet = document.getElementById('input_appointlet');
         const buktiAppointlet = document.getElementById('bukti-appointlet');
 

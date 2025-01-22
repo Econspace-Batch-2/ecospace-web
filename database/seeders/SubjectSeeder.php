@@ -30,6 +30,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UGM']),
+                'appointlet_url' => 'https://calendly.com/kevin-mentoring/management-accounting'
             ],
             [
                 'image' => 'IntermediateAccountingI.svg',
@@ -45,6 +46,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UGM', 'UNAIR']),
+                'appointlet_url' => 'https://calendly.com/evan-mentoring/intermediate-accounting-i'
             ],
             [
                 'image' => 'IntermediateAccountingIII.svg',
@@ -60,6 +62,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UGM', 'UNAIR']),
+                'appointlet_url' => 'https://calendly.com/rendra-mentoring/intermediate-accounting-iii'
                 
             ],
             [
@@ -76,6 +79,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UGM', 'UNAIR']),
+                'appointlet_url' => 'https://calendly.com/raihan-mentoring/taxation-ii'
             ],
             [
                 'image' => 'FinancialManagement.svg',
@@ -91,6 +95,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UNAIR']),
+                'appointlet_url' => 'https://calendly.com/dewa-mentoring/financial-management'
             ],
             [
                 'image' => 'StatisticsForAccounting.svg',
@@ -106,6 +111,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UNAIR']),
+                'appointlet_url' => 'https://calendly.com/raihan-mentoring/statistics-for-accounting'
             ],
             [
                 'image' => 'EconomicsII.svg',
@@ -121,6 +127,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UGM', 'UNAIR']),
+                'appointlet_url' => 'https://calendly.com/hanum-mentoring/economics-ii'
             ],
             [
                 'image' => 'AdvancedStatistics.svg',
@@ -136,6 +143,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UGM', 'UNAIR']),
+                'appointlet_url' => 'https://calendly.com/rendra-mentoring/advanced-statistics'
             ],
             [
                 'image' => 'AdvancedMathematics.svg',
@@ -151,6 +159,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UNAIR']),
+                'appointlet_url' => 'https://calendly.com/anjar-mentoring/advanced-mathematics'
             ],
 
             // old course
@@ -168,6 +177,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UGM', 'UNAIR']),
+                'appointlet_url' => 'https://calendly.com/kevin-mentoring/introduction-to-accounting'
             ],
             [
                 'image' => 'BasicEconomics.svg',
@@ -183,6 +193,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UNAIR']),
+                'appointlet_url' => 'https://calendly.com/anjar-mentoring/basic-economics'
             ],
             [
                 'image' => 'CostAccounting.svg',
@@ -198,6 +209,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UGM']),
+                'appointlet_url' => 'https://calendly.com/dewa-mentoring/cost-accounting'
             ],
             [
                 'image' => 'IntermediateAccountingII.svg',
@@ -213,6 +225,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UGM', 'UNAIR']),
+                'appointlet_url' => 'https://calendly.com/marcheline-mentoring/intermediate-accounting-ii'
             ],
             [
                 'image' => 'IntroductionToTaxation.svg',
@@ -228,6 +241,7 @@ class SubjectSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'univ' => json_encode(['UGM', 'UNAIR']),
+                'appointlet_url' => 'https://calendly.com/daffa-mentoring/introduction-to-taxation'
             ]
         ];
 

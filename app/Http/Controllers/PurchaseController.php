@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Purchase;
+use App\Models\Subject;
 use App\Services\UploadFileService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -27,9 +28,23 @@ class PurchaseController extends Controller
 
         $purchase = $request->session()->get('purchase', new Purchase());
 
+        $appointlets = Subject::all();
+
+        // Map subjects
+        $subjects = Subject::all();
+        $appointlets = $subjects->map(function ($subject) {
+            $appointlet = new \stdClass();
+            $appointlet->id = $subject->id;
+            $appointlet->title = $subject->title;
+            $appointlet->link = $subject->appointlet_url;
+
+            return $appointlet;
+        });
+
         return view('modules.purchase.purchase', [
             'step' => $step,
-            'purchase' => $purchase
+            'purchase' => $purchase,
+            'appointlets' => $appointlets
         ]);
     }
     public function storeStep1(Request $request)

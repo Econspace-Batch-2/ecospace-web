@@ -22,6 +22,7 @@ class Subject extends Model
         'subject_univ',
         'univ',
         'status',
+        'appointlet_url'
     ];
 
     // 1 subject can have many topics
@@ -44,5 +45,10 @@ class Subject extends Model
     public function users()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function appointments()
+    {
+        // Return appointments that are not cancelled
     }
 }
