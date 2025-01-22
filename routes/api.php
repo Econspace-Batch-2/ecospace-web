@@ -26,4 +26,8 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     
     Route::get('/events', [EventAdminController::class, 'index']);
     Route::get('/events/{eventId}/participants', [EventAdminController::class, 'getParticipants']);
+
+    Route::post('/events', [EventAdminController::class, 'store']);
+    Route::put('/events/{eventId}', [EventAdminController::class, 'update']);
+    Route::delete('/events/{eventId}', [EventAdminController::class, 'destroy']);
 });

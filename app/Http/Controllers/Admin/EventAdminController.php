@@ -67,4 +67,99 @@ class EventAdminController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * Create a new event
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(Request $request)
+    {
+        try {
+            $event = new Event();
+            $event->name = $request->name;
+            $event->description = $request->description;
+            $event->date = $request->date;
+            $event->time = $request->time;
+            $event->location = $request->location;
+            $event->save();
+            
+            return response()->json([
+                'data' => $event,
+                'message' => 'Event created successfully',
+                'status' => 'success'
+            ], 201);
+
+        } catch (\Exception $e) {
+            Log::error('Error creating event: ' . $e->getMessage());
+            
+            return response()->json([
+                'message' => 'Error creating event',
+                'status' => 'error'
+            ], 500);
+        }
+    }
+
+    /**
+     * Update an event
+     * 
+     * @param Request $request
+     * @param int $eventId
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Request $request, $eventId)
+    {
+        try {
+            $event = Event::findOrFail($eventId);
+            $event->name = $request->name;
+            $event->description = $request->description;
+            $event->date = $request->date;
+            $event->time = $request->time;
+            $event->location = $request->location;
+            $event->save();
+            
+            return response()->json([
+                'data' => $event,
+                'message' => 'Event updated successfully',
+                'status' => 'success'
+            ], 200);
+
+        } catch (\Exception $e) {
+            Log::error('Error updating event: ' . $e->getMessage());
+            
+            return response()->json([
+                'message' => 'Error updating event',
+                'status' => 'error'
+            ], 500);
+        }
+    }
+
+    /**
+     * Delete an event
+     * 
+     * @param Request $request
+     * @param int $eventId
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(Request $request, $eventId)
+    {
+        try {
+            $event = Event::findOrFail($eventId);
+            $event->delete();
+            
+            return response()->json([
+                'message' => 'Event deleted successfully',
+                'status' => 'success'
+            ], 200);
+
+        } catch (\Exception $e) {
+            Log::error('Error deleting event: ' . $e->getMessage());
+            
+            return response()->json([
+                'message' => 'Error deleting event',
+                'status' => 'error'
+            ], 500);
+        }
+    }
 }
