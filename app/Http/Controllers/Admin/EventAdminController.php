@@ -80,9 +80,13 @@ class EventAdminController extends Controller
             $event = new Event();
             $event->name = $request->name;
             $event->description = $request->description;
-            $event->date = $request->date;
-            $event->time = $request->time;
-            $event->location = $request->location;
+            $event->start_date = $request->start_date;
+            $event->end_date = $request->end_date;
+            $event->categories = $request->categories;
+            $event->harga = $request->harga;
+            $event->event_image = $request->event_image;
+            $event->speaker = $request->speaker;
+            $event->speaker_image = $request->speaker_image;
             $event->save();
             
             return response()->json([
@@ -114,9 +118,13 @@ class EventAdminController extends Controller
             $event = Event::findOrFail($eventId);
             $event->name = $request->name;
             $event->description = $request->description;
-            $event->date = $request->date;
-            $event->time = $request->time;
-            $event->location = $request->location;
+            $event->start_date = $request->start_date;
+            $event->end_date = $request->end_date;
+            $event->categories = $request->categories;
+            $event->harga = $request->harga;
+            $event->event_image = $request->event_image;
+            $event->speaker = $request->speaker;
+            $event->speaker_image = $request->speaker_image;
             $event->save();
             
             return response()->json([
