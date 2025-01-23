@@ -27,7 +27,8 @@ Route::get('/', function () {
     return view('modules.home.home');
 });
 
-Route::get('/soon',
+Route::get(
+    '/soon',
     function () {
         return view('modules.home.soon');
     }
@@ -36,7 +37,18 @@ Route::get('/soon',
 /* View Tutor */
 Route::prefix('tutors')->group(function () {
     Route::get('/', [ViewTutorsController::class, 'index'])->name('viewTutors');
-    Route::get('/{id}', [DetailTutorsController::class, 'index'])->name('detailTutor');
+
+    Route::prefix('/{id}')->group(function () {
+        Route::get('/', [DetailTutorsController::class, 'index'])->name('detailTutor');
+        Route::prefix('purchase')->group(function () {
+            Route::get('/', [PurchaseController::class, 'index'])->name('purchase.index');
+            Route::post('/step1', [PurchaseController::class, 'storeStep1'])->name('purchase.step1');
+            Route::post('/step2', [PurchaseController::class, 'storeStep2'])->name('purchase.step2');
+            Route::post('/step3', [PurchaseController::class, 'storeStep3'])->name('purchase.step3');
+            Route::post('/step4', [PurchaseController::class, 'storeStep4'])->name('purchase.step4');
+            Route::post('/store', [PurchaseController::class, 'store'])->name('purchase.store');
+        });
+    });
 });
 
 // Event
@@ -66,14 +78,3 @@ Route::prefix('profile')->middleware('auth')->group(function () {
         Route::get('/history', [ProfileTutorListController::class, 'history'])->name('tutorHistory');
     });
 });
-
-// Route::middleware('auth')->group(function () {
-//     Route::prefix('purchase')->group(function () {
-//         Route::get('/', [PurchaseController::class, 'index'])->name('purchase.index');
-//         Route::post('/step1', [PurchaseController::class, 'storeStep1'])->name('purchase.step1');
-//         Route::post('/step2', [PurchaseController::class, 'storeStep2'])->name('purchase.step2');
-//         Route::post('/step3', [PurchaseController::class, 'storeStep3'])->name('purchase.step3');
-//         Route::post('/step4', [PurchaseController::class, 'storeStep4'])->name('purchase.step4');
-//         Route::post('/store', [PurchaseController::class, 'store'])->name('purchase.store');
-//     });
-// });

@@ -40,11 +40,13 @@
                             Back
                         </button>
                     @else
+                    <a href="/tutors/{{$id}}">
                         <button
                             class="btn btn-outline"
                         >
                             View Tutor Details
                         </button>
+                    </a>
                     @endif
                     <button data-next-button
                         class="btn btn-primary">
@@ -89,7 +91,7 @@
                         }
                         formData.append('university', selectedUniversity.value);
                         console.log(selectedUniversity.value);
-                        submitStep('{{ route('purchase.step1') }}', formData);
+                        submitStep('{{ route('purchase.step1', ['id' => $id]) }}', formData);
                         break;
 
                     case 2:
@@ -100,7 +102,8 @@
                         }
                         formData.append('input_appointlet', appointletFile.files[0]);
                         console.log(appointletFile.files[0]);
-                        submitStep('{{ route('purchase.step2') }}', formData);
+                        submitStep('{{ route('purchase.step2', ['id' => $id]) }}', formData);
+
                         console.log(JSON.stringify(JSON.parse(localStorage.getItem('purchase'))))
                         break;
 
@@ -137,7 +140,7 @@
                         }
                         formData.append('payment_proof', paymentFile.files[0]);
                         console.log(paymentFile.files[0]);
-                        submitStep('{{ route('purchase.step4') }}', formData);
+                        submitStep('{{ route('purchase.step4', ['id' => $id]) }}', formData);
                         break;
                 }
             });
@@ -145,7 +148,7 @@
             // Handle "Previous" button click
             if (prevButton) {
                 prevButton.addEventListener('click', function() {
-                    window.location.href = `/purchase?step=${currentStep - 1}`;
+                    window.location.href = `/tutors/{{$id}}/purchase?step=${currentStep - 1}`;
                 });
             }
 
@@ -157,7 +160,7 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            window.location.href = `/purchase?step=${currentStep + 1}`;
+                            window.location.href = `/tutors/{{$id}}/purchase?step=${currentStep + 1}`;
                             saveToLocalStorage(currentStep, data.data);
                         }
                     })
@@ -187,7 +190,7 @@
                     payment_proof: purchaseData.step4.payment_proof,
                 };
 
-                fetch('{{ route('purchase.store') }}', {
+                fetch('{{ route('purchase.store', ['id' => $id]) }}', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

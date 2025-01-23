@@ -17,7 +17,7 @@ class PurchaseController extends Controller
         $this->service = new UploadFileService();
     }
 
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
         $step = $request->query('step', 1);
         $maxSteps = 5;
@@ -42,12 +42,13 @@ class PurchaseController extends Controller
         });
 
         return view('modules.purchase.purchase', [
+            'id' => $id,
             'step' => $step,
             'purchase' => $purchase,
             'appointlets' => $appointlets
         ]);
     }
-    public function storeStep1(Request $request)
+    public function storeStep1(Request $request, $id)
     {
         $validated = $request->validate([
             'university' => 'required|string|max:255'
@@ -56,7 +57,7 @@ class PurchaseController extends Controller
         return response()->json(['success' => true, 'data' => $validated]);
     }
 
-    public function storeStep2(Request $request)
+    public function storeStep2(Request $request, $id)
     {
         try {
             $request->validate([
@@ -77,7 +78,7 @@ class PurchaseController extends Controller
         }
     }
 
-    public function storeStep3(Request $request)
+    public function storeStep3(Request $request, $id)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -92,7 +93,7 @@ class PurchaseController extends Controller
         });
     }
 
-    public function storeStep4(Request $request)
+    public function storeStep4(Request $request, $id)
     {
         $request->validate([
             'payment_proof' => 'required|image|max:10240'
@@ -107,7 +108,7 @@ class PurchaseController extends Controller
         return response()->json(['success' => false, 'message' => 'File upload failed'], 400);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         try {
 
