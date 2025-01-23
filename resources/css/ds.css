@@ -15,24 +15,27 @@
 }
 
 .btn {
-    @apply px-10 font-normal;
+    @apply px-10 font-normal capitalize border-0;
 }
-
 
 .btn-black {
     @apply bg-black text-white hover:bg-gray-900 duration-300;
 }
 
+.btn-success {
+    @apply bg-green-500 text-white hover:bg-green-600 duration-300;
+}
+
 .btn-primary {
-    @apply bg-orange-400 font-medium hover:bg-orange-500 duration-300 text-white;
+    @apply bg-orange-400 font-medium hover:bg-orange-500 duration-300 text-white border-none;
 }
 
 .btn-outline {
-    @apply bg-white text-gray-700 border-2 border-gray-300 hover:bg-gray-100 hover:text-black duration-300;
+    @apply bg-transparent border-2 text-orange-500 border-orange-400 hover:bg-transparent hover:text-orange-600 hover:border-orange-600 duration-300;
 }
 
 .input {
-    @apply px-5 py-2 border-2 border-gray-200 rounded-lg bg-white w-full;
+    @apply px-5 py-2 border-2 border-gray-200 rounded-lg bg-white w-full focus:outline-none focus:border-orange-400 text-sm;
 }
 
 .select {

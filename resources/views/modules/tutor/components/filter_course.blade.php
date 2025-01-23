@@ -70,7 +70,7 @@
             </select>
         </div>
         <div class="flex items-center gap-2">
-            <button id="pilih" class="btn bg-orange-500 hover:bg-orange-600 px-4" type="submit">
+            <button id="pilih" class="btn btn-primary" type="submit">
                 Pilih
             </button>
 

@@ -1,6 +1,6 @@
 <section class="bg-white p-10 shadow-xl rounded-lg flex flex-col gap-4">
-    <div class="">
-        <h1 class="font-bold text-3xl">Bukti Pembayaran</h1>
+    <div class="space-y-2">
+        <h1 class="font-bold text-2xl">Bukti Pembayaran</h1>
         <p class="text-[#9B9B9B] text-sm">Lakukan pembayaran sebesar Rp120.000/sesi melalui scan QR di bawah ini.
             Upload bukti screenshot pembayaran dengan max size = 10 MB.</p>
     </div>
@@ -56,12 +56,12 @@
         reader.onload = () => {
             const title = document.createElement('div');
             title.textContent = file.name;
-            title.classList.add('text-black', 'text-xl', 'font-medium', 'border-[5px]', 'border-black',
+            title.classList.add('text-black', 'text-sm', 'font-medium', 'border-2', 'border-4', 'border-black',
                 'rounded-lg', 'py-2', 'px-4', 'flex', 'items-center', 'justify-between');
             const x = document.createElement('div');
             x.classList.add('cursor-pointer', 'transition-all', 'duration-300');
             x.innerHTML = `
-                    <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="20" height="20" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30 2.5L3 29.5" stroke="#D42727" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M3 2.5L30 29.5" stroke="#D42727" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>

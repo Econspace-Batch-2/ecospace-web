@@ -26,11 +26,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     {{-- icon --}}
     <script src="https://kit.fontawesome.com/92b0bdfcf0.js" crossorigin="anonymous" defer></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
     {{-- typed animation --}}
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 
-    @vite(['resources/css/app.css', 'resources/css/ds.css'])
+    @vite(['resources/css/app.css', 'resources/css/ds.css', 'resources/js/app.js'])
     {{-- meta description --}}
     <meta name="description"
         content="Ultimate hub for university students to support them Academically with Expert Tutors, while providing with Insights for their Future Career Plan through Insights Exploration with Mentors">

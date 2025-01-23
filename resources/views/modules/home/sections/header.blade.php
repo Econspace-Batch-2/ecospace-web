@@ -8,7 +8,7 @@
         memperluas Wawasan & Kapabilitas dalam berbagai area lain
     </p>
 
-    <a target="_blank" href="https://bit.ly/RegistrationTutorService">
+    <a href="/tutors">
         <button class="btn btn-black btn-lg text-white mt-5">
             Mulai Belajar
         </button>

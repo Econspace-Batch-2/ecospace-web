@@ -146,7 +146,7 @@ class PurchaseController extends Controller
                 'request_data' => $request->all(),
             ]);
 
-            return response()->json(['success' => false, 'message' => 'An error occurred.'], 500);
+            return response()->json(['success' => false, 'message' => 'An error occurred. ' . $e->getMessage()], 500);
         }
     }
 }

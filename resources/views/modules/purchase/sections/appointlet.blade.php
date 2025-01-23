@@ -1,28 +1,22 @@
-<section style="box-shadow: 0px 4px 10px 10px #00000033;"
-    class="bg-white p-10 rounded-lg flex flex-col gap-5 md:max-w-[70vw] max-md:mx-5">
-    <div class="">
-        <h1 class="font-bold text-3xl max-md:text-center md:text-4xl text-black">Jadwal Appointlet</h1>
-        <p class="text-[#9B9B9B] text-sm md:text-base font-medium lg:max-w-[60%] mt-4 text-justify">Pilih mata kuliah dan
-            jadwal yang tersedia
-            dengan click card atau
-            akses
-            link-nya.
-            Setelah memilih jadwal, <span class="text-[#D42727]">WAJIB SCREENSHOT</span> sebagai bukti pengisian.</p>
+<section class="bg-white p-10 rounded-lg flex flex-col gap-5 shadow-smooth border-2 border-gray-100 w-full">
+    <div class="w-full">
+        <h1 class="font-bold text-2xl max-md:text-center  text-black">Jadwal Appointlet</h1>
+        <p class="w-full text-[#9B9B9B] text-sm md:text-base font-medium mt-4 text-justify">Pilih mata kuliah dan jadwal yang tersedia dengan click card atau akses link-nya. Setelah memilih jadwal, <span class="text-[#D42727]">WAJIB SCREENSHOT</span> sebagai bukti pengisian.</p>
     </div>
 
     {{-- Appointlet Link --}}
     <div id="appointlet" class="grid lg:grid-cols-2 gap-x-6 gap-y-8">
         @foreach ($appointlets as $appointlet)
-            <div class="bg-white md:p-8 p-4 rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 border-[5px] border-[#FF8412]"
+            <div class="bg-white md:p-8 p-4 rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 border-2 md:border-4 border-[#FF8412]"
                 onclick="window.open('{{ $appointlet->link }}', '_blank')">
-                <h1 class="font-semibold text-xl md:text-2xl text-[#FF8412]">{{ $appointlet->title }}</h1>
-                <p class="text-[#FF8412] text-sm md:text-base font-medium">{{ $appointlet->link }}</p>
+                <h1 class="font-semibold text-lg md:text-2xl text-[#FF8412]">{{ $appointlet->title }}</h1>
+                <p class="text-[#FF8412] text-sm font-medium">{{ $appointlet->link }}</p>
             </div>
         @endforeach
     </div>
 
     {{-- Bukti Screenshot --}}
-    <h1 class="font-bold text-3xl max-md:text-center md:text-4xl text-black">Bukti Screenshot Appointlet</h1>
+    <h1 class="font-bold text-2xl max-md:text-center text-black">Bukti Screenshot Appointlet</h1>
     <p class="text-[#9B9B9B] text-sm text-center">Contoh bukti screenshot yang benar:</p>
     <img src="{{ asset('assets/purchase/appointlet-example.png') }}" alt="" class="object-contain">
 
@@ -32,7 +26,7 @@
     <p for="bukti_pembayaran" class="text-[#9B9B9B] text-sm md:mb-4">Upload bukti screenshot Appointlet dengan max
         size = 10 MB.</p>
     <div class="grid lg:grid-cols-2 gap-8">
-        <div>
+        <div class="space-y-4">
             <div class="relative md:w-full">
                 <div
                     class="w-full h-[200px] border-[5px] border-black rounded-lg flex flex-col items-center justify-center gap-3">
@@ -49,8 +43,8 @@
                 <input data-appointlet-input type="file" name="input_appointlet" id="input_appointlet" accept="image/*"
                     class="w-full border border-[#9B9B9B] opacity-0 rounded-lg p-2 h-[200px] absolute top-0 cursor-pointer">
             </div>
-            <button onclick="document.getElementById('input_appointlet').click()"
-                class="btn bg-[#FF8412] rounded-lg text-white text-2xl font-semibold hover:bg-[#FF8412]/90 transition-all border-0 w-full mt-4 py-5 h-[76px]">Upload</button>
+            <button onclick="document.getElementById('input_appointlet').click()" class="btn btn-primary w-full" >
+                Choose File</button>
         </div>
         <div id="bukti-appointlet"></div>
     </div>
@@ -68,13 +62,13 @@
             reader.onload = () => {
                 const title = document.createElement('div');
                 title.textContent = file.name;
-                title.classList.add('text-black', 'md:text-2xl', 'text-xl', 'font-semibold', 'border-[5px]',
+                title.classList.add('text-black', 'text-sm', 'font-medium', 'border-2', 'md:border-4',
                     'border-black',
                     'rounded-lg', 'py-2', 'px-4', 'flex', 'items-center', 'justify-between');
                 const x = document.createElement('div');
                 x.classList.add('cursor-pointer', 'transition-all', 'duration-300');
                 x.innerHTML = `
-                    <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="20" height="20" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30 2.5L3 29.5" stroke="#D42727" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M3 2.5L30 29.5" stroke="#D42727" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>

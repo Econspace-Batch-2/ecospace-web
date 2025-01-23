@@ -754,17 +754,6 @@ button:hover {
 .select {
     background-color: white;
 }
-.btn {
-    color: white;
-    border: none;
-    border-radius: 8px;
-    text-transform: none;
-}
-
-.btn-danger {
-    background-color: var(--color-red);
-    border-radius: 15px;
-}
 
 .mobile .description {
     position: relative;
@@ -1047,11 +1036,6 @@ button:hover {
     width: 30%;
     position: relative;
     left: 70%;
-}
-
-.btn-danger {
-    background-color: var(--color-red);
-    border-radius: 15px;
 }
 
 .mobile .description {
