@@ -43,13 +43,13 @@
             @foreach ($events as $event)
                 <div class="col-span-1 p-4 md:p-8 border-2 border-black rounded-xl shadow-md cursor-pointer hover:scale-105 duration-200">
                     {{-- If Event Image exists then use --}}
-                    @if ($event->event_image)
+                    {{-- @if ($event->event_image)
                         <img src="{{ $event->event_image }}" alt="Event"
                             class="w-full h-52 border-2 border-black rounded">
                     @else
-                        <img src="{{ asset('assets/tutorImage/UGM_cardbg.png') }}" alt="Event"
-                            class="w-full h-52 border-2 border-black rounded">
-                    @endif
+                    @endif --}}
+                    <img src="{{ asset('assets/tutorImage/UGM_cardbg.png') }}" alt="Event"
+                        class="w-full h-52 border-2 border-black rounded">
                     <h2 class="text-xl font-bold my-2">{{ $event->name }}</h2>
                     {{-- Split and map categories --}}
                     <div class="text-xs font-medium flex flex-wrap gap-2">

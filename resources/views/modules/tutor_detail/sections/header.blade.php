@@ -28,9 +28,15 @@
                 </p>
             </div>
             <div class="flex w-full justify-end">
-                <a target="_blank" href="/purchase" class="w-full md:w-fit"> 
+                {{-- <a target="_blank" href="/purchase" class="w-full md:w-fit"> 
                     <button class="btn btn-primary px-20 w-full md:w-fit">Book Now</button>
-                </a>
+                </a> --}}
+                <div class="flex flex-col items-end gap-2">
+                    <button class="btn btn-disabled px-20 w-full md:w-fit">Not Open</button>
+                    <small>
+                        <p class="text-xs text-red-500">*Not Open, Coming in February</p>
+                    </small>
+                </div>
             </div>
         </div>
     

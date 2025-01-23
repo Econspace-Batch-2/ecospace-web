@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\EventAdminController;
 use App\Http\Controllers\Admin\MentorAdminController;
+use App\Http\Controllers\Admin\SubjectAdminController;
 use App\Http\Controllers\Admin\TutorAdminController;
 use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Middleware\AdminMiddleware;
@@ -51,5 +52,14 @@ Route::middleware([AdminMiddleware::class])->group(function () {
         Route::post('/', [UserAdminController::class, 'store']);
         Route::put('/{userId}', [UserAdminController::class, 'update']);
         Route::delete('/{userId}', [UserAdminController::class, 'destroy']);
+    });
+
+    Route::prefix('/subjects')->group(function () {
+        Route::get('/', [SubjectAdminController::class, 'index']);
+        Route::get('/{subjectId}', [SubjectAdminController::class, 'show']);
+    
+        Route::post('/', [SubjectAdminController::class, 'store']);
+        Route::put('/{subjectId}', [SubjectAdminController::class, 'update']);
+        Route::delete('/{subjectId}', [SubjectAdminController::class, 'destroy']);
     });
 });
