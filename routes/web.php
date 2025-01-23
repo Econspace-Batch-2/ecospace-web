@@ -40,14 +40,14 @@ Route::prefix('tutors')->group(function () {
 
     Route::prefix('/{id}')->group(function () {
         Route::get('/', [DetailTutorsController::class, 'index'])->name('detailTutor');
-        Route::prefix('purchase')->group(function () {
-            Route::get('/', [PurchaseController::class, 'index'])->name('purchase.index');
-            Route::post('/step1', [PurchaseController::class, 'storeStep1'])->name('purchase.step1');
-            Route::post('/step2', [PurchaseController::class, 'storeStep2'])->name('purchase.step2');
-            Route::post('/step3', [PurchaseController::class, 'storeStep3'])->name('purchase.step3');
-            Route::post('/step4', [PurchaseController::class, 'storeStep4'])->name('purchase.step4');
-            Route::post('/store', [PurchaseController::class, 'store'])->name('purchase.store');
-        });
+        // Route::prefix('purchase')->group(function () {
+        //     Route::get('/', [PurchaseController::class, 'index'])->name('purchase.index');
+        //     Route::post('/step1', [PurchaseController::class, 'storeStep1'])->name('purchase.step1');
+        //     Route::post('/step2', [PurchaseController::class, 'storeStep2'])->name('purchase.step2');
+        //     Route::post('/step3', [PurchaseController::class, 'storeStep3'])->name('purchase.step3');
+        //     Route::post('/step4', [PurchaseController::class, 'storeStep4'])->name('purchase.step4');
+        //     Route::post('/store', [PurchaseController::class, 'store'])->name('purchase.store');
+        // });
     });
 });
 
