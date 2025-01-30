@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('content')
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 mb-20">
         <div class="flex justify-center">
             <div class="w-full md:w-7/12 mt-5">
                 <img src="{{ asset('assets/socmed/logo_orange.svg') }}" alt="" class="mx-auto block logo-auth">
@@ -10,13 +10,13 @@
             </div>
         </div>
         <div class="flex justify-center mt-4">
-            <div class="w-full md:w-6/12 bg-white p-10 rounded-xl border-2 border-gray-200">
+            <div class="w-full max-w-[90vw] md:max-w-lg bg-white p-10 rounded-xl border-2 border-gray-200">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
                     {{-- email --}}
                     <div class="flex flex-col">
-                        <label for="email" class="form-label text-base">{{ __('Email Address') }}</label>
+                        <label for="email" class="form-label text-sm">{{ __('Email Address') }}</label>
                         <x-input type="email" name="email" id="email" placeholder="Enter your email address"
                             class="input @error('email') is-invalid @enderror" required="true" autocomplete="email"
                             autofocus="true" />
@@ -30,7 +30,7 @@
 
                     {{-- password --}}
                     <div class="flex flex-col">
-                        <label for="password" class="form-label text-base mt-4">{{ __('Password') }}</label>
+                        <label for="password" class="form-label text-sm mt-4">{{ __('Password') }}</label>
                         <x-input type="password" name="password" id="password" placeholder="Enter your password"
                             class="input @error('password') is-invalid @enderror" required
                             autocomplete="current-password" />
@@ -48,13 +48,13 @@
 
                     {{-- forget password --}}
                     @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}" class="text-center block text-base mt-4">
+                        <a href="{{ route('password.request') }}" class="text-center block text-sm mt-4">
                             {{ __('Lupa Password?') }}
                         </a>
                     @endif
 
                     {{-- sign in --}}
-                    <p class="text-center text-base mt-3">Belum punya akun? <a href="{{ route('register') }}"
+                    <p class="text-center text-sm mt-3">Belum punya akun? <a href="{{ route('register') }}"
                             class="text-orange-500">Sign Up</a></p>
                 </form>
             </div>

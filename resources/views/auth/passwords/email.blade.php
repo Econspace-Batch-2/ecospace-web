@@ -10,31 +10,29 @@
         </div>
     </div>
     <div class="flex justify-center mt-4">
-        <div class="col-12 col-md-6">
-            <div class="p-3 p-md-5 auth-card mb-5">
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
+        <div class="bg-white p-10 border-2 border-gray-200 rounded-xl max-w-[90vw] md:max-w-lg">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
 
-                <form method="POST" action="{{ route('password.email') }}" class="bg-white p-10 max-w-sm">
-                    @csrf
-                    <label for="email" class="form-label font-21">{{ __('Email Address') }}</label>
-                    <input id="email" type="email" class="input form-control @error('email') is-invalid @enderror"
-                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
-                        placeholder="Enter your registered email address">
-                    @error('email')
-                        <span class="invalid-feedback text-sm font-medium" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+            <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+                <label for="email" class="text-sm">{{ __('Email Address') }}</label>
+                <input id="email" type="email" class="input form-control @error('email') is-invalid @enderror"
+                    name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                    placeholder="Enter your registered email address">
+                @error('email')
+                    <span class="invalid-feedback text-sm font-medium" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
-                    <button type="submit" class="btn btn-black mt-5 w-full">
-                        Send Password Reset Link
-                    </button>
-                </form>
-            </div>
+                <button type="submit" class="btn btn-black mt-5 w-full">
+                    Send Password Reset Link
+                </button>
+            </form>
         </div>
     </div>
 @endsection
