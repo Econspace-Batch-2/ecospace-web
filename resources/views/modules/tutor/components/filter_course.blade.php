@@ -4,7 +4,7 @@
         action="{{ route('viewTutors') }}"
         method="GET"
         class="w-full flex flex-wrap justify-center items-center gap-4 p-4 h-fit bg-blue-950 rounded-xl -translate-y-10">
-        <div class="flex flex-wrap gap-2 items-center grow">
+        <div class="flex flex-wrap justify-center grow  gap-2 items-center">
             <input id="tutorSearchBar" class="input bg-white w-full md:max-w-[300px]" type="text" name="tutorSearchBar"
                 placeholder="Cari Nama Mata Kuliah" aria-label="Cari Nama Mata Kuliah"
                 value="{{ request('tutorSearchBar') }}">
@@ -69,12 +69,12 @@
                 @endforeach
             </select>
         </div>
-        <div class="flex items-center gap-2">
-            <button id="pilih" class="btn btn-primary" type="submit">
+        <div class="flex max-md:flex-col items-center gap-2 max-md:w-full">
+            <button id="pilih" class="btn btn-primary max-md:w-full" type="submit">
                 Pilih
             </button>
 
-            <button id="hapus" class="btn bg-white text-black hover:bg-gray-400" type="submit">
+            <button id="hapus" class="btn bg-white text-black hover:bg-gray-400 max-md:w-full" type="submit">
                 <i class="fa-solid fa-broom me-1"></i> Hapus Filter
             </button>
         </div>

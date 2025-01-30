@@ -109,7 +109,7 @@
         <div class="text-center">
             <p class="font-bold text-xl mb-1">Punya pertanyaan lebih lanjut?</p>
         </div>
-        <button class="btn w-full md:w-fit gap-2">
+        <button class="btn w-full sm:w-fit gap-2">
             <img loading="lazy" class="icon-wa h-full max-h-10" src="{{ asset('assets/socmed/wa.svg') }}" alt="whatsapp icon">
             <a target="_blank" href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW"
                 aria-label="economic space whatsapp number" class="text-black">
