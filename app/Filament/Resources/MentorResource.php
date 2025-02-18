@@ -1,0 +1,97 @@
+<?php
+
+namespace App\Filament\Resources;
+
+use App\Filament\Resources\MentorResource\Pages;
+use App\Filament\Resources\MentorResource\RelationManagers;
+use App\Models\Mentor;
+use Filament\Forms;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+class MentorResource extends Resource
+{
+    protected static ?string $model = Mentor::class;
+
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                TextInput::make('name')
+                    ->required()
+                    ->label('Name'),
+                TextInput::make('position')
+                    ->required()
+                    ->label('Position'),
+                TextInput::make('company')
+                    ->required()
+                    ->label('Company'),
+                TextInput::make('thumbnail')
+                    ->label('Thumbnail'),
+                TextInput::make('profile')
+                    ->label('Profile'),
+                TextInput::make('linkedin')
+                    ->label('LinkedIn'),
+                TextInput::make('achievements')
+                    ->label('Achievements'),
+                TextInput::make('category')
+                    ->label('Category'),
+                TextInput::make('photo_journey')
+                    ->label('Photo Journey'),
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                TextColumn::make('id')->sortable(),
+                TextColumn::make('name')->sortable()->searchable(),
+                TextColumn::make('position')->sortable()->searchable(),
+                TextColumn::make('company')->sortable()->searchable(),
+                TextColumn::make('thumbnail')->sortable(),
+                TextColumn::make('profile')->sortable(),
+                TextColumn::make('linkedin')->sortable(),
+                TextColumn::make('achievements')->sortable(),
+                TextColumn::make('category')->sortable(),
+                TextColumn::make('photo_journey')->sortable(),
+                TextColumn::make('created_at')->sortable(),
+                TextColumn::make('updated_at')->sortable(),
+            ])
+            ->filters([
+                //
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListMentors::route('/'),
+            'create' => Pages\CreateMentor::route('/create'),
+            'edit' => Pages\EditMentor::route('/{record}/edit'),
+        ];
+    }
+}
