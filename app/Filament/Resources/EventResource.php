@@ -38,7 +38,6 @@ class EventResource extends Resource
                 TextInput::make('speaker')->label('Speaker')->required(),
                 FileUpload::make('speaker_image')
                     ->label('Speaker Image')
-                    ->disk('s3')
                     ->directory('speaker_images')
                     ->image()
             ]);

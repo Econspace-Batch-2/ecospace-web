@@ -24,21 +24,42 @@ class SubjectResource extends Resource
     {
         return $form
             ->schema([
-                    Forms\Components\TextInput::make('image'),
-                    Forms\Components\TextInput::make('tutor'),
-                    Forms\Components\TextInput::make('title')->required(),
-                    Forms\Components\TextInput::make('majors')->required(),
-                    Forms\Components\TextInput::make('category')->required(),
-                    Forms\Components\TextInput::make('semester')->required(),
-                    Forms\Components\Textarea::make('description')->required(),
-                    Forms\Components\Textarea::make('references')->required(),
-                    Forms\Components\TextInput::make('subject_univ')->required(),
-                    Forms\Components\TextInput::make('univ')->required(),
-                    Forms\Components\Select::make('status')->options([
-                        'active' => 'Active',
-                        'inactive' => 'Inactive',
-                    ])->required(),
-                    Forms\Components\TextInput::make('appointlet_url')->required(),
+                Forms\Components\TextInput::make('image'),
+                Forms\Components\TextInput::make('tutor'),
+                Forms\Components\TextInput::make('title')->required(),
+                Forms\Components\TextInput::make('majors')->required(),
+                Forms\Components\TextInput::make('category')->required(),
+                Forms\Components\TextInput::make('semester')->required(),
+                Forms\Components\Textarea::make('description')->required(),
+                Forms\Components\Textarea::make('references')->required(),
+                Forms\Components\Select::make('subject_univ')
+                    ->multiple()
+                    ->options([
+                        'ugm.svg' => 'UGM',
+                        'unair.svg' => 'UNAIR',
+                        'ub.svg' => 'UB',
+                        'ui.svg' => 'UI',
+                        'unj.svg' => 'UNJ',
+                    ])
+                    ->required()
+                    ->saveRelationshipsUsing(function ($component, $state) {
+                        return json_encode($state);
+                    }),
+                Forms\Components\Select::make('univ')
+                    ->multiple()
+                    ->options([
+                        'UGM' => 'UGM',
+                        'UNAIR' => 'UNAIR',
+                    ])
+                    ->required()
+                    ->saveRelationshipsUsing(function ($component, $state) {
+                        return json_encode($state);
+                    }),
+                Forms\Components\Select::make('status')->options([
+                    'active' => 'Active',
+                    'inactive' => 'Inactive',
+                ])->required(),
+                Forms\Components\TextInput::make('appointlet_url')->required(),
             ]);
     }
 

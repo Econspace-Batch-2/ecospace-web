@@ -6,6 +6,7 @@ use App\Filament\Resources\MentorResource\Pages;
 use App\Filament\Resources\MentorResource\RelationManagers;
 use App\Models\Mentor;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -34,10 +35,14 @@ class MentorResource extends Resource
                 TextInput::make('company')
                     ->required()
                     ->label('Company'),
-                TextInput::make('thumbnail')
-                    ->label('Thumbnail'),
-                TextInput::make('profile')
-                    ->label('Profile'),
+                FileUpload::make('thumbnail')
+                    ->label('Thumbnail')
+                    ->directory('mentor_thumbnails')
+                    ->image(),
+                FileUpload::make('profile')
+                    ->label('Profile')
+                    ->directory('mentor_profiles')
+                    ->image(),
                 TextInput::make('linkedin')
                     ->label('LinkedIn'),
                 TextInput::make('achievements')
