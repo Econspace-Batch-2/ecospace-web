@@ -14,7 +14,7 @@
 
             <div class="flex flex-col gap-4">
                 <div class="flex my-3">
-                    @foreach (json_decode($subject->subject_univ) as $univ)
+                    @foreach (json_decode($subject->univ) as $univ)
                         <a href={{
                             route('detailTutor', [
                                 'id' => $subject->id,
@@ -56,21 +56,21 @@
             <div>
                 {{-- card pertama: Tutor Background --}}
                 <div class="rounded-2xl p-8 space-y-4 text-black shadow-smooth">
-                    <div>
+                    {{-- <div>
                         <h3 class="text-2xl font-extrabold">Tutor Background</h3>
                         <p class="text-sm font-normal">Asal Universitas Tutor:</p>
                     </div>
 
                     <div class="flex flex-wrap gap-4">
                         @php $counter = 0 @endphp
-                        @foreach (json_decode($subject->subject_univ) as $univ)
+                        @foreach (json_decode($subject->univ) as $univ)
                             @if ($counter < 4)
                                 <img loading="lazy" src="{{ asset('assets/univ/' . $univ) }}" class="h-16"
                                     alt="logo univ">
                             @endif
                             @php $counter++ @endphp
                         @endforeach
-                    </div>
+                    </div> --}}
                     <h5 class="text-lg font-700 mt-4">Additional Information</h5>
                     <ul class="text-xs leading-relaxed list-disc pl-4">
                         <li class="font-20 font-400 text-justify">Bagi Mahasiswa dari Universitas selain dari List

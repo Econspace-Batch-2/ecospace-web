@@ -14,12 +14,10 @@ class Mentor extends Model
         'name',
         'position',
         'company',
-        'thumbnail',
         'profile',
         'linkedin',
         'achievements',
         'category',
-        'photo_journey',
     ];
 
     protected $casts = [

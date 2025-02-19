@@ -19,7 +19,6 @@ class Subject extends Model
         'semester',
         'description',
         'references',
-        'subject_univ',
         'univ',
         'status',
         'appointlet_url'

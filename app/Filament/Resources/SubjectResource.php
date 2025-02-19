@@ -32,19 +32,6 @@ class SubjectResource extends Resource
                 Forms\Components\TextInput::make('semester')->required(),
                 Forms\Components\Textarea::make('description')->required(),
                 Forms\Components\Textarea::make('references')->required(),
-                Forms\Components\Select::make('subject_univ')
-                    ->multiple()
-                    ->options([
-                        'ugm.svg' => 'UGM',
-                        'unair.svg' => 'UNAIR',
-                        'ub.svg' => 'UB',
-                        'ui.svg' => 'UI',
-                        'unj.svg' => 'UNJ',
-                    ])
-                    ->required()
-                    ->saveRelationshipsUsing(function ($component, $state) {
-                        return json_encode($state);
-                    }),
                 Forms\Components\Select::make('univ')
                     ->multiple()
                     ->options([
@@ -52,6 +39,9 @@ class SubjectResource extends Resource
                         'UNAIR' => 'UNAIR',
                     ])
                     ->required()
+                    ->default(function () {
+                        return '[UGM]';
+                    })
                     ->saveRelationshipsUsing(function ($component, $state) {
                         return json_encode($state);
                     }),
@@ -76,7 +66,6 @@ class SubjectResource extends Resource
                 TextColumn::make('semester'),
                 TextColumn::make('description'),
                 TextColumn::make('references'),
-                TextColumn::make('subject_univ'),
                 TextColumn::make('univ'),
                 TextColumn::make('status'),
                 TextColumn::make('appointlet_url'),

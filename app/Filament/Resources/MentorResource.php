@@ -35,10 +35,6 @@ class MentorResource extends Resource
                 TextInput::make('company')
                     ->required()
                     ->label('Company'),
-                FileUpload::make('thumbnail')
-                    ->label('Thumbnail')
-                    ->directory('mentor_thumbnails')
-                    ->image(),
                 FileUpload::make('profile')
                     ->label('Profile')
                     ->directory('mentor_profiles')
@@ -46,11 +42,9 @@ class MentorResource extends Resource
                 TextInput::make('linkedin')
                     ->label('LinkedIn'),
                 TextInput::make('achievements')
-                    ->label('Achievements'),
+                    ->label('Achievements (Separate by Comma)'),
                 TextInput::make('category')
                     ->label('Category'),
-                TextInput::make('photo_journey')
-                    ->label('Photo Journey'),
             ]);
     }
 
@@ -62,12 +56,10 @@ class MentorResource extends Resource
                 TextColumn::make('name')->sortable()->searchable(),
                 TextColumn::make('position')->sortable()->searchable(),
                 TextColumn::make('company')->sortable()->searchable(),
-                TextColumn::make('thumbnail')->sortable(),
                 TextColumn::make('profile')->sortable(),
                 TextColumn::make('linkedin')->sortable(),
                 TextColumn::make('achievements')->sortable(),
                 TextColumn::make('category')->sortable(),
-                TextColumn::make('photo_journey')->sortable(),
                 TextColumn::make('created_at')->sortable(),
                 TextColumn::make('updated_at')->sortable(),
             ])
