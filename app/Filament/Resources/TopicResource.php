@@ -27,14 +27,14 @@ class TopicResource extends Resource
                 Forms\Components\TextInput::make('topic_number')
                     ->label('Topic Number')
                     ->required(),
-                Forms\Components\TextInput::make('topic_title')
-                    ->label('Topic Title')
+                Forms\Components\TextInput::make('title')
+                    ->label('Title')
                     ->required(),
-                Forms\Components\Textarea::make('topic_content')
-                    ->label('Topic Content')
+                Forms\Components\Textarea::make('description')
+                    ->label('Description')
                     ->required(),
-                Forms\Components\Textarea::make('topic_objective')
-                    ->label('Topic Objective')
+                Forms\Components\Textarea::make('materials')
+                    ->label('Materials')
                     ->required(),
                 Forms\Components\Select::make('subject_id')
                     ->label('Subject')
@@ -48,11 +48,10 @@ class TopicResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')->label('ID'),
-                TextColumn::make('topic_number')->label('Topic Number'),
-                TextColumn::make('topic_title')->label('Topic Title'),
-                TextColumn::make('topic_content')->label('Topic Content'),
-                TextColumn::make('topic_objective')->label('Topic Objective'),
-                TextColumn::make('subject_id')->label('Subject ID'),
+                TextColumn::make('title')->label('Title')->searchable()->sortable(),
+                TextColumn::make('description')->label('Description'),
+                TextColumn::make('materials')->label('Materials'),
+                TextColumn::make('subject.title')->label('Subject'),
                 TextColumn::make('created_at')->label('Created At')->dateTime(),
                 TextColumn::make('updated_at')->label('Updated At')->dateTime(),
             ])

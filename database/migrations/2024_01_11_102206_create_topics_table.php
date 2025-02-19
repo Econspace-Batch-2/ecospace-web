@@ -14,10 +14,9 @@ return new class extends Migration
         /** TOPIC DI DALAM SUBJECT */
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
-            $table->integer('topic_number');
-            $table->string('topic_title', 1000);
-            $table->json('topic_content');
-            $table->string('topic_objective', 1000);
+            $table->string('title', 1000);
+            $table->string('description', 1000);
+            $table->json('materials');
 
             $table->unsignedBigInteger('subject_id');
             $table->foreign('subject_id')->references('id')->on('subjects');

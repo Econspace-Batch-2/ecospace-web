@@ -8,17 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
 
     // 1 topic can only have 1 subject
     protected $fillable = [
-        'topic_number',
-        'topic_title',
-        'topic_content',
-        'topic_objective',
+        'title',
+        'description',
+        'materials',
         'subject_id'
     ];
     // 1 subject can have many topic
-    public function subjects()
+    public function subject()
     {
         return $this->belongsTo(Subject::class, 'subject_id');
     }

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('mentoring_topics', function (Blueprint $table) {
             $table->id();
             $table->integer('mentoring_topic_number');
-            $table->string('mentoring_topic_title', 1000);
-            $table->string('mentoring_topic_content', 1000);
+            $table->string('mentoring_title', 1000);
+            $table->string('mentoring_content', 1000);
 
             $table->unsignedBigInteger('mentor_id');
             $table->foreign('mentor_id')->references('id')->on('mentors');

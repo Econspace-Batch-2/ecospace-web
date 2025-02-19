@@ -27,7 +27,18 @@ class SubjectResource extends Resource
                 Forms\Components\TextInput::make('image'),
                 Forms\Components\TextInput::make('tutor'),
                 Forms\Components\TextInput::make('title')->required(),
-                Forms\Components\TextInput::make('majors')->required(),
+                Forms\Components\Select::make('majors')
+                    ->multiple()
+                    ->options([
+                        'Accounting' => 'Accounting',
+                        'Management' => 'Management',
+                        'Economic' => 'Economic',
+                        'Taxation' => 'Taxation',
+                    ])
+                    ->required()
+                    ->saveRelationshipsUsing(function ($component, $state) {
+                        return json_encode($state);
+                    }),
                 Forms\Components\TextInput::make('category')->required(),
                 Forms\Components\TextInput::make('semester')->required(),
                 Forms\Components\Textarea::make('description')->required(),
@@ -39,9 +50,6 @@ class SubjectResource extends Resource
                         'UNAIR' => 'UNAIR',
                     ])
                     ->required()
-                    ->default(function () {
-                        return '[UGM]';
-                    })
                     ->saveRelationshipsUsing(function ($component, $state) {
                         return json_encode($state);
                     }),
