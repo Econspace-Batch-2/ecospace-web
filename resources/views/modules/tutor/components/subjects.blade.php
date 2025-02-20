@@ -7,6 +7,9 @@
         @endphp
 
         <div class="w-full h-60 relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out">
+            @php
+                $firstMentor = $s->mentors->sortBy('created_at')->first();
+            @endphp
             <a href="{{ route('detailTutor', $s->id) }}">
                 <div class="relative w-full h-full overflow-hidden shadow-2xl rounded-xl">
                     <!-- Desktop Image with conditional URLs based on whether 'UGM' is in the 'univ' array -->
@@ -19,8 +22,12 @@
                     @endif
 
                     <!-- Subject Tutor Image -->
-                    <img src="{{ asset('assets/tutorImage/' . $s->tutor) }}" alt="Subject Tutor Image"
-                        class="w-1/2 -bottom-8 sm:-bottom-8 md:-bottom-20 right-0 absolute">
+                    @if ($firstMentor->profile && file_exists(public_path('storage/' . $firstMentor->profile)))
+                        <img src="{{ asset('storage/' . $firstMentor->profile ) }}" alt="Subject Tutor Image"
+                            class="w-1/2 -bottom-8 sm:-bottom-8 md:-bottom-10 right-0 absolute">
+                    @else
+                    @endif
+
                 </div>
                 <h5 class="text-base md:text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">
                     {{ $s->title }}

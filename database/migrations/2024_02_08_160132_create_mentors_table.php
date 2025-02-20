@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('mentors', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
+            $table->string('email', 255);
+            $table->string('phone', 255);
             $table->string('position', 255);
             $table->string('company', 255);
             $table->string('profile', 255); // gambar tutor di detail page

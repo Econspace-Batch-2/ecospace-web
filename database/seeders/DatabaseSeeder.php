@@ -20,6 +20,11 @@ class DatabaseSeeder extends Seeder
             'phone' => '081234567890',
             'password' => "dummy123"
         ]);
+        \App\Models\User::factory()->create([
+            'name' => 'dummy',
+            'email' => 'dummy@gmail.com',
+            'password' => "dummy123"
+        ]);
         $this->call(SubjectSeeder::class);
         $this->call(TopicSeeder::class);
         $this->call(MentorSeeder::class);

@@ -7,6 +7,7 @@ use App\Filament\Resources\MentorResource\RelationManagers;
 use App\Models\Mentor;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -41,7 +42,7 @@ class MentorResource extends Resource
                     ->image(),
                 TextInput::make('linkedin')
                     ->label('LinkedIn'),
-                TextInput::make('achievements')
+                Textarea::make('achievements')
                     ->label('Achievements (Separate by Comma)'),
                 TextInput::make('category')
                     ->label('Category'),
@@ -56,9 +57,7 @@ class MentorResource extends Resource
                 TextColumn::make('name')->sortable()->searchable(),
                 TextColumn::make('position')->sortable()->searchable(),
                 TextColumn::make('company')->sortable()->searchable(),
-                TextColumn::make('profile')->sortable(),
                 TextColumn::make('linkedin')->sortable(),
-                TextColumn::make('achievements')->sortable(),
                 TextColumn::make('category')->sortable(),
                 TextColumn::make('created_at')->sortable(),
                 TextColumn::make('updated_at')->sortable(),
