@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
             'password' => "dummy123"
         ]);
         \App\Models\User::factory()->create([
-            'name' => 'dummy',
-            'email' => 'dummy@gmail.com',
+            'name' => 'ecospace',
+            'email' => 'economicspace@gmail.com',
             'password' => "dummy123"
         ]);
         $this->call(SubjectSeeder::class);

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Mentor;
+use App\Models\Subject;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,12 +14,28 @@ class SubjectMentorSeeder extends Seeder
      */
     public function run(): void
     {
-        $allSubjects = \App\Models\Subject::all();
-        $allMentors = \App\Models\Mentor::all();
+        $mentor = Mentor::where('id', '1')->first();
 
-        // attach all mentor to all subject
-        foreach ($allSubjects as $subject) {
-            $subject->mentors()->attach($allMentors->pluck('id')->toArray());
-        }
+        $mentor->subjects()->attach(Subject::where('id', '4')->first());
+
+        $mentor = Mentor::where('id', '2')->first();
+
+        $mentor->subjects()->attach(Subject::where('id', '2')->first());
+
+        $mentor = Mentor::where('id', '3')->first();
+
+        $mentor->subjects()->attach(Subject::where('id', '3')->first());
+
+        $mentor = Mentor::where('id', '4')->first();
+
+        $mentor->subjects()->attach(Subject::where('id', '5')->first());
+
+        $mentor = Mentor::where('id', '5')->first();
+
+        $mentor->subjects()->attach(Subject::where('id', '7')->first());
+
+        $mentor = Mentor::where('id', '6')->first();
+
+        $mentor->subjects()->attach(Subject::where('id', '1')->first());
     }
 }
