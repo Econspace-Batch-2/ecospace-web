@@ -7,11 +7,14 @@
     {{-- Appointlet Link --}}
     <div id="appointlet" class="grid lg:grid-cols-2 gap-x-6 gap-y-8">
         @foreach ($appointlets as $appointlet)
-            <div class="bg-white md:p-8 p-4 rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 border-2 md:border-4 border-[#FF8412]"
-                onclick="window.open('{{ $appointlet->link }}', '_blank')">
-                <h1 class="font-semibold text-lg md:text-2xl text-[#FF8412]">{{ $appointlet->title }}</h1>
-                <p class="text-[#FF8412] text-sm font-medium">{{ $appointlet->link }}</p>
-            </div>
+        
+            @if ($appointlet->link)
+                <div class="bg-white md:p-8 p-4 rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 border-2 md:border-4 border-[#FF8412]"
+                    onclick="window.open('{{ $appointlet->link }}', '_blank')">
+                    <h1 class="font-semibold text-lg md:text-2xl text-[#FF8412]">{{ $appointlet->title }}</h1>
+                    <p class="text-[#FF8412] text-sm font-medium">{{ $appointlet->link }}</p>
+                </div>
+            @endif
         @endforeach
     </div>
 
