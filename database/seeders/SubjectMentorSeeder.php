@@ -33,9 +33,31 @@ class SubjectMentorSeeder extends Seeder
         $mentor = Mentor::where('id', '5')->first();
 
         $mentor->subjects()->attach(Subject::where('id', '7')->first());
+        $mentor->subjects()->attach(Subject::where('id', '6')->first());
 
         $mentor = Mentor::where('id', '6')->first();
 
         $mentor->subjects()->attach(Subject::where('id', '1')->first());
+
+        $mentor = Mentor::where('id', '7')->first();
+
+        $mentor->subjects()->attach(Subject::where('id', '10')->first());
+
+        $mentor = Mentor::where('id', '8')->first();
+
+        $mentor->subjects()->attach(Subject::where('id', '8')->first());
+
+        $mentor = Mentor::where('id', '9')->first();
+
+        $mentor->subjects()->attach(Subject::where('id', '8')->first());
+
+        $mentor = Mentor::where('id', '10')->first();
+
+        $mentor->subjects()->attach(Subject::where('id', '9')->first());
+        $mentor->subjects()->attach(Subject::where('id', '8')->first());
+
+        $mentor = Mentor::where('id', '11')->first();
+
+        $mentor->subjects()->attach(Subject::where('id', '8')->first());
     }
 }
