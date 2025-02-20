@@ -21,7 +21,7 @@
     ]
 @endphp
 <section class="px-5 md:px-20 pb-52 mt-10">
-    <h1 class="font-bold text-2xl">Profil Tutor</h1>
+    <h1 class="font-bold text-2xl my-4">Profil Tutor</h1>
     <div class="flex gap-10 overflow-x-auto pb-10">
         @foreach ($mentors as $mentor)
             @php
@@ -53,11 +53,11 @@
                 </div>
                 <div style="background-color: {{$theme['text']}}; color: white;" class="absolute w-[80%] px-5 py-2 flex flex-col items-center rounded-full -translate-y-6 left-1/2 transform -translate-x-1/2">
                     <h5 class="text-sm font-medium text-center">{{$mentor->name}}</h5>
-                    <p class="text-xs">{{$mentor->position}}</p>
+                    <p class="text-xs text-center">{{$mentor->position}}</p>
                 </div>
-                <div style="background-color: {{$theme['accent']}}; color: {{$theme['text']}};" class="min-h-[40%] h-full w-full p-5 pt-10 flex flex-col rounded-tl-[80px]">
+                <div style="background-color: {{$theme['accent']}}; color: {{$theme['text']}};" class="h-full w-full p-5 pt-20 flex flex-col rounded-tl-[80px]">
                     <h3 class="font-medium w-full text-center">Pengalaman dan Prestasi</h3>
-                    <ul class="list-disc pl-10 mt-4 font-light overflow-y-auto h-full max-h-32">
+                    <ul class="list-disc pl-10 my-4 font-light overflow-y-auto h-full max-h-32">
                         @foreach ($mentor->achievements as $prestasi)
                             <li class="text-sm">{{ $prestasi }}</li>
                         @endforeach
