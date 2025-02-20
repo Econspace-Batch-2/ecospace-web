@@ -6,7 +6,7 @@
             $universities = json_decode($s->univ, true);
         @endphp
 
-        <div class="w-full h-60 relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out">
+        <div class="w-full relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out">
             @php
                 $firstMentor = $s->mentors->sortBy('created_at')->first();
             @endphp
@@ -19,13 +19,6 @@
                     @else
                         <img src="{{ asset('assets/tutorImage/UNAIR_cardbg.png') }}" alt="UNAIR Image"
                             class="object-cover w-full h-full">
-                    @endif
-
-                    <!-- Subject Tutor Image -->
-                    @if ($firstMentor->profile && file_exists(public_path('storage/' . $firstMentor->profile)))
-                        <img src="{{ asset('storage/' . $firstMentor->profile ) }}" alt="Subject Tutor Image"
-                            class="w-1/2 -bottom-8 sm:-bottom-8 md:-bottom-10 right-0 absolute">
-                    @else
                     @endif
 
                 </div>
