@@ -31,6 +31,7 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Akuntansi Menegah 1"]),
                 'created_at' => now()->subDays(6),
                 'updated_at' => now(),
+                'univ' => "UGM"
             ],
             [
                 'name' => "Muhammad Ikhsan Arditya M",
@@ -48,6 +49,7 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Akuntansi Biaya dan Manajemen"]),
                 'created_at' => now()->subDays(5),
                 'updated_at' => now(),
+                'univ' => "UGM"
             ],
             [
                 'name' => "Devita Ananda Pohan",
@@ -65,6 +67,7 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Akuntansi Biaya dan Manajemen"]),
                 'created_at' => now()->subDays(4),
                 'updated_at' => now(),
+                'univ' => "UGM"
             ],
             [
                 'name' => "Cynthia Fransisca",
@@ -82,6 +85,7 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Akuntansi Lanjutan"]),
                 'created_at' => now()->subDays(3),
                 'updated_at' => now(),
+                'univ' => "UGM"
             ],
             [
                 'name' => "Zepri Ramadan",
@@ -98,6 +102,7 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Makroekonomika 2"]),
                 'created_at' => now()->subDays(2),
                 'updated_at' => now(),
+                'univ' => "UGM"
             ],
             [
                 'name' => "Adinda Dewi",
@@ -115,6 +120,7 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Matematika Ekonomi 2"]),
                 'created_at' => now()->subDay(),
                 'updated_at' => now(),
+                'univ' => "UGM"
             ],
             [
                 'name' => "Adrilla Femi Velina Br Ginting",
@@ -130,6 +136,7 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Introduction to Economics 1"]),
                 'created_at' => now()->subDay(),
                 'updated_at' => now(),
+                'univ' => "UNAIR"
             ],
             [
                 'name' => "Muhammad Nazzar Maulana",
@@ -147,6 +154,7 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Cost Accounting"]),
                 'created_at' => now()->subDay(),
                 'updated_at' => now(),
+                'univ' => "UNAIR"
             ],
             [
                 'name' => "Niken Ayu Silfa Alya Putri",
@@ -162,6 +170,7 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Cost Accounting"]),
                 'created_at' => now()->subDay(),
                 'updated_at' => now(),
+                'univ' => "UNAIR"
             ],
             [
                 'name' => "Nabila Putri Melati",
@@ -177,6 +186,7 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Intermediate Accounting 1", "Cost Accounting"]),
                 'created_at' => now()->subDay(),
                 'updated_at' => now(),
+                'univ' => "UNAIR"
             ],
             [
                 'name' => "Tijanna Ketaren",
@@ -194,7 +204,9 @@ class MentorSeeder extends Seeder
                 'category' => json_encode(["Cost Accounting"]),
                 'created_at' => now()->subDay(),
                 'updated_at' => now(),
+                'univ' => "UNAIR"
             ],
+
         ];
         // Insert data into the mentors table
         DB::table('mentors')->insert($mentors);

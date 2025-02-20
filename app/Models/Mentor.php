@@ -14,6 +14,7 @@ class Mentor extends Model
         'name',
         'email',
         'phone',
+        'univ',
         'position',
         'company',
         'profile',
