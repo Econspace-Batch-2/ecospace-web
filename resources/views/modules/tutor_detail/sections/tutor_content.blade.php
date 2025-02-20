@@ -59,21 +59,28 @@
             <div>
                 {{-- card pertama: Tutor Background --}}
                 <div class="rounded-2xl p-8 space-y-4 text-black shadow-smooth">
-                    {{-- <div>
+                    <div>
                         <h3 class="text-2xl font-extrabold">Tutor Background</h3>
                         <p class="text-sm font-normal">Asal Universitas Tutor:</p>
                     </div>
 
                     <div class="flex flex-wrap gap-4">
-                        @php $counter = 0 @endphp
+                        @php
+                            // get univ data of sbject mentors
+                            $univs = [];
+                            foreach ($subject->mentors as $mentor) {
+                                $univs[] = $mentor->univ;
+                            }
+                            $univs = array_unique($univs);
+
+                            // Get top 4
+                            $univs = array_slice($univs, 0, 4);
+                        @endphp
                         @foreach (json_decode($subject->univ) as $univ)
-                            @if ($counter < 4)
-                                <img loading="lazy" src="{{ asset('assets/univ/' . $univ) }}" class="h-16"
-                                    alt="logo univ">
-                            @endif
-                            @php $counter++ @endphp
+                            <img loading="lazy" src="{{ asset('assets/univ/' . strtolower($univ)) . '.svg' }}" class="h-16"
+                                alt="logo univ">
                         @endforeach
-                    </div> --}}
+                    </div>
                     <h5 class="text-lg font-700 mt-4">Additional Information</h5>
                     <ul class="text-xs leading-relaxed list-disc pl-4">
                         <li class="font-20 font-400 text-justify">Bagi Mahasiswa dari Universitas selain dari List
