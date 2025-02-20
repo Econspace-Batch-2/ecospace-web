@@ -15,26 +15,23 @@
             <div class="flex flex-col gap-4">
                 <div class="flex my-3">
                     @foreach (json_decode($subject->univ) as $univ)
-                        <a href={{
-                            route('detailTutor', [
+                        <a
+                            href={{ route('detailTutor', [
                                 'id' => $subject->id,
-                                'univ' => pathinfo($univ, PATHINFO_FILENAME)
-                            ])
-                        }}>
-                            <div class="border-b-2 {{
-                                $univ_query == pathinfo($univ, PATHINFO_FILENAME) ? 'border-orange-400 text-orange-500' : 'border-gray-200 text-gray-200'
-                            }} px-3">
+                                'univ' => pathinfo($univ, PATHINFO_FILENAME),
+                            ]) }}>
+                            <div
+                                class="border-b-2 {{ $univ_query == pathinfo($univ, PATHINFO_FILENAME) ? 'border-orange-400 text-orange-500' : 'border-gray-200 text-gray-200' }} px-3">
                                 {{ strtoupper(pathinfo($univ, PATHINFO_FILENAME)) }}
                             </div>
                         </a>
                     @endforeach
                 </div>
-                <div class="space-y-4">
-                    @php
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                    {{-- @php
                         // Filter faq by univ
                         $faqs = $faqs->filter(function ($faq) use ($univ_query) {
-                            
-                            return (pathinfo($faq->univ, PATHINFO_FILENAME)) == $univ_query;
+                            return pathinfo($faq->univ, PATHINFO_FILENAME) == $univ_query;
                         });
                     @endphp
                     @foreach ($faqs as $faq)
@@ -46,6 +43,12 @@
                             <div class="collapse-content">
                                 <p class="text-sm font-normal">{{ $faq->faq_answer }}</p>
                             </div>
+                        </div>
+                    @endforeach --}}
+                    @foreach ($subject->topics as $topic)
+                        <div
+                            class="bg-orange-200/20 rounded-xl border-2 border-orange-500 flex items-center justify-center text-center p-5 hover:bg-orange-200/40 duration-300">
+                            {{ $topic->title }}
                         </div>
                     @endforeach
                 </div>
