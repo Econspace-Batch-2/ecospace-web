@@ -21,13 +21,13 @@ class MentorSeeder extends Seeder
                 'phone' => "081219528614",
                 'position' => "Tutor of Introduction to Akuntansi Menegah 1",
                 'company' => "UGM",
-                'profile' => "Keyra Audrey Annabelle C.jpg",
+                'profile' => "https://econspace.s3.ap-southeast-2.amazonaws.com/mentors/ugm/Keyra_Audrey_Annabelle_C-removebg-preview.png",
                 'achievements' => json_encode([
                     "Highest GPA of Accounting Batch 2023 Year 2024",
                     "3rd Winner of Accounting Challenge for Newcomers (ACN) 2023 held by Ikatan Mahasiswa Akuntansi Gadjah Mada (IMAGAMA)",
                     "3rd Winner of Scandinavian Day Essay Competition 2023 held by Scandinavia Community FISIPOL UGM"
                 ]),
-                'linkedin' => "https://econspace.s3.ap-southeast-2.amazonaws.com/mentors/ugm/Keyra_Audrey_Annabelle_C-removebg-preview.png",
+                'linkedin' => "http://linkedin.com/in/keyra-audrey-annabelle-christian-ba8626240",
                 'category' => json_encode(["Akuntansi Menegah 1"]),
                 'created_at' => now()->subDays(6),
                 'updated_at' => now(),
