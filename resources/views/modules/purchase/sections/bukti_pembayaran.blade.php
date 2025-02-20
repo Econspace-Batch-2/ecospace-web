@@ -4,15 +4,25 @@
         <p class="text-[#9B9B9B] text-sm">Lakukan pembayaran sebesar Rp120.000/sesi melalui scan QR di bawah ini.
             Upload bukti screenshot pembayaran dengan max size = 10 MB.</p>
     </div>
-    <div class="flex flex-col md:flex-row gap-4">
+    <div class="flex flex-col gap-4">
         {{-- QR Section --}}
-        <div class="space-y-4 min-w-full md:min-w-[400px]">
+        {{-- <div class="space-y-4 min-w-full md:min-w-[400px]">
             <img src="{{ asset('assets/purchase/qr-econ-space.png') }}" alt="" class="object-contain w-full">
             <div class="flex w-full justify-between">
                 <img src="{{ asset('assets/purchase/shoopepay.png') }}" alt="" class="object-contain w-16">
                 <img src="{{ asset('assets/purchase/gopay.png') }}" alt="" class="object-contain w-16">
                 <img src="{{ asset('assets/purchase/bca.png') }}" alt="" class="object-contain w-16">
             </div>
+        </div> --}}
+
+        <div class="">
+            <p>
+                Please transfer your tutoring fee to
+            </p>
+            <b class="text-orange-400 text-xl">Mandiri 1330029592862 a.n. CORNELIO ANGGITA MAH</b>
+            <p>
+                Remember to take a screenshot of the payment proof!
+            </p>
         </div>
 
         {{-- Upload Section --}}
@@ -56,7 +66,8 @@
         reader.onload = () => {
             const title = document.createElement('div');
             title.textContent = file.name;
-            title.classList.add('text-black', 'text-sm', 'font-medium', 'border-2', 'border-4', 'border-black',
+            title.classList.add('text-black', 'text-sm', 'font-medium', 'border-2', 'border-4',
+                'border-black',
                 'rounded-lg', 'py-2', 'px-4', 'flex', 'items-center', 'justify-between');
             const x = document.createElement('div');
             x.classList.add('cursor-pointer', 'transition-all', 'duration-300');
