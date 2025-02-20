@@ -13,8 +13,6 @@ class Topic extends Model
     // 1 topic can only have 1 subject
     protected $fillable = [
         'title',
-        'description',
-        'materials',
         'subject_id'
     ];
     // 1 subject can have many topic

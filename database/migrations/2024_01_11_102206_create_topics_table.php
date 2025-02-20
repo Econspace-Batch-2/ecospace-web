@@ -15,8 +15,6 @@ return new class extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->string('title', 1000);
-            $table->string('description', 1000);
-            $table->json('materials');
 
             $table->unsignedBigInteger('subject_id');
             $table->foreign('subject_id')->references('id')->on('subjects');
