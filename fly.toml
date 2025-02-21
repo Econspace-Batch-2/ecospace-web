@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for ecospace-web on 2025-02-20T19:30:03+07:00
+# fly.toml app configuration file generated for ecospace-web on 2025-02-20T19:57:11+07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -21,7 +21,7 @@ console_command = 'php /var/www/html/artisan tinker'
   SESSION_SECURE_COOKIE = 'true'
 
 [http_service]
-  internal_port = 8080
+  internal_port = 8000
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
