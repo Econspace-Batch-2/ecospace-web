@@ -91,6 +91,8 @@ class PurchaseController extends Controller
                 return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
             }
         });
+
+        return response()->json(['success' => true, 'data' => $request->all()]);
     }
 
     public function storeStep4(Request $request, $id)
