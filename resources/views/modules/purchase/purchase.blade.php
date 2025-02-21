@@ -90,7 +90,7 @@
                             return;
                         }
                         formData.append('university', selectedUniversity.value);
-                        console.log(selectedUniversity.value);
+                        //console.log(selectedUniversity.value);
                         submitStep('{{ route('purchase.step1', ['id' => $id]) }}', formData);
                         break;
 
@@ -101,10 +101,8 @@
                             return;
                         }
                         formData.append('input_appointlet', appointletFile.files[0]);
-                        console.log(appointletFile.files[0]);
+                        //console.log(appointletFile.files[0]);
                         submitStep('{{ route('purchase.step2', ['id' => $id]) }}', formData);
-
-                        console.log(JSON.stringify(JSON.parse(localStorage.getItem('purchase'))))
                         break;
 
                     case 3:
@@ -127,8 +125,7 @@
                                 ', ')); // Show a single alert
                             return;
                         } else {
-                            saveToLocalStorage(currentStep, Object.fromEntries(forms));
-                            window.location.href = `/purchase?step=${currentStep + 1}`;
+                            submitStep('{{ route('purchase.step3', ['id' => $id]) }}', formData);
                         }
                         break;
 
@@ -139,7 +136,7 @@
                             return;
                         }
                         formData.append('payment_proof', paymentFile.files[0]);
-                        console.log(paymentFile.files[0]);
+                        //console.log(paymentFile.files[0]);
                         submitStep('{{ route('purchase.step4', ['id' => $id]) }}', formData);
                         break;
                 }
