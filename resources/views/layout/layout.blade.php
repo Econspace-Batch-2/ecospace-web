@@ -37,6 +37,8 @@
     {{-- meta description --}}
     <meta name="description"
         content="Ultimate hub for university students to support them Academically with Expert Tutors, while providing with Insights for their Future Career Plan through Insights Exploration with Mentors">
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 
 <body class="overflow-x-hidden">
