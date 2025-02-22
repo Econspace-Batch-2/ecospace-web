@@ -1,83 +1,87 @@
 @extends('layout.layout')
 
 @section('content')
-<img src="{{ asset('assets/background/bgtutors.svg') }}" alt="Banner tutor" class="w-full hidden sm:block">
-<img src="{{ asset('assets/background/bgtutors_mobile.svg') }}" alt="Banner tutor" class="w-full sm:hidden" >
+    <img src="{{ asset('assets/background/bgtutors.svg') }}" alt="Banner tutor" class="w-full hidden sm:block">
+    <img src="{{ asset('assets/background/bgtutors_mobile.svg') }}" alt="Banner tutor" class="w-full sm:hidden">
 
-@include('modules.tutor.components.filter_course')
+    @include('modules.tutor.components.filter_course')
 
-<!-- LIST REKOMENDASI -->
-<div class="mt-5 px-10 text-black">
-    <p class="text-3xl font-bold">Rekomendasi Buat Kamu</p>
-    <p class="text-base mb-5">Berbagai pilihan kelas untuk kebutuhan kamu</p>
+    <!-- LIST REKOMENDASI -->
+    @if (request('tutorSearchBar') || request('univ') || request('major') || request('semester'))
+    @else
+        <div class="mt-5 px-10 text-black">
+            <p class="text-3xl font-bold">Rekomendasi Buat Kamu</p>
+            <p class="text-base mb-5">Berbagai pilihan kelas untuk kebutuhan kamu</p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        @include('modules.tutor.components.subjects', ['subjects' => $recommendedSubjects])
-    </div>
-</div>
-
-<!-- LIST TUTORS -->
-<div class="list-tutor-up w-full px-10 text-black">
-    <div class="flex flex-col w-full justify-center items-center mt-8">
-        <div class="w-full my-4">
-            <h3 class="font-bold text-3xl text-left whasil-pencarian w-full">
-                {{-- If there is queries, then show text --}}
-                @if (request('tutorSearchBar') || request('univ') || request('major') || request('semester'))
-                    Hasil Pencarian
-                @else
-                    Semua Kelas
-                @endif
-            </h3>
-        </div>
-        <div class="w-full grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
-            id="subject-container">
-            @include('modules.tutor.components.subjects', ['subjects' => $subjects])
-        </div>
-
-        {{-- If Take === Subject Count then dont show --}}
-        @if ($subjects->count() < $subjects->total())
-            <div class="lazy-loading w-full flex justify-center mt-3">
-                <button id="load-more" class="btn btn-danger hovered rounded-4">Load more</button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                @include('modules.tutor.components.subjects', ['subjects' => $recommendedSubjects])
             </div>
-        @endif
+        </div>
+    @endif
+
+
+    <!-- LIST TUTORS -->
+    <div class="list-tutor-up w-full px-10 text-black">
+        <div class="flex flex-col w-full justify-center items-center mt-8">
+            <div class="w-full my-4">
+                <h3 class="font-bold text-3xl text-left whasil-pencarian w-full">
+                    {{-- If there is queries, then show text --}}
+                    @if (request('tutorSearchBar') || request('univ') || request('major') || request('semester'))
+                        Hasil Pencarian
+                    @else
+                        Semua Kelas
+                    @endif
+                </h3>
+            </div>
+            <div class="w-full grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+                id="subject-container">
+                @include('modules.tutor.components.subjects', ['subjects' => $subjects])
+            </div>
+
+            {{-- If Take === Subject Count then dont show --}}
+            @if ($subjects->count() < $subjects->total())
+                <div class="lazy-loading w-full flex justify-center mt-3">
+                    <button id="load-more" class="btn btn-danger hovered rounded-4">Load more</button>
+                </div>
+            @endif
+        </div>
     </div>
-</div>
 
-<script>
-    // if load more clicked, then concat ?take=10
-    document.getElementById('load-more').addEventListener('click', function () {
-        let url = new URL(window.location.href);
-        let take = url.searchParams.get('take') || 10;
-        url.searchParams.set('take', parseInt(take) + 10);
+    <script>
+        // if load more clicked, then concat ?take=10
+        document.getElementById('load-more').addEventListener('click', function() {
+            let url = new URL(window.location.href);
+            let take = url.searchParams.get('take') || 10;
+            url.searchParams.set('take', parseInt(take) + 10);
 
-        window.location.href = url;
-    });
-</script>
+            window.location.href = url;
+        });
+    </script>
 
-@include('modules.tutor.sections.tutor_session')
+    @include('modules.tutor.sections.tutor_session')
 @endsection
 
 <!-- FOOTER -->
 @section('desktopBtn')
-Join Mentoring
+    Join Mentoring
 @endsection
 @section('desktopTitle')
-Ingin mendapatkan ilmu di luar Akademik?
+    Ingin mendapatkan ilmu di luar Akademik?
 @endsection
 @section('desktopContent')
-Yuk mulai mentoring dengan expert di bidang lomba, karir, dll
+    Yuk mulai mentoring dengan expert di bidang lomba, karir, dll
 @endsection
 @section('mobileTitle1')
-Ingin mendapatkan ilmu di
+    Ingin mendapatkan ilmu di
 @endsection
 @section('mobileTitle2')
-luar Akademik?
+    luar Akademik?
 @endsection
 @section('mobileContent')
-Yuk mulai mentoring dengan expert di bidang lomba, karir, dll
+    Yuk mulai mentoring dengan expert di bidang lomba, karir, dll
 @endsection
 @section('mobileBtn')
-Join Mentoring
+    Join Mentoring
 @endsection
 
 <!-- jQuery for pagination -->
@@ -102,13 +106,14 @@ Join Mentoring
 
     // Function to handle live search and filter
     function handleSearch() {
-        var searchTerm = $('#tutorSearchBar').val().trim(); // Get the search term and remove leading/trailing whitespace
+        var searchTerm = $('#tutorSearchBar').val()
+    .trim(); // Get the search term and remove leading/trailing whitespace
 
         $.ajax({
             url: $('#searchForm').attr('action'),
             type: $('#searchForm').attr('method'),
             data: $('#searchForm').serialize(),
-            success: function (response) {
+            success: function(response) {
                 if (response.trim() === '') {
                     $('#hasil-pencarian').hide();
                     showNoDataMessage(); // Display "No data" message if response is empty
@@ -123,12 +128,12 @@ Join Mentoring
     }
 
     // Event listener for live search
-    $(document).ready(function () {
-        $('#tutorSearchBar').on('input', function () {
+    $(document).ready(function() {
+        $('#tutorSearchBar').on('input', function() {
             handleSearch();
         });
 
-        $('#tutorSearchBar').on('keydown', function (event) {
+        $('#tutorSearchBar').on('keydown', function(event) {
             if (event.which === 13) {
                 event.preventDefault();
             }
@@ -136,7 +141,7 @@ Join Mentoring
     });
 
     // Event listener for lazy loading
-    $('.lazy-loading').click(function () {
+    $('.lazy-loading').click(function() {
         if (currentPage >= lastPage) {
             $(this).hide(); // Hide the button if there are no more pages
             return;
@@ -152,20 +157,21 @@ Join Mentoring
                 page: nextPage,
                 tutorSearchBar: searchTerm
             }, // Include the search term in the pagination request
-            success: function (data) {
+            success: function(data) {
                 if (data.trim() === '') {
                     showNoDataMessage(); // Display "No data" message if response is empty
                 } else {
                     $('#subject-container').append(data); // Append new subjects
                     currentPage++; // Update current page after successful load
-                    showOrHideLoadButton(); // Show or hide load button based on current page and last page
+                    showOrHideLoadButton
+                (); // Show or hide load button based on current page and last page
                 }
             }
         });
     });
 
     // Initial setup
-    $(document).ready(function () {
+    $(document).ready(function() {
         showOrHideLoadButton(); // Show or hide load button based on current page and last page
     });
 </script>
