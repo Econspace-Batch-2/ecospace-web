@@ -36,10 +36,8 @@ class MentorResource extends Resource
                 TextInput::make('company')
                     ->required()
                     ->label('Company'),
-                FileUpload::make('profile')
-                    ->label('Profile')
-                    ->directory('mentor_profiles')
-                    ->image(),
+                TextInput::make('profile')
+                    ->label('Profile'),
                 TextInput::make('linkedin')
                     ->label('LinkedIn'),
                 Textarea::make('achievements')
