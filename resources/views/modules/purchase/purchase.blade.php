@@ -72,10 +72,11 @@
 
             nextButton.addEventListener('click', function(e) {
                 e.preventDefault();
-
+                //nextButton.disabled = true;
                 // If on final step
                 if (currentStep === 5) {
                     submitFinalStep();
+                    //nextButton.disabled = false;
                     return;
                 }
 
@@ -92,6 +93,7 @@
                         formData.append('university', selectedUniversity.value);
                         //console.log(selectedUniversity.value);
                         submitStep('{{ route('purchase.step1', ['id' => $id]) }}', formData);
+                        nextButton.disabled = false;
                         break;
 
                     case 2:
@@ -103,6 +105,7 @@
                         formData.append('input_appointlet', appointletFile.files[0]);
                         //console.log(appointletFile.files[0]);
                         submitStep('{{ route('purchase.step2', ['id' => $id]) }}', formData);
+                        //nextButton.disabled = false;
                         break;
 
                     case 3:
@@ -125,7 +128,8 @@
                                 ', ')); // Show a single alert
                             return;
                         } else {
-                            submitStep('{{ route('purchase.step3', ['id' => $id]) }}', formData);
+                            window.location.href = `/tutors/{{$id}}/purchase?step=${currentStep + 1}`;
+                            saveToLocalStorage(currentStep, Object.fromEntries(forms));
                         }
                         break;
 
@@ -138,6 +142,7 @@
                         formData.append('payment_proof', paymentFile.files[0]);
                         //console.log(paymentFile.files[0]);
                         submitStep('{{ route('purchase.step4', ['id' => $id]) }}', formData);
+                        //nextButton.disabled = false;
                         break;
                 }
             });
