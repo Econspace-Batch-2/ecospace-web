@@ -13,6 +13,8 @@ class MentorSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::statement('ALTER SEQUENCE mentors_id_seq RESTART WITH 1;');
+
         //
         $mentors = [
             [
@@ -130,7 +132,9 @@ class MentorSeeder extends Seeder
                 'company' => "UNAIR",
                 'profile' => "https://econspace.s3.ap-southeast-2.amazonaws.com/mentors/unair/Adrilla_Ginting-removebg-preview.png",
                 'achievements' => json_encode([
-                    "No Achievements"
+                    "Ketua departemen keilmuan hima",
+                    "Wakoc pelatihan stata",
+                    "Penulis buku Hustle Culture Gen z"
                 ]),
                 'linkedin' => "https://www.linkedin.com/in/adrilla-femi-velina-br-ginting-355b2a334/",
                 'category' => json_encode(["Introduction to Economics 1"]),
@@ -164,7 +168,7 @@ class MentorSeeder extends Seeder
                 'company' => "UNAIR",
                 'profile' => "https://econspace.s3.ap-southeast-2.amazonaws.com/mentors/unair/foto_-_niken-removebg-preview.png",
                 'achievements' => json_encode([
-                    "No Achievements"
+                    "Finalis KIM UNAIR 2024"
                 ]),
                 'linkedin' => "https://www.linkedin.com/in/niken-ayu-silfa-alya-putri-aa2547351?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
                 'category' => json_encode(["Cost Accounting"]),

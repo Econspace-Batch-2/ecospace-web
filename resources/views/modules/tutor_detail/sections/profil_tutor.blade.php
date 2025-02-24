@@ -82,14 +82,10 @@
                 </div>
                 <div style="background-color: {{ $theme['accent'] }}; color: {{ $theme['text'] }};"
                     class="h-full w-full p-5 pt-20 flex flex-col rounded-tl-[80px]">
-                    @php
-                        // Split by comma
-                        $achievements = explode(',', $mentor->achievements);
-                    @endphp
-                    @if ($achievements[0] && $achievements[0] != 'No Achievements')
+                    @if ($mentor->achievements[0] && $mentor->achievements[0] != 'No Achievements')
                         <h3 class="font-medium w-full text-center">Pengalaman dan Prestasi</h3>
                         <ul class="list-disc pl-10 my-4 font-light overflow-y-auto h-full max-h-32">
-                            @foreach ($achievements as $prestasi)
+                            @foreach ($mentor->achievements as $prestasi)
                                 <li class="text-sm">{{ $prestasi }}</li>
                             @endforeach
                         </ul>
