@@ -56,6 +56,7 @@ class MentorResource extends Resource
                 TextColumn::make('position')->sortable()->searchable(),
                 TextColumn::make('company')->sortable()->searchable(),
                 TextColumn::make('linkedin')->sortable(),
+                TextColumn::make('achievements')->sortable(),
                 TextColumn::make('category')->sortable(),
                 TextColumn::make('created_at')->sortable(),
                 TextColumn::make('updated_at')->sortable(),
