@@ -128,8 +128,8 @@
                                 ', ')); // Show a single alert
                             return;
                         } else {
-                            submitStep('{{ route('purchase.step3', ['id' => $id]) }}', formData);
-                            //nextButton.disabled = false;
+                            window.location.href = `/tutors/{{$id}}/purchase?step=${currentStep + 1}`;
+                            saveToLocalStorage(currentStep, Object.fromEntries(forms));
                         }
                         break;
 
