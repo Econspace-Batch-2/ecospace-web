@@ -72,11 +72,11 @@
 
             nextButton.addEventListener('click', function(e) {
                 e.preventDefault();
-                nextButton.disabled = true;
+                //nextButton.disabled = true;
                 // If on final step
                 if (currentStep === 5) {
                     submitFinalStep();
-                    nextButton.disabled = false;
+                    //nextButton.disabled = false;
                     return;
                 }
 
@@ -104,8 +104,8 @@
                         }
                         formData.append('input_appointlet', appointletFile.files[0]);
                         //console.log(appointletFile.files[0]);
-                        await submitStep('{{ route('purchase.step2', ['id' => $id]) }}', formData);
-                        nextButton.disabled = false;
+                        submitStep('{{ route('purchase.step2', ['id' => $id]) }}', formData);
+                        //nextButton.disabled = false;
                         break;
 
                     case 3:
@@ -129,7 +129,7 @@
                             return;
                         } else {
                             submitStep('{{ route('purchase.step3', ['id' => $id]) }}', formData);
-                            nextButton.disabled = false;
+                            //nextButton.disabled = false;
                         }
                         break;
 
@@ -142,7 +142,7 @@
                         formData.append('payment_proof', paymentFile.files[0]);
                         //console.log(paymentFile.files[0]);
                         submitStep('{{ route('purchase.step4', ['id' => $id]) }}', formData);
-                        nextButton.disabled = false;
+                        //nextButton.disabled = false;
                         break;
                 }
             });
