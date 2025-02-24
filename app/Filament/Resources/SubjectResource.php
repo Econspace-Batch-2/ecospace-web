@@ -24,35 +24,14 @@ class SubjectResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('image'),
                 Forms\Components\TextInput::make('tutor'),
                 Forms\Components\TextInput::make('title')->required(),
-                Forms\Components\Select::make('majors')
-                    ->multiple()
-                    ->options([
-                        'Accounting' => 'Accounting',
-                        'Management' => 'Management',
-                        'Economic' => 'Economic',
-                        'Taxation' => 'Taxation',
-                    ])
-                    ->required()
-                    ->saveRelationshipsUsing(function ($component, $state) {
-                        return json_encode($state);
-                    }),
+                Forms\Components\TextInput::make('majors')->required(),
                 Forms\Components\TextInput::make('category')->required(),
                 Forms\Components\TextInput::make('semester')->required(),
                 Forms\Components\Textarea::make('description')->required(),
                 Forms\Components\Textarea::make('references')->required(),
-                Forms\Components\Select::make('univ')
-                    ->multiple()
-                    ->options([
-                        'UGM' => 'UGM',
-                        'UNAIR' => 'UNAIR',
-                    ])
-                    ->required()
-                    ->saveRelationshipsUsing(function ($component, $state) {
-                        return json_encode($state);
-                    }),
+                Forms\Components\Textarea::make('univ')->required(),
                 Forms\Components\Select::make('status')->options([
                     'active' => 'Active',
                     'inactive' => 'Inactive',
@@ -72,7 +51,6 @@ class SubjectResource extends Resource
                 TextColumn::make('majors'),
                 TextColumn::make('category'),
                 TextColumn::make('semester'),
-                TextColumn::make('description'),
                 TextColumn::make('references'),
                 TextColumn::make('univ'),
                 TextColumn::make('status'),

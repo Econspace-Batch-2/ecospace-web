@@ -24,21 +24,11 @@ class TopicResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('topic_number')
-                    ->label('Topic Number')
-                    ->required(),
                 Forms\Components\TextInput::make('title')
                     ->label('Title')
                     ->required(),
-                Forms\Components\Textarea::make('description')
-                    ->label('Description')
-                    ->required(),
-                Forms\Components\Textarea::make('materials')
-                    ->label('Materials')
-                    ->required(),
-                Forms\Components\Select::make('subject_id')
-                    ->label('Subject')
-                    ->relationship('subjects', 'title')
+                Forms\Components\Textarea::make('subject_id')
+                    ->label('Subjects ID')
                     ->required(),
             ]);
     }
@@ -49,8 +39,6 @@ class TopicResource extends Resource
             ->columns([
                 TextColumn::make('id')->label('ID'),
                 TextColumn::make('title')->label('Title')->searchable()->sortable(),
-                TextColumn::make('description')->label('Description'),
-                TextColumn::make('materials')->label('Materials'),
                 TextColumn::make('subject.title')->label('Subject'),
                 TextColumn::make('created_at')->label('Created At')->dateTime(),
                 TextColumn::make('updated_at')->label('Updated At')->dateTime(),
