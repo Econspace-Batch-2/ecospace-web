@@ -111,7 +111,7 @@
         </div>
         <button class="btn w-full sm:w-fit gap-2">
             <img loading="lazy" class="icon-wa h-full max-h-10" src="{{ asset('assets/socmed/wa.svg') }}" alt="whatsapp icon">
-            <a target="_blank" href="https://chat.whatsapp.com/IDInUpM1avX7ogb091PLnW"
+            <a target="_blank" href="https://chat.whatsapp.com/HUhx5rCaWtF7pCE96b3Dbd"
                 aria-label="economic space whatsapp number" class="text-black">
                 Hubungi Kami
             </a>
