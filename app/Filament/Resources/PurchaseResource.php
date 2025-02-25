@@ -9,10 +9,12 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Nette\Utils\ImageColor;
 
 class PurchaseResource extends Resource
 {
@@ -24,7 +26,15 @@ class PurchaseResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('university')->label('University')->required(),
+                Forms\Components\TextInput::make('appointlet_proof')->label('Appointlet Proof')->required(),
+                Forms\Components\TextInput::make('name')->label('Name')->required(),
+                Forms\Components\TextInput::make('major')->label('Major')->required(),
+                Forms\Components\TextInput::make('whatsapp_link')->label('Whatsapp Link')->required(),
+                Forms\Components\TextInput::make('email')->label('Email')->required(),
+                Forms\Components\TextInput::make('lecturer_name')->label('Lecturer Name')->required(),
+                Forms\Components\TextInput::make('payment_proof')->label('Payment Proof')->required(),
+                Forms\Components\TextInput::make('user_id')->label('User Id')->required(),
             ]);
     }
 
@@ -34,13 +44,19 @@ class PurchaseResource extends Resource
             ->columns([
                 TextColumn::make('id'),
                 TextColumn::make('university'),
-                TextColumn::make('appointlet_proof'),
+                ImageColumn::make('appointlet_proof')
+                    ->width(270)
+                    ->height(480)
+                    ->openUrlInNewTab(),
                 TextColumn::make('name'),
                 TextColumn::make('major'),
                 TextColumn::make('whatsapp_link'),
                 TextColumn::make('email'),
                 TextColumn::make('lecturer_name'),
-                TextColumn::make('payment_proof'),
+                ImageColumn::make('payment_proof')
+                    ->width(270)
+                    ->height(480)
+                    ->openUrlInNewTab(),
                 TextColumn::make('user_id'),
                 TextColumn::make('created_at')->dateTime(),
                 TextColumn::make('updated_at')->dateTime(),
