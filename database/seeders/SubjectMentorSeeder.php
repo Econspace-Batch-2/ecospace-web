@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Mentor;
 use App\Models\Subject;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SubjectMentorSeeder extends Seeder
 {
@@ -14,50 +14,24 @@ class SubjectMentorSeeder extends Seeder
      */
     public function run(): void
     {
-        $mentor = Mentor::where('id', '1')->first();
+        $mentorSubjects = [
+            1 => [4, 4],
+            2 => [2, 2, 3],
+            3 => [5, 3, 7, 6, 1, 10, 8, 6],
+            6 => [1, 9, 8, 10],
+            8 => [8],
+            9 => [8],
+            10 => [9, 8],
+            11 => [8],
+        ];
 
-        $mentor->subjects()->attach(Subject::where('id', '4')->first());
-
-        $mentor = Mentor::where('id', '2')->first();
-
-        $mentor->subjects()->attach(Subject::where('id', '2')->first());
-
-        $mentor = Mentor::where('id', '3')->first();
-
-        $mentor->subjects()->attach(Subject::where('id', '3')->first());
-
-        $mentor = Mentor::where('id', '4')->first();
-
-        $mentor->subjects()->attach(Subject::where('id', '5')->first());
-
-        $mentor = Mentor::where('id', '5')->first();
-
-        $mentor->subjects()->attach(Subject::where('id', '7')->first());
-        $mentor->subjects()->attach(Subject::where('id', '6')->first());
-
-        $mentor = Mentor::where('id', '6')->first();
-
-        $mentor->subjects()->attach(Subject::where('id', '1')->first());
-
-        $mentor = Mentor::where('id', '7')->first();
-
-        $mentor->subjects()->attach(Subject::where('id', '10')->first());
-
-        $mentor = Mentor::where('id', '8')->first();
-
-        $mentor->subjects()->attach(Subject::where('id', '8')->first());
-
-        $mentor = Mentor::where('id', '9')->first();
-
-        $mentor->subjects()->attach(Subject::where('id', '8')->first());
-
-        $mentor = Mentor::where('id', '10')->first();
-
-        $mentor->subjects()->attach(Subject::where('id', '9')->first());
-        $mentor->subjects()->attach(Subject::where('id', '8')->first());
-
-        $mentor = Mentor::where('id', '11')->first();
-
-        $mentor->subjects()->attach(Subject::where('id', '8')->first());
+        foreach ($mentorSubjects as $mentorId => $subjectIds) {
+            foreach ($subjectIds as $subjectId) {
+                DB::table('mentor_subject')->insert([
+                    'mentor_id' => $mentorId,
+                    'subject_id' => $subjectId,
+                ]);
+            }
+        }
     }
 }

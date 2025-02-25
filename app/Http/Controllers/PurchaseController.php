@@ -19,6 +19,11 @@ class PurchaseController extends Controller
 
     public function index(Request $request, $id)
     {
+        // Check if the user is authenticated
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+        
         $step = $request->query('step', 1);
         $maxSteps = 5;
 
