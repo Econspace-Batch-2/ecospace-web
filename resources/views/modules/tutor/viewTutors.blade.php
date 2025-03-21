@@ -14,6 +14,34 @@
             <p class="text-base mb-5">Berbagai pilihan kelas untuk kebutuhan kamu</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Paket UTS Card - Added to recommendations section first -->
+                <div class="w-full relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out">
+                    <a href="https://bit.ly/PaketsampeUTS" class="relative">
+                        <div class="relative w-full h-full overflow-hidden shadow-2xl rounded-xl">
+                            <img src="{{ asset('assets/tutorImage/UNAIR_cardbg.png') }}" alt="Card Background"
+                                class="object-cover w-full h-full">
+                        </div>
+                        <h5
+                            class="text-base xl:text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">
+                            Paket Sampai UTS
+                        </h5>
+                    </a>
+                    <div class="p-4">
+                        <p>
+                            Paket Sampai UTS adalah program tutoring intensif dengan <em>jadwal tetap setiap minggu</em>
+                            hingga tiba
+                            waktu ujian tengah semester.
+                            Sobat Economates ngga perlu bingung lagi buat memahami materi perkuliahan dan bisa mempersiapkan
+                            diri
+                            menghadapi UTS dengan lebih optimal bersama Paket Sampai UTS.
+                            Economates akan mendapatkan sesi tutoring selama 90 menit dengan tutor berpengalaman dan ahli di
+                            bidangnya.
+                            Jangan khawatir dengan latihan dan bank soalnya, karena paket ini akan menghadirkan berbagai
+                            latihan soal
+                            terbaik untuk persiapan UTS.
+                        </p>
+                    </div>
+                </div>
                 @include('modules.tutor.components.subjects', ['subjects' => $recommendedSubjects])
             </div>
         </div>
@@ -24,7 +52,7 @@
     <div class="list-tutor-up w-full px-10 text-black">
         <div class="flex flex-col w-full justify-center items-center mt-8">
             <div class="w-full my-4">
-                <h3 class="font-bold text-3xl text-left whasil-pencarian w-full">
+                <h3 class="font-bold text-3xl text-left whasil-pencarian w-full" onclick="console.log('semangat uts!')">
                     {{-- If there is queries, then show text --}}
                     @if (request('tutorSearchBar') || request('univ') || request('major') || request('semester'))
                         Hasil Pencarian
@@ -35,6 +63,34 @@
             </div>
             <div class="w-full grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
                 id="subject-container">
+                <!-- Paket UTS Card moved to the top of all classes section -->
+                <div class="w-full relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out">
+                    <a href="https://bit.ly/PaketsampeUTS" class="relative">
+                        <div class="relative w-full h-full overflow-hidden shadow-2xl rounded-xl">
+                            <img src="{{ asset('assets/tutorImage/UNAIR_cardbg.png') }}" alt="Card Background"
+                                class="object-cover w-full h-full">
+                        </div>
+                        <h5
+                            class="text-base xl:text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">
+                            Paket Sampai UTS
+                        </h5>
+                    </a>
+                    <div class="p-4">
+                        <p>
+                            Paket Sampai UTS adalah program tutoring intensif dengan <em>jadwal tetap setiap minggu</em>
+                            hingga tiba
+                            waktu ujian tengah semester.
+                            Sobat Economates ngga perlu bingung lagi buat memahami materi perkuliahan dan bisa mempersiapkan
+                            diri
+                            menghadapi UTS dengan lebih optimal bersama Paket Sampai UTS.
+                            Economates akan mendapatkan sesi tutoring selama 90 menit dengan tutor berpengalaman dan ahli di
+                            bidangnya.
+                            Jangan khawatir dengan latihan dan bank soalnya, karena paket ini akan menghadirkan berbagai
+                            latihan soal
+                            terbaik untuk persiapan UTS.
+                        </p>
+                    </div>
+                </div>
                 @include('modules.tutor.components.subjects', ['subjects' => $subjects])
             </div>
 
@@ -49,7 +105,7 @@
 
     <script>
         // if load more clicked, then concat ?take=10
-        document.getElementById('load-more').addEventListener('click', function() {
+        document.getElementById('load-more').addEventListener('click', function () {
             let url = new URL(window.location.href);
             let take = url.searchParams.get('take') || 10;
             url.searchParams.set('take', parseInt(take) + 10);
@@ -100,26 +156,42 @@
 
     // Function to display "No data" message
     function showNoDataMessage() {
-        $('#subject-container').html('<p class="text-center">No data to display</p>');
+        $('#subject-container').html('<div class="w-full relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out">' +
+            '<a href="https://bit.ly/PaketsampeUTS" class="relative">' +
+            '<div class="relative w-full h-full overflow-hidden shadow-2xl rounded-xl">' +
+            '<img src="{{ asset("assets/tutorImage/UNAIR_cardbg.png") }}" alt="Card Background" class="object-cover w-full h-full">' +
+            '</div>' +
+            '<h5 class="text-base xl:text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">Paket Sampai UTS</h5>' +
+            '</a>' +
+            '<div class="p-4">' +
+            '<p>Paket Sampai UTS adalah program tutoring intensif dengan <em>jadwal tetap setiap minggu</em> hingga tiba waktu ujian tengah semester. ' +
+            'Sobat Economates ngga perlu bingung lagi buat memahami materi perkuliahan dan bisa mempersiapkan diri menghadapi UTS dengan lebih optimal bersama Paket Sampai UTS. ' +
+            'Economates akan mendapatkan sesi tutoring selama 90 menit dengan tutor berpengalaman dan ahli di bidangnya. ' +
+            'Jangan khawatir dengan latihan dan bank soalnya, karena paket ini akan menghadirkan berbagai latihan soal terbaik untuk persiapan UTS.</p>' +
+            '</div>' +
+            '</div>' +
+            '<p class="text-center">No other data to display</p>');
         $('.lazy-loading').hide(); // Hide the load button
     }
 
     // Function to handle live search and filter
     function handleSearch() {
         var searchTerm = $('#tutorSearchBar').val()
-    .trim(); // Get the search term and remove leading/trailing whitespace
+            .trim(); // Get the search term and remove leading/trailing whitespace
 
         $.ajax({
             url: $('#searchForm').attr('action'),
             type: $('#searchForm').attr('method'),
             data: $('#searchForm').serialize(),
-            success: function(response) {
+            success: function (response) {
                 if (response.trim() === '') {
                     $('#hasil-pencarian').hide();
                     showNoDataMessage(); // Display "No data" message if response is empty
                 } else {
                     $('#hasil-pencarian').show();
-                    $('#subject-container').html(response); // Update subject container with response
+                    // First clear the container but keep the Paket UTS card
+                    var utsCard = $('#subject-container > div:first-child').clone();
+                    $('#subject-container').html('').append(utsCard).append(response);
                     currentPage = 1; // Reset current page to 1 after search/filter
                     showOrHideLoadButton(); // Show or hide load button based on current page and last page
                 }
@@ -128,12 +200,12 @@
     }
 
     // Event listener for live search
-    $(document).ready(function() {
-        $('#tutorSearchBar').on('input', function() {
+    $(document).ready(function () {
+        $('#tutorSearchBar').on('input', function () {
             handleSearch();
         });
 
-        $('#tutorSearchBar').on('keydown', function(event) {
+        $('#tutorSearchBar').on('keydown', function (event) {
             if (event.which === 13) {
                 event.preventDefault();
             }
@@ -141,7 +213,7 @@
     });
 
     // Event listener for lazy loading
-    $('.lazy-loading').click(function() {
+    $('.lazy-loading').click(function () {
         if (currentPage >= lastPage) {
             $(this).hide(); // Hide the button if there are no more pages
             return;
@@ -157,21 +229,20 @@
                 page: nextPage,
                 tutorSearchBar: searchTerm
             }, // Include the search term in the pagination request
-            success: function(data) {
+            success: function (data) {
                 if (data.trim() === '') {
                     showNoDataMessage(); // Display "No data" message if response is empty
                 } else {
-                    $('#subject-container').append(data); // Append new subjects
+                    $('#subject-container').append(data); // Changed to append rather than prepend to maintain order
                     currentPage++; // Update current page after successful load
-                    showOrHideLoadButton
-                (); // Show or hide load button based on current page and last page
+                    showOrHideLoadButton(); // Show or hide load button based on current page and last page
                 }
             }
         });
     });
 
     // Initial setup
-    $(document).ready(function() {
+    $(document).ready(function () {
         showOrHideLoadButton(); // Show or hide load button based on current page and last page
     });
 </script>
