@@ -25,7 +25,8 @@
                                 <p class="text-sm line-clamp-5">
                                     Paket Sampai UTS adalah program tutoring intensif dengan <em>jadwal tetap setiap minggu</em>
                                     hingga tiba waktu ujian tengah semester.
-                                    Sobat Economates ngga perlu bingung lagi buat memahami materi perkuliahan dan bisa mempersiapkan
+                                    Sobat Economates ngga perlu bingung lagi buat memahami materi perkuliahan dan bisa
+                                    mempersiapkan
                                     diri menghadapi UTS dengan lebih optimal bersama Paket Sampai UTS.
                                 </p>
                             </div>
@@ -56,23 +57,14 @@
             </div>
             <div class="w-full grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
                 id="subject-container">
-                <!-- Paket UTS Card with fixed height and contained description -->
-                <div class="w-full relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out shadow-2xl h-96">
-                    <a href="https://bit.ly/PaketsampeUTS" class="relative block h-full">
-                        <div class="relative w-full h-full overflow-hidden rounded-xl">
-                            <img src="{{ asset('assets/tutorImage/UNAIR_cardbg.png') }}" alt="Card Background"
+                <div class="w-full relative rounded-xl hover:scale-[0.98] duration-700 ease-in-out">
+                    <a href="https://bit.ly/PaketsampeUTS" class="relative">
+                        <div class="relative w-full h-full overflow-hidden shadow-2xl rounded-xl">
+                            <img src="{{ asset('assets/tutorImage/UNAIR_cardbg.png') }}" alt="UNAIR Image"
                                 class="object-cover w-full h-full">
-                            <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4 h-48 overflow-hidden">
-                                <h5 class="text-lg font-bold mb-2">Paket Sampai UTS</h5>
-                                <p class="text-sm line-clamp-5">
-                                    Paket Sampai UTS adalah program tutoring intensif dengan <em>jadwal tetap setiap minggu</em>
-                                    hingga tiba waktu ujian tengah semester.
-                                    Sobat Economates ngga perlu bingung lagi buat memahami materi perkuliahan dan bisa mempersiapkan
-                                    diri menghadapi UTS dengan lebih optimal bersama Paket Sampai UTS.
-                                </p>
-                            </div>
                         </div>
-                        <h5 class="text-base xl:text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">
+                        <h5
+                            class="text-base xl:text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">
                             Paket Sampai UTS
                         </h5>
                     </a>

@@ -26,7 +26,6 @@
                     @else
                         <img src="{{ asset('assets/univ/unair.svg') }}" alt="UNAIR Image" class="w-20 xl:w-32 aspect-square absolute z-20 bottom-4 right-4">
                     @endif
-                
                 <h5 class="text-base xl:text-lg text-center p-2 rounded-xl font-bold bg-white absolute top-8 left-4">
                     {{ $s->title }}
                 </h5>
